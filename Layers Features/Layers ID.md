@@ -8,10 +8,7 @@ The wallet addresses are hard to remember and not user-friendly.
 
 Layers provides a solution for its ecosystem which is **Layers ID**. Layers ID is a decentralized identity solution that uses Soul-bound NFTs as the base infrastructure to create a user profile on Layers. It provides a unique handle to each user and all the data generated on the Layers are connected with the ID. It helps users maximize work opportunities and gives them control over their work data on Layers.
 
-<aside>
 💡 Every handle on Layers ID is unique.
-
-</aside>
 
 ## Benefits Of Layers ID
 
