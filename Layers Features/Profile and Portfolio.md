@@ -32,5 +32,3 @@ The Designers can Import the Figma designs through the Layers Figma Plugin and c
 
 💡 The Current Implementation of the portfolio uses the data from third-party platforms such as GitHub and Figma.
 
-
-This content is only pushed for the testing.[Test 1]
