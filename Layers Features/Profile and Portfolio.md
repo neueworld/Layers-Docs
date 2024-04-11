@@ -30,7 +30,7 @@ The Developers can connect their GitHub accounts and import the data. Layers str
 
 The Designers can Import the Figma designs through the Layers Figma Plugin and create their portfolio.
 
-<aside>
 💡 The Current Implementation of the portfolio uses the data from third-party platforms such as GitHub and Figma.
 
-</aside>
+
+This content is only pushed for the testing.

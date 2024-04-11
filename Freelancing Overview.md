@@ -7,3 +7,5 @@ Freelancers offer various skills and services across various industries, includi
 A freelancing platform is a digital platform that acts as the mediator between talent and the employer. It provides various tools and features to facilitate finding the talent/client, hiring, and payment. They are also helpful for building a digital work profile on the internet.
 
 But it all comes with costs, such as platforms taking large cuts in fees and governing how the business should be done. Large corporations run these platforms, and the users have no involvement in the decision-making or no right to say anything about these rules, they must follow all the rules or leave the platform, but what about the time and effort they have spent there? It's **not just data; it's their experience**, which they can't have even if they have worked so hard to build it there.
+
+This content is only pushed for the testing. [Test 2]
