@@ -151,7 +151,7 @@ const updateWebflowWithFileContent = async (file, collectionId, item) => {
 
     const decodedContent = Buffer.from(fileContentResponse.data.content, 'base64').toString('utf-8');
     const htmlContent = markdownIt.render(decodedContent);
-    console.log(htmlContent)
+   // console.log(htmlContent)
     // Update the Webflow item
     // Note: You'll need to provide the correct collectionId, itemId, itemName, and itemSlug
     
