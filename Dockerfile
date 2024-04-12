@@ -3,7 +3,7 @@ FROM ubuntu:latest
 
 # Install Node.js and npm
 RUN apt-get update && apt-get install -y curl
-RUN curl -fsSL https://deb.nodesource.com/setup_16.x | bash -
+RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash -
 RUN apt-get install -y nodejs
 
 # Confirm installation
@@ -19,4 +19,4 @@ RUN npm install
 COPY scripts/ .
 
 # Set the command to run your application
-CMD ["node", "your-script.js"]  # Replace 'updateData.js' with the actual name of your script
+CMD ["node", "updateData.mjs"]  # Replace 'updateData.mjs' with the actual name of your script

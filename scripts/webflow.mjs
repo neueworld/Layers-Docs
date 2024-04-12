@@ -53,7 +53,7 @@ export const getAllCollectionItems = async (siteId) => {
 export async function updateWebflowItem(collectionId, itemId, richTextContent,itemName,slug) {
   const options = {
     method: 'PATCH',
-    url: `https://api.webflow.com/v2/collections/${collectionId}/items/${itemId}`,
+    url: `https://api.webflow.com/v2/collections/${collectionId}/items/${itemId}/live`,
     headers: {
       accept: 'application/json',
       'content-type': 'application/json',
