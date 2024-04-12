@@ -243,7 +243,7 @@ const fetchAndPushContent = async (owner, repo, token, pageId, webflowToken) => 
       // Fetch the content of each file
       const fileContentResponse = await axios.get(item.url, {
         headers: {
-          Authorization: `token ${process.env.GITHUB_TOKEN}`,
+          Authorization: `token ${process.env.GT_TOKEN}`,
         },
       });   
 
@@ -270,7 +270,7 @@ const fetchAndPushContent = async (owner, repo, token, pageId, webflowToken) => 
 // Usage example
 const owner = 'neueworld';
 const repo = 'Layers-Docs';
-const githubToken = process.env.GITHUB_TOKEN
+const githubToken = process.env.GT_TOKEN
 const pageId = ""
 const webflowToken = process.env.WEBFLOW_API_TOKEN
 // fetchAndPushContent(owner, repo, githubToken, pageId, webflowToken)
