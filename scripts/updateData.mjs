@@ -35,6 +35,7 @@ const getChangedFiles = async (owner, repo, commitSha) => {
 
 // Function to update Webflow with the content of a changed file
 const updateWebflowWithFileContent = async (file, collectionId, item) => {
+  console.log("The Token is : ",process.env.GT_TOKEN)
   if (file.filename.endsWith('.md')) {
     const fileContentResponse = await axios.get(file.contents_url, {
       headers: {
