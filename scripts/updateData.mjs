@@ -6,6 +6,8 @@ import { getCollection, getCollectionItems } from './webflow.mjs';
 const markdownIt = new MarkdownIt();
 const siteId = "660e763c275e50fdf03ef908";
 
+const owner = 'neueworld';
+const repo = 'Layers-Docs';
 const getAllCollectionItems = async (siteId) => {
   try {
     const collectionsResponse = await getCollection(siteId);
@@ -26,62 +28,181 @@ const getAllCollectionItems = async (siteId) => {
   }
 };
 
+// const getLatestChangesAndUpdateWebflow = async (owner, repo,siteId) => {
+//   try {
+//     // Get the latest commit
+//     const commitResponse = await axios.get(`https://api.github.com/repos/${owner}/${repo}/commits`, {
+//       headers: {
+//         'Accept': 'application/vnd.github.v3+json'
+//       }
+//     });
+//     const latestCommitSha = commitResponse.data[0].sha;
+
+//     // Get the list of files changed in the latest commit
+//     const commitDetailsResponse = await axios.get(`https://api.github.com/repos/${owner}/${repo}/commits/${latestCommitSha}`, {
+//       headers: {
+//         'Accept': 'application/vnd.github.v3+json'
+//       }
+//     });
+//     const changedFiles = commitDetailsResponse.data.files;
+
+//     console.log("The changed files are : ",changedFiles)
+//     // Fetch the content of each changed file and update Webflow CMS
+//     for (const file of changedFiles) {
+//       if (file.filename.endsWith('.md')) {
+//         const fileName = file.filename.split('/').pop().replace('.md', '');
+//         console.log('File Name:', fileName);
+
+//         const fileContentResponse = await axios.get(file.contents_url, {
+//           headers: {
+//             Authorization: `token ${process.env.GITHUB_TOKEN}`
+//           }
+//         });
+
+//         const decodedContent = Buffer.from(fileContentResponse.data.content, 'base64').toString('utf-8');
+//         const htmlContent = markdownIt.render(decodedContent);
+//         console.log(htmlContent)
+//         // Update the Webflow item
+//         // Note: You'll need to provide the correct collectionId, itemId, itemName, and itemSlug
+//        // await updateWebflowItem("collectionId", "itemId", htmlContent, "itemName", "itemSlug");
+
+//         console.log(`Updated Webflow CMS with content from: ${file.filename}`);
+//       }
+//     }
+//   } catch (error) {
+//     console.error('Error:', error.message);
+//   }
+// };
+
 // Example usage
-(async () => {
-  const allCollectionItems = await getAllCollectionItems(siteId);
-  console.log(allCollectionItems);
-})();
 
+// const getLatestChangesAndUpdateWebflow = async (owner, repo, siteId) => {
+//   try {
+//     // Get the latest commit
+//     const commitResponse = await axios.get(`https://api.github.com/repos/${owner}/${repo}/commits`, {
+//       headers: {
+//         'Accept': 'application/vnd.github.v3+json'
+//       }
+//     });
+//     const latestCommitSha = commitResponse.data[0].sha;
+//     console.log("latest commits : ",latestCommitSha)
+//     // Get the list of files changed in the latest commit
+//     const commitDetailsResponse = await axios.get(`https://api.github.com/repos/${owner}/${repo}/commits/${latestCommitSha}`, {
+//       headers: {
+//         'Accept': 'application/vnd.github.v3+json'
+//       }
+//     });
+//     const changedFiles = commitDetailsResponse.data.files;
+//     console.log("changedFiles :",changedFiles)
+//     // Get all collection items
+//     const allCollectionItems = await getAllCollectionItems(siteId);
 
-const getLatestChangesAndUpdateWebflow = async (owner, repo) => {
-  try {
-    // Get the latest commit
-    const commitResponse = await axios.get(`https://api.github.com/repos/${owner}/${repo}/commits`, {
-      headers: {
-        'Accept': 'application/vnd.github.v3+json'
-      }
-    });
-    const latestCommitSha = commitResponse.data[0].sha;
+//     console.log("allCollectionItems :",allCollectionItems)
+//     // Fetch the content of each changed file and update Webflow CMS if the file name matches an item name
+//     for (const file of changedFiles) {
+//       if (file.filename.endsWith('.md')) {
+//         const fileName = file.filename.split('/').pop().replace('.md', '');
 
-    // Get the list of files changed in the latest commit
-    const commitDetailsResponse = await axios.get(`https://api.github.com/repos/${owner}/${repo}/commits/${latestCommitSha}`, {
-      headers: {
-        'Accept': 'application/vnd.github.v3+json'
-      }
-    });
-    const changedFiles = commitDetailsResponse.data.files;
+//         // Check if the file name matches any item name in the collections
+//         const matchingItem = allCollectionItems.find(collection => 
+//           collection.items.some(item => item.fieldData.name === fileName)
+//         );
 
-    console.log("The changed files are : ",changedFiles)
-    // Fetch the content of each changed file and update Webflow CMS
-    for (const file of changedFiles) {
-      if (file.filename.endsWith('.md')) {
-        const fileName = file.filename.split('/').pop().replace('.md', '');
-        console.log('File Name:', fileName);
+//         if (matchingItem) {
+//           const fileContentResponse = await axios.get(file.contents_url, {
+//             headers: {
+//               Authorization: `token ${process.env.GITHUB_TOKEN}`
+//             }
+//           });
 
-        const fileContentResponse = await axios.get(file.contents_url, {
-          headers: {
-            Authorization: `token ${process.env.GITHUB_TOKEN}`
-          }
-        });
+//           const decodedContent = Buffer.from(fileContentResponse.data.content, 'base64').toString('utf-8');
+//           const htmlContent = markdownIt.render(decodedContent);
+//           console.log(htmlContent)
+//           // Update the Webflow item
+//           // Note: You'll need to provide the correct collectionId, itemId, itemName, and itemSlug
+//           // await updateWebflowItem(matchingItem.collectionId, matchingItem.itemId, htmlContent, fileName, fileName.toLowerCase().replace(/\s+/g, '-'));
 
-        const decodedContent = Buffer.from(fileContentResponse.data.content, 'base64').toString('utf-8');
-        const htmlContent = markdownIt.render(decodedContent);
-        console.log(htmlContent)
-        // Update the Webflow item
-        // Note: You'll need to provide the correct collectionId, itemId, itemName, and itemSlug
-       // await updateWebflowItem("collectionId", "itemId", htmlContent, "itemName", "itemSlug");
+//           console.log(`Updated Webflow CMS with content from: ${fileName}`);
+//         } else {
+//           console.log(`No matching item found for file: ${fileName}`);
+//         }
+//       }
+//     }
+//   } catch (error) {
+//     console.error('Error:', error.message);
+//   }
+// };
 
-        console.log(`Updated Webflow CMS with content from: ${file.filename}`);
-      }
+// Function to get the SHA of the latest commit
+const getLatestCommitSha = async (owner, repo) => {
+  const commitResponse = await axios.get(`https://api.github.com/repos/${owner}/${repo}/commits`, {
+    headers: {
+      'Accept': 'application/vnd.github.v3+json'
     }
+  });
+  return commitResponse.data[0].sha;
+};
+
+// Function to get the list of files changed in the latest commit
+const getChangedFiles = async (owner, repo, commitSha) => {
+  const commitDetailsResponse = await axios.get(`https://api.github.com/repos/${owner}/${repo}/commits/${commitSha}`, {
+    headers: {
+      'Accept': 'application/vnd.github.v3+json'
+    }
+  });
+  const changedFiles = commitDetailsResponse.data.files;
+
+  // Filter for README files (case-insensitive)
+  const changedReadmeFiles = changedFiles.filter(file => file.filename.toLowerCase() === 'readme.md');
+  return changedReadmeFiles;
+};
+
+// Function to update Webflow with the content of a changed file
+const updateWebflowWithFileContent = async (file, webflowToken) => {
+  if (file.filename.endsWith('.md')) {
+    const fileContentResponse = await axios.get(file.contents_url, {
+      headers: {
+        Authorization: `token ${process.env.GITHUB_TOKEN}`
+      }
+    });
+
+    const decodedContent = Buffer.from(fileContentResponse.data.content, 'base64').toString('utf-8');
+    const htmlContent = markdownIt.render(decodedContent);
+
+    // Update the Webflow item
+    // Note: You'll need to provide the correct collectionId, itemId, itemName, and itemSlug
+    // await updateWebflowItem("collectionId", "itemId", htmlContent, "itemName", "itemSlug");
+
+    console.log(`Updated Webflow CMS with content from: ${file.filename}`);
+  }
+};
+
+// Refactored main function
+const getLatestChangesAndUpdateWebflow = async (owner, repo, siteId) => {
+  try {
+    const latestCommitSha = await getLatestCommitSha(owner, repo);
+    const changedFiles = await getChangedFiles(owner, repo, latestCommitSha);
+    console.log("The Changed Files are: ",changedFiles)
+    // Get all collection items
+    const allCollectionItems = await getAllCollectionItems(siteId);
+
+    // for (const file of changedFiles) {
+    //   await updateWebflowWithFileContent(file, webflowToken);
+    // }
   } catch (error) {
     console.error('Error:', error.message);
   }
 };
 
 // Example usage
+const main = async (owner, repo, siteId) => {
+  try {
+    // Get the latest changes and update Webflow CMS
+    await getLatestChangesAndUpdateWebflow(owner, repo, siteId);
+  } catch (error) {
+    console.error('Error:', error.message);
+  }
+};
 
-const owner = 'neueworld';
-const repo = 'Layers-Docs';
-
+main(owner,repo,siteId)
 //getLatestChangesAndUpdateWebflow(owner,repo);
