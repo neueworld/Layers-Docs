@@ -23,5 +23,5 @@ jobs:
       - name: Run script to update Webflow CMS
         run: node scripts/updateData.mjs  # Replace with the path to your JS file
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GT_TOKEN }}
           WEBFLOW_API_TOKEN: ${{ secrets.WEBFLOW_API_TOKEN }}  # Make sure to set this secret in your repository settings

@@ -31,7 +31,26 @@ const deleteCollectionItem = async (collectionId, itemId) => {
 // Example usage:
 // deleteCollectionItem('580e63fc8c9a982ac9b8b745', '580e64008c9a982ac9b8b754');
 
-async function updateWebflowItem(collectionId, itemId, richTextContent,itemName,slug) {
+export const getAllCollectionItems = async (siteId) => {
+  try {
+    const collectionsResponse = await getCollection(siteId);
+    const allItems = [];
+
+    for (const collection of collectionsResponse.collections) { // Access the nested array
+      const collectionItems = await getCollectionItems(collection.id);
+      allItems.push({
+        collectionId: collection.id,
+        items: collectionItems.items,
+      });
+    }
+
+    return allItems;
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
+};
+export async function updateWebflowItem(collectionId, itemId, richTextContent,itemName,slug) {
   const options = {
     method: 'PATCH',
     url: `https://api.webflow.com/v2/collections/${collectionId}/items/${itemId}`,

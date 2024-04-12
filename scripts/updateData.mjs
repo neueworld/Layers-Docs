@@ -1,32 +1,14 @@
 import axios from 'axios';
 import 'dotenv/config'
 import MarkdownIt from 'markdown-it';
-import { getCollection, getCollectionItems } from './webflow.mjs';
+import { getCollection, getCollectionItems,updateWebflowItem,getAllCollectionItems } from './webflow.mjs';
 
 const markdownIt = new MarkdownIt();
 const siteId = "660e763c275e50fdf03ef908";
 
 const owner = 'neueworld';
 const repo = 'Layers-Docs';
-const getAllCollectionItems = async (siteId) => {
-  try {
-    const collectionsResponse = await getCollection(siteId);
-    const allItems = [];
 
-    for (const collection of collectionsResponse.collections) { // Access the nested array
-      const collectionItems = await getCollectionItems(collection.id);
-      allItems.push({
-        collectionId: collection.id,
-        items: collectionItems.items,
-      });
-    }
-
-    return allItems;
-  } catch (error) {
-    console.error(error);
-    throw error;
-  }
-};
 
 // const getLatestChangesAndUpdateWebflow = async (owner, repo,siteId) => {
 //   try {
@@ -159,11 +141,11 @@ const getChangedFiles = async (owner, repo, commitSha) => {
 };
 
 // Function to update Webflow with the content of a changed file
-const updateWebflowWithFileContent = async (file, webflowToken) => {
+const updateWebflowWithFileContent = async (file, collectionId, item) => {
   if (file.filename.endsWith('.md')) {
     const fileContentResponse = await axios.get(file.contents_url, {
       headers: {
-        Authorization: `token ${process.env.GITHUB_TOKEN}`
+        Authorization: `token ${process.env.GT_TOKEN}`
       }
     });
 
@@ -172,7 +154,13 @@ const updateWebflowWithFileContent = async (file, webflowToken) => {
     console.log(htmlContent)
     // Update the Webflow item
     // Note: You'll need to provide the correct collectionId, itemId, itemName, and itemSlug
-    // await updateWebflowItem("collectionId", "itemId", htmlContent, "itemName", "itemSlug");
+    
+    await updateWebflowItem(
+          collectionId,item.id, 
+          htmlContent, 
+          item.fieldData.name, 
+          item.fieldData.slug
+    );
 
     console.log(`Updated Webflow CMS with content from: ${file.filename}`);
   }
@@ -183,17 +171,16 @@ const getLatestChangesAndUpdateWebflow = async (owner, repo, siteId) => {
   try {
     const latestCommitSha = await getLatestCommitSha(owner, repo);
     const changedFiles = await getChangedFiles(owner, repo, latestCommitSha);
-    console.log("The Changed Files are: ",changedFiles)
     // Get all collection items
     const allCollectionItems = await getAllCollectionItems(siteId);
-    
-    allCollectionItems.forEach(collection => {
-      console.log(`Processing collection with ID: ${collection.collectionId}`);
-      collection.items.forEach(item => {
-        console.log(`Item ID: ${item.id}, Name: ${item.fieldData.name}, Slug: ${item.fieldData.slug}`);
-        // Here you can add more logic to process each item
-      });
-    });
+
+    // allCollectionItems.forEach(collection => {
+    //   console.log(`Processing collection with ID: ${collection.collectionId}`);
+    //   collection.items.forEach(item => {
+    //     console.log(`Item ID: ${item.id}, Name: ${item.fieldData.name}, Slug: ${item.fieldData.slug}`);
+    //     // Here you can add more logic to process each item
+    //   });
+    // });
   
     changedFiles.forEach(async (file) => {
       const fileName = file.filename.split('/').pop().replace('.md', '');
@@ -201,7 +188,7 @@ const getLatestChangesAndUpdateWebflow = async (owner, repo, siteId) => {
         collection.items.forEach(async (item) => {
           if (item.fieldData.name === fileName) {
             console.log(`Match found: Updating ${fileName}`);
-           // await updateWebflowWithFileContent(file, collection.collectionId, item);
+            await updateWebflowWithFileContent(file, collection.collectionId, item);
           }
         });
       });
