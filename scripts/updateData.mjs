@@ -150,10 +150,11 @@ const getChangedFiles = async (owner, repo, commitSha) => {
       'Accept': 'application/vnd.github.v3+json'
     }
   });
-  const changedFiles = commitDetailsResponse.data.files;
+
+  const allFiles = commitDetailsResponse.data.files;
 
   // Filter for README files (case-insensitive)
-  const changedReadmeFiles = changedFiles.filter(file => file.filename.toLowerCase() === 'readme.md');
+  const changedReadmeFiles = allFiles.filter(file => file.filename.endsWith('.md'));
   return changedReadmeFiles;
 };
 
@@ -168,7 +169,7 @@ const updateWebflowWithFileContent = async (file, webflowToken) => {
 
     const decodedContent = Buffer.from(fileContentResponse.data.content, 'base64').toString('utf-8');
     const htmlContent = markdownIt.render(decodedContent);
-
+    console.log(htmlContent)
     // Update the Webflow item
     // Note: You'll need to provide the correct collectionId, itemId, itemName, and itemSlug
     // await updateWebflowItem("collectionId", "itemId", htmlContent, "itemName", "itemSlug");
@@ -185,6 +186,26 @@ const getLatestChangesAndUpdateWebflow = async (owner, repo, siteId) => {
     console.log("The Changed Files are: ",changedFiles)
     // Get all collection items
     const allCollectionItems = await getAllCollectionItems(siteId);
+    
+    allCollectionItems.forEach(collection => {
+      console.log(`Processing collection with ID: ${collection.collectionId}`);
+      collection.items.forEach(item => {
+        console.log(`Item ID: ${item.id}, Name: ${item.fieldData.name}, Slug: ${item.fieldData.slug}`);
+        // Here you can add more logic to process each item
+      });
+    });
+  
+    changedFiles.forEach(async (file) => {
+      const fileName = file.filename.split('/').pop().replace('.md', '');
+      allCollectionItems.forEach(async (collection) => {
+        collection.items.forEach(async (item) => {
+          if (item.fieldData.name === fileName) {
+            console.log(`Match found: Updating ${fileName}`);
+           // await updateWebflowWithFileContent(file, collection.collectionId, item);
+          }
+        });
+      });
+    });
 
     // for (const file of changedFiles) {
     //   await updateWebflowWithFileContent(file, webflowToken);
@@ -205,4 +226,3 @@ const main = async (owner, repo, siteId) => {
 };
 
 main(owner,repo,siteId)
-//getLatestChangesAndUpdateWebflow(owner,repo);
