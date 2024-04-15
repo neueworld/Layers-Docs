@@ -50,14 +50,66 @@ export const getAllCollectionItems = async (siteId) => {
     throw error;
   }
 };
-export async function updateWebflowItem(collectionId, itemId, richTextContent,itemName,slug) {
+
+
+async function publishCollectionItem(collectionId, itemIds) {
+  const options = {
+    method: 'POST',
+    url: `https://api.webflow.com/v2/collections/${collectionId}/items/publish`,
+    headers: {
+      accept: 'application/json',
+      'content-type': 'application/json',
+      authorization: `Bearer ${process.env.WEBFLOW_API_TOKEN}`
+    },
+    data: { itemIds: itemIds }
+  };
+
+  axios.request(options)
+    .then(function (response) {
+      console.log('Publish Success:', response.data);
+    })
+    .catch(function (error) {
+      console.error('Publish Error:');
+    });
+}
+
+
+// export async function updateWebflowItem(collectionId, itemId, richTextContent,itemName,slug) {
+//   const options = {
+//     method: 'PATCH',
+//     url: `https://api.webflow.com/v2/collections/${collectionId}/items/${itemId}/live`,
+//     headers: {
+//       accept: 'application/json',
+//       'content-type': 'application/json',
+//       authorization: `Bearer ${process.env.WEBFLOW_API_TOKEN}` // Replace with your Webflow API token
+//     },
+//     data: {
+//       isArchived: false,
+//       isDraft: false,
+//       fieldData: {
+//         name: itemName,
+//         slug: slug,
+//         data: richTextContent
+//       }
+//       }
+//   };
+
+//   try {
+//     const response = await axios.request(options);
+//     //console.log(response.data)
+//     console.log('Item updated successfully:', response.data);
+//   } catch (error) {
+//     console.error('Error updating item:', error.response ? error.response.data : error);
+//   }
+// }
+export async function updateWebflowItem(collectionId, itemId, richTextContent, itemName, slug) {
   const options = {
     method: 'PATCH',
     url: `https://api.webflow.com/v2/collections/${collectionId}/items/${itemId}/live`,
     headers: {
       accept: 'application/json',
       'content-type': 'application/json',
-      authorization: `Bearer ${process.env.WEBFLOW_API_TOKEN}` // Replace with your Webflow API token
+      authorization: `Bearer ${process.env.WEBFLOW_API_TOKEN}` // Use your Webflow API token
     },
     data: {
       isArchived: false,
@@ -67,17 +119,33 @@ export async function updateWebflowItem(collectionId, itemId, richTextContent,it
         slug: slug,
         data: richTextContent
       }
-      }
+    }
   };
 
   try {
+    //await publishCollectionItem(collectionId, [itemId])
     const response = await axios.request(options);
-    //console.log(response.data)
     console.log('Item updated successfully:', response.data);
   } catch (error) {
-    console.error('Error updating item:', error.response ? error.response.data : error);
+    console.error('Error updating item:');
+    // Check for the specific error message and handle it
+    if (error.response && error.response.data && error.response.data.msg === "Conflict: Live PATCH updates can't be applied to items that have never been published") {
+      console.log('Item has never been published. Attempting to publish now...');
+      try {
+        await publishCollectionItem(collectionId, [itemId]);
+        console.log('Re-attempting item update...');
+        await updateWebflowItem(collectionId, itemId, richTextContent, itemName, slug);  // Recursive call to retry update
+      } catch (publishError) {
+        console.error('Failed after publishing attempt:', publishError.data.message);
+        //throw publishError;
+      }
+    } else {
+      console.log("Item publishing failed")
+     // throw error;
+    }
   }
 }
+
 async function createCollection(siteId,displayName,singularName,slug) {
   const options = {
     method: 'POST',

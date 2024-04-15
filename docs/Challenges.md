@@ -22,10 +22,6 @@ Well, it will look like the problem has been solved but the data is still coming
 
 That’s why there is a need for a decentralized and open infrastructure in Freelancing, that not only provides freedom from vendor lock-in but also ensures its authenticity, so whether the platform is there or not the user data will always be there. They can be used wherever their owner (user) finds it comfortable.
 
-[How on-chain Experience can help reduce fraud](https://www.notion.so/How-on-chain-Experience-can-help-reduce-fraud-276a07cb34b9465ca15bca5cc55d3dc7?pvs=21) 
-
----
-
 ### **Authenticity**
 
 Freelance is global and it is always about dealing with unknown people but trusting them through a third party is not a good approach. How will a party know whether they should trust the other party? It generally ends up trusting the information provided by the third party or no information and there is no way that the user can verify whether the provided information is authentic or not. It’s not even in the hands of third parties to provide a method where the user can verify it.
@@ -38,19 +34,11 @@ The employer puts a job and there are dozens of freelancers bidding on it and th
 
 Decentralized systems solve this by keeping track of the history of each data point and making sure it’s immutable and can’t be tempered. With decentralized data sources such as blockchains, the viewer can always look at the history and verify.
 
-[How on-chain Experience can help reduce fraud](https://www.notion.so/How-on-chain-Experience-can-help-reduce-fraud-276a07cb34b9465ca15bca5cc55d3dc7?pvs=21) 
-
----
-
 ### Centralized Storage
 
 All the delivery of work in freelancing goes through the centralized data storage providers which sacrifice privacy and give them control over user’s data. 
 
 It’s time to put the users back in control of their data. **Vault** is the data storage solution provided by Layers for a resilient, efficient, and decentralized data storage experience where users are in control of their data. 
-
-[Redefine Vault](https://www.notion.so/Redefine-Vault-5e722e7490ba4bd887a23357bffc9a5a?pvs=21)
-
----
 
 ### **Payments**
 
@@ -58,10 +46,5 @@ Payment lives at the center of every job but the challenge is external parties m
 
 Freelancers need to be assured when using escrow services that it will be unbiased and payments will be released according to the agreement but due to the involvement of third parties and platform rules it’s not always that easy. The freelancer can’t do anything if something goes wrong.
 
-[Layers Payment Using Smart Contracts [WIP]](https://www.notion.so/Layers-Payment-Using-Smart-Contracts-WIP-7b621ed7e0454a63afead6985b3078e4?pvs=21) 
-
----
 
 In summary, From creating an **account** to defining **skills** to handling the **payments**, for everything users need to trust the third-party platform. These problems are not only with the existing web2 platforms they extend to the so-called web3-based platforms because 90% of application architecture is still centralized and the process is still the same but “**web3 tech has allowed changing this whole thing”.**
-
-This is the tesing with Ajay, Vivian, Alex and Mercy.
