@@ -9,17 +9,18 @@ const siteId = "660e763c275e50fdf03ef908";
 const owner = 'neueworld';
 const repo = 'Layers-Docs';
 
-const getLatestCommitSha = async (owner, repo) => {
-  const commitResponse = await axios.get(`https://api.github.com/repos/${owner}/${repo}/commits`, {
+const getLatestCommitSha = async (owner, repo, branch) => {
+  const commitResponse = await axios.get(`https://api.github.com/repos/${owner}/${repo}/commits/${branch}`, {
     headers: {
       'Accept': 'application/vnd.github.v3+json'
     }
   });
-  return commitResponse.data[0].sha;
+  return commitResponse.data.sha;
 };
 
-// Function to get the list of files changed in the latest commit
-const getChangedFiles = async (owner, repo, commitSha) => {
+// Function to get the list of files changed in the latest commit from a specified branch
+const getChangedFiles = async (owner, repo, branch) => {
+  const commitSha = await getLatestCommitSha(owner, repo, branch);
   const commitDetailsResponse = await axios.get(`https://api.github.com/repos/${owner}/${repo}/commits/${commitSha}`, {
     headers: {
       'Accept': 'application/vnd.github.v3+json'
@@ -28,10 +29,11 @@ const getChangedFiles = async (owner, repo, commitSha) => {
 
   const allFiles = commitDetailsResponse.data.files;
 
-  // Filter for README files (case-insensitive)
-  const changedReadmeFiles = allFiles.filter(file => file.filename.endsWith('.md'));
-  return changedReadmeFiles;
+  // Filter for Markdown files (case-insensitive)
+  const changedMarkdownFiles = allFiles.filter(file => file.filename.toLowerCase().endsWith('.md'));
+  return changedMarkdownFiles;
 };
+
 
 // Function to update Webflow with the content of a changed file
 const updateWebflowWithFileContent = async (file, collectionId, item) => {
@@ -45,9 +47,8 @@ const updateWebflowWithFileContent = async (file, collectionId, item) => {
 
     const decodedContent = Buffer.from(fileContentResponse.data.content, 'base64').toString('utf-8');
     const htmlContent = markdownIt.render(decodedContent);
-   // console.log(htmlContent)
+    console.log(htmlContent)
     // Update the Webflow item
-    // Note: You'll need to provide the correct collectionId, itemId, itemName, and itemSlug
     
     await updateWebflowItem(
           collectionId,item.id, 
@@ -64,7 +65,7 @@ const updateWebflowWithFileContent = async (file, collectionId, item) => {
 const getLatestChangesAndUpdateWebflow = async (owner, repo, siteId) => {
   try {
     const latestCommitSha = await getLatestCommitSha(owner, repo);
-    const changedFiles = await getChangedFiles(owner, repo, latestCommitSha);
+    const changedFiles = await getChangedFiles(owner, repo, latestCommitSha,"main");
     // Get all collection items
     const allCollectionItems = await getAllCollectionItems(siteId);
 
