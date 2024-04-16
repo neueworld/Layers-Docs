@@ -48,3 +48,5 @@ Freelancers need to be assured when using escrow services that it will be unbias
 
 
 In summary, From creating an **account** to defining **skills** to handling the **payments**, for everything users need to trust the third-party platform. These problems are not only with the existing web2 platforms they extend to the so-called web3-based platforms because 90% of application architecture is still centralized and the process is still the same but “**web3 tech has allowed changing this whole thing”.**
+
+These are some temp changes
