@@ -73,7 +73,6 @@ async function publishCollectionItem(collectionId, itemIds) {
     });
 }
 
-
 // export async function updateWebflowItem(collectionId, itemId, richTextContent,itemName,slug) {
 //   const options = {
 //     method: 'PATCH',
@@ -251,10 +250,10 @@ function buildRepoStructure(tree) {
   return root;
 }
 
-const fetchRepoTree = async (owner, repo, token) => {
+const fetchRepoTree = async (owner, repo) => {
   const config = {
     headers: {
-      Authorization: `token ${token}`,
+      Authorization: `token ${process.env.GT_TOKEN}`,
     },
   };
 
@@ -269,7 +268,7 @@ const fetchRepoTree = async (owner, repo, token) => {
   // Filter out unwanted paths like 'node_modules'
   const filteredTree = tree.filter(item => !item.path.includes('.history'));
   const structure = buildRepoStructure(filteredTree)
-  console.log(structure)
+  //console.log(structure)
   return filteredTree;
 };
 
@@ -294,7 +293,7 @@ const isItemExist = async (collectionId, itemName, itemSlug) => {
   try {
     const collectionItems = await getCollectionItems(collectionId);
     return collectionItems.items.some(item => {
-      return item.fieldData.name === itemName && item.fieldData.slug === itemSlug;
+      return item.fieldData.name === itemName
     });
   } catch (error) {
     console.error(error);
@@ -335,61 +334,73 @@ const fetchAndPushContent = async (owner, repo, token, pageId, webflowToken) => 
   }
 };
 
-// Usage example
-const owner = 'neueworld';
-const repo = 'Layers-Docs';
-const githubToken = process.env.GT_TOKEN
-const pageId = ""
-const webflowToken = process.env.WEBFLOW_API_TOKEN
-// fetchAndPushContent(owner, repo, githubToken, pageId, webflowToken)
-//   .then(() => console.log('Content updated successfully!'))
-//   .catch(error => console.error(error));
+const updateAllItems = async (owner, repo, siteId) => {
+  const repoTree = await fetchRepoTree(owner, repo);
+  const collections = await getCollection(siteId);
 
-const fetchCollectionItems = async () => {
-  try {
-    const response = await getCollection(siteId);
-    const collections = response.collections; // Assuming the API response has a 'collections' property that is an array
-    if (Array.isArray(collections)) {
-      for (const collection of collections) {
-        const itemsResponse = await getCollectionItems(collection.id);
-        const items = itemsResponse.items; // Assuming the API response has an 'items' property that is an array
-        console.log(`Items in collection "${collection.displayName}":`);
-        for (const item of items) {
-          console.log(`- Item ID: ${item.id}`);
-          console.log(`  Field Data:`, item.fieldData); // Print the field data
+  for (const item of repoTree) {
+    if (item.type === 'blob' && item.path.endsWith('.md')) {
+      const itemName = item.path.replace('.md', '').split('/').pop();
+      const slug = itemName.toLowerCase().replace(/\s+/g, '-');
+      // Iterate through each collection to find a matching collection for the file
+      for (const collection of collections.collections) {
+        console.log(`Checking for item: ${itemName} in collection: ${collection.displayName}`);
+        if (await isItemExist(collection.id, itemName, slug)) {
+          console.log(`Fetching content for: ${itemName}`);
+          const fileContentResponse = await axios.get(item.url, {
+            headers: {
+              Authorization: `Bearer ${process.env.GT_TOKEN}`,
+              Accept: 'application/vnd.github.v3.raw'
+            },
+          });
+
+          const htmlContent = markdownIt.render(fileContentResponse.data);
+         // console.log(htmlContent)
+          console.log(`Updating Webflow item: ${itemName} in collection: ${collection.displayName}`);
+          //await updateWebflowItem(collection.id, slug, htmlContent, itemName, slug);
+        } else {
+          console.log(`No existing item matches: ${itemName} in collection: ${collection.displayName}`);
         }
       }
-    } else {
-      console.error('Error: Expected an array of collections, but received:', collections);
     }
-  } catch (error) {
-    console.error('Error fetching collection items:', error);
   }
 };
 
-// (async () => {
-//   const response = await getCollectionItems("66176d53af1acf9c387a2e19");
-//   console.log(response)
-//   if (response && response.items) {
-//     response.items.forEach(item => {
-//       console.log(item,item.fieldData);
-//     });
-//   }
-// })();
+
+const publishAllItems = async (owner, repo, siteId) => {
+  const repoTree = await fetchRepoTree(owner, repo);
+  const collections = await getCollection(siteId);
+
+  for (const item of repoTree) {
+    const itemName = item.path.replace('.md', '').split('/').pop();
+    const slug = itemName.toLowerCase().replace(/\s+/g, '-');
+
+    // Check if the item exists in the collection
+    if (await isItemExist(collections.id, itemName, slug)) {
+      console.log(`Publishing Webflow item: ${itemName}`);
+      await publishCollectionItem(collections.id, slug);
+    } else {
+      console.log(`No existing item matches: ${itemName}`);
+    }
+  }
+};
 
 
-//getCollection(siteId)
+// Usage example
+const owner = 'neueworld';
+const repo = 'Layers-Docs';
 
-// (async () => {
-//   const itemName = "What is Layers";
-//   const itemSlug = "what-is-layers";
-//   const fieldData = { name: itemName, slug: itemSlug, data: "This is Layers" };
+const main = async (owner, repo, siteId) => {
+  try {
+    console.log("Starting update process...");
+    await updateAllItems(owner, repo, siteId);
+    console.log("Update process completed successfully. Starting publishing process...");
+    //await publishAllItems(owner, repo, siteId);
+    //console.log("Publishing process completed successfully.");
+  } catch (error) {
+    console.error("An error occurred:", error.message);
+  }
+};
 
-//   const exists = await isItemExist(collectionId, itemName, itemSlug);
-//   if (!exists) {
-//     const createdItem = await createCollectionItem(collectionId, fieldData);
-//     console.log('Item created successfully:', createdItem);
-//   } else {
-//     console.log('Item already exists');
-//   }
-// })();
+// Example usage of the main function
+main(owner, repo, siteId);
