@@ -21,5 +21,3 @@ Layers provides a solution for its ecosystem which is **Layers ID**. Layers ID i
     - It can be explored in wallets such as Metamask.
 - It gives an identity for work in the anonymous web3 world and helps build trust.
 
-
-These are some temp changes
