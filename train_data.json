@@ -1,0 +1,279 @@
+{
+    "product_overview": "Layers is a decentralized freelancing platform that aims to make the freelancing ecosystem user-centric, efficient, cost-effective, and secure with decentralization.\n\nLayers is built with a data-driven mindset which aims to make freelancing more personalized and help users to make informed decisions based on the data.\n\nLayers are rebuilding the base infrastructure like portfolios, freelancer marketing, jobs, payments, and many others with new ways that are more effective than traditional ones.\n\nLayers is currently supported for designers and developers only.",
+    "features": [
+              {
+                "name": "Layers ID",
+                "description": "Layers ID is the decentralized unique digital identity provided by the Layers to each user. All the user data on the blockchain is linked to it whether it’s jobs, reviews, payments, or any other data generated with Layers. It will be associated with the user's wallet address.\n\nLayers ID contains a handle that follows these rules:\n\n- Style: Twitter Style @\n- Max-Min length [3-15]\n- Only small letters and numbers from 0 to 9 are allowed\n\nLayers ID is a web3-based identity that uses Soul-bound NFTs as the base infrastructure to create a user profile on Layers. It’s decentralized and fully user-controlled.",
+                "how_to_use_it": [
+                  {
+                    "steps": [
+                      "It can be minted during the onboarding (The users who have minted during the Minting Phase, don’t need to mint) by claiming a unique handle and this handle can be used everywhere on Layers to identify themselves instead of using a lengthy wallet address."
+                    ]
+                  }
+                ]
+              },
+
+              {
+                "name": "Portfolios",
+                "description": "Layers is taking away the pain of creating and maintaining portfolios. Layers introduces portfolios that are data-driven and verifiable. The users can bring data from third-party apps like GitHub and Figma and Layers builds portfolios for them which are concise, verifiable, and low maintenance. Layers only asks for read-only data from third-party apps, it never writes anything there. The portfolio aims to provide the viewers with concise information to understand and necessary verification links while saving their precious time while freelancers can focus on their work not creating and maintaining the portfolio. Eg: If a viewer is looking at the developer portfolios they would be able to see their basic details (name, email, socials), Languages, tech stack/Frameworks, Consistency, and repos and can verify each of them from GitHub. For the Designer Layers has a plugin to enable the smooth import of designs.",
+                "how_to_use_it": [
+                  {
+                    "role": "Developer",
+                    "steps": [
+                      "Connect the GitHub",
+                      "Approve Layers on the popup to access the GitHub Account",
+                      "Click on the analyze button",
+                      "Wait a few seconds and when it’s done the portfolios will be there.",
+                      "To update the portfolio click on the refresh button",
+                      "If the login is expired, login again",
+                      "Wait a few seconds and when it’s done the updated portfolios will be there."
+                    ]
+                  },
+                  {
+                    "role": "Designer",
+                    "steps": [
+                      {
+                        "step_name": "Connecting to GitHub",
+                        "instructions": [
+                          "Given that I am logged into my Layers profile,",
+                          "When I navigate to the 'Portfolios' section,",
+                          "And click on the 'Connect to GitHub' button,",
+                          "Then a new GitHub authentication window should pop up,",
+                          "Upon my approval, my GitHub projects should be available to import into my Layers portfolio."
+                        ]
+                      },
+                      {
+                        "step_name": "Connecting to Figma",
+                        "instructions": [
+                          "Given that I am logged into my Layers profile,",
+                          "When I navigate to the 'Portfolios' section,",
+                          "And click on the 'Connect to Figma' button,",
+                          "Then a new Figma authentication window should pop up,",
+                          "And after I approve the request,",
+                          "I should be prompted to manually enter the project IDs from my Figma projects to import them into my Layers portfolio."
+                        ]
+                      },
+                      {
+                        "step_name": "Viewing Projects on Dashboard",
+                        "instructions": [
+                          "Given that I have connected my Figma and GitHub accounts,",
+                          "When I visit my dashboard,",
+                          "Then I should see all my imported projects displayed,",
+                          "And I should be able to select the projects I wish to include in my portfolio."
+                        ]
+                      },
+                      {
+                        "step_name": "Creating a Portfolio",
+                        "instructions": [
+                          "Given that I am on my dashboard and have selected my projects,",
+                          "When I click on the 'Create Portfolio' button,",
+                          "Then I should be able to create a new portfolio containing my selected projects."
+                        ]
+                      },
+                      {
+                        "step_name": "Sharing the Portfolio",
+                        "instructions": [
+                          "Given that I have created a portfolio,",
+                          "When I view the portfolio,",
+                          "Then I should have the option to share it publicly or privately,",
+                          "And when I select 'Share Publicly', a link should be generated which I can distribute,",
+                          "And when I select 'Share Privately', I should be able to send invitations to specific people via email or a direct link."
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+
+              {
+                    "name": "Layers Earning",
+                    "description": "The Layers Referral program aims to introduce a user-centric incentivization system where the users can earn and share. Every user can refer a maximum of 2 people, and when those 2 people make money with Layers, the referrer will get a small percentage of it.",
+                    "how_to_use_it": [
+                      {
+                        "steps": [
+                          "Every existing ID holder can take their referrals and share them on social media.",
+                          "After successful onboarding, a referral will be counted as a valid referral.",
+                          "When the referred user makes money, the person who referred them will get their share in their wallet."
+                        ]
+                      }
+                    ]
+              }
+              ],
+
+    "User Manual":[{
+        
+            "user_manual": {
+              "get_started": {
+                "description": "Basic Requirements before you start using Layers.",
+                "requirements": [
+                  "Web Browser / MetaMask Mobile App.",
+                  "Google account /Email account /Web3 Wallet (Metamask Preferably)"
+                ]
+              },
+              "create_an_account": {
+                "description": "Creating an account is your first step towards unlocking the full potential of Layers. By setting up your account, you'll gain access to a platform designed to enhance your professional visibility, connect with clients, and showcase your skills.",
+                "steps": [
+                  "Open the referral link in browser. (Don’t have a referral, no worries [ask here](https://discord.com/))",
+                  "Click on Create Account",
+                  "Click on Connect Wallet",
+                  "Choose your preferred method and click",
+                  {
+                    "note": "If you are using wallet click on sign in button. If using Google or email no need to click on sign in"
+                  }
+                ],
+                "conclusion": "Fantastic! You've successfully created your account. Welcome to Layers, where your professional journey is about to get a whole lot more exciting! 🎉"
+              },
+              "onboarding": {
+                "description": "We want to tailor the platform specifically for you. Completing the onboarding will ensure you get the best experience possible.",
+                "steps": [
+                  "Choose your unique handle (If you have already claimed the ID during minting jump to step 2)",
+                  "Enter your email (This and next step is only for users who are using wallet)",
+                  "Check your email and enter the code.",
+                  "Choose the profession and click next",
+                  "Choose the max 3 categories for your profession and click next",
+                  "Enter the first and last name, choose your country, and optionally upload a pic to complete the onboarding."
+                ],
+                "conclusion": "Welcome Champ! You have successfully onboarded on Layers 🥂"
+              },
+              "setup_profile": {
+                "description": "A complete and professional profile attracts potential clients and builds trust. Let’s make sure your profile stands out!",
+                "steps": [
+                  "Click on Setup my profile, wait before you setup profile here you can help your friends get into Layers too. [TBD].",
+                  "Enter the following details:",
+                  {
+                    "details": [
+                      "Upload a pic",
+                      "About",
+                      "Choose Timezone",
+                      "Add skills",
+                      "Click on Save"
+                    ]
+                  }
+                ],
+                "conclusion": "Great you have successfully completed the profile setup. Check out your awesome **workpass** by clicking on View ID. You can download and share it."
+              },
+              "create_portfolio": {
+                "description": "Let’s bring your existing projects and work onto Layers to showcase your skills and attract potential clients. Whether you're a developer or designer, Layers makes it easy to import and display your best work.",
+                "developer": {
+                  "description": "Layers supports data import from GitHub.",
+                  "steps": [
+                    "Click on connect GitHub and it will take you to another window.",
+                    "Read the permissions and if okay click approve, wait for few seconds and you will see the imported data on dashboard."
+                  ]
+                },
+                "designer": {
+                  "description": "Layers currently supports design imports from Figma only. We have built the [Layers Figma Plugin](https://www.figma.com/community/plugin/1373119776003211152/layers) to enable smooth design imports from Figma.",
+                  "steps": [
+                    {
+                      "step_name": "Connecting Figma Account with Layers",
+                      "instructions": [
+                        "Click on \"Connect Figma\" and you will be redirected to the Figma window.",
+                        "Read the permissions and click \"Allow\"."
+                      ]
+                    },
+                    {
+                      "step_name": "Create a New Project",
+                      "instructions": [
+                        "On the dashboard, click \"Create a New Project\".",
+                        "Give your project a name, choose the type, and then save it."
+                      ]
+                    },
+                    {
+                      "step_name": "Import Designs Using the Layers Figma Plugin",
+                      "instructions": [
+                        "Click on \"Download Plugin\". You will be taken to the Figma Community page.",
+                        "Click on \"Open in\" and select your project to open the Figma file with the plugin.",
+                        "Select the designs you want to export (currently a maximum of 3).",
+                        "Click on the \"Export\" button.",
+                        "Choose the project under which the design needs to be exported.",
+                        "Click \"Export\" and wait for a few seconds.",
+                        "Once you receive the success message, return to the Layers dashboard.",
+                        "Click on the project to view the imported designs."
+                      ]
+                    }
+                  ]
+                },
+                "conclusion": "Wow 🎊 you have achieved the first step to kickstart your freelancing career."
+              },
+              "dashboard_overview": {
+                "description": "Your dashboard is your control center on Layers. Familiarizing yourself with it will help you navigate the platform efficiently.",
+                "sidebar": {
+                  "sections": [
+                    "Home: Dashboard",
+                    "Gigs: (upcoming)",
+                    "Services: (upcoming)",
+                    "Contracts: (upcoming)",
+                    "Invoices: (upcoming)",
+                    "Resources: (upcoming)",
+                    "Refer & Earn: Get and Share Referral",
+                    "Settings: Customize and configure app experience",
+                    "Disconnect: Logout button"
+                  ]
+                },
+                "main_view": {
+                  "basic_details": "It contains the basic user details such as name, about, links and buttons for share and view card.",
+                  "showcase": "If the account is connected it will show the project and their data otherwise it will have buttons to connect the third party app and import the data."
+                },
+                "conclusion": "Awesome! You now know your way around the dashboard. This will help you manage your activities on Layers effectively."
+              }
+            }
+          }          
+    
+    ],
+
+    "faqs": [
+      {
+        "question": "What permissions Layers have for my github?",
+        "answer": "Layers have read only permissions."
+      },
+      {
+        "question": "What should one expect in upcoming Launch?",
+        "answer": "Build a better portfolio and join a robust freelancing community with Layers. Benefit from the Layers Earning Program to grow and earn while you connect with potential clients."
+      },
+      {
+        "question": "Can users suggest new features or improvements?",
+        "answer": "Yes, Join the community on discord, tag us on twitter (@LayersProtocol) or send a email at hello@layers.foundation."
+      },
+      {
+        "question": "What platforms does Layers support?",
+        "answer": "Layers is currently a web app and can be accessed at (layers web link) with mobile, laptop and tabs."
+      },
+      {
+        "question": "What Makes Layers Different from it's competitors?",
+        "answer": "What sets Layers apart from its competitors is its innovative approach to freelancing. Built on blockchain technology, Layers offers a secure and transparent platform that allows freelancers to own their professional profiles and data. With seamless integration with tools like Figma and Github allows freelancers to automatically generate dynamic and professional portfolios, showcasing their skills and achievements."
+      },
+      {
+        "question": "Who can join Layers?",
+        "answer": "Layers is an invite-only community, as a member of the Layers community, you'll have access to exclusive opportunities to work on high-quality projects and collaborate with other talented freelancers as well as a unique digital identity that showcases your skills and reputation. Click the link below to sign up for our newsletter and receive exclusive updates from Layers."
+      },
+      {
+        "question": "How Will the Layers help you build a better portfolio?",
+        "answer": "Layers integrate seamlessly with popular design tools like Figma and Github to automatically generate dynamic and professional portfolios showcasing your best work. This feature enables you to highlight your skills, projects, and achievements in a visually appealing manner, making your portfolio stand out to potential clients."
+      },
+      {
+        "question": "What are fee and charges on Layers?",
+        "answer": "Free for now, more announcements coming soon - follow us on twitter at (@LayersProtocol)"
+      },
+      {
+        "question": "Is there a Layers token coming?",
+        "answer": "We believe in delivering value first. Currently, there are no plans for a token, but we will do what is needed by the community."
+      },
+      {
+        "question": "Who is behind the Layers?",
+        "answer": "Layers is an initiative by Neue World and is currently built and maintained by the Neue World Team. Soon, it will be open for community contributions."
+      },
+      {
+        "question": "How to hire on Layers?",
+        "answer": "Current not opened for hiring, follow social media for updates or shoot a mail at hello@layers.foundation so we can help you with personalized onboarding when open for business."
+      },
+      {
+        "question": "Why should I hire freelancers from Layers?",
+        "answer": "Layers helps to reduce the hiring time and saves from potential frauds with proof-of-work based portfolios."
+      },
+      {
+        "question": "Do Layers vet freelancers?",
+        "answer": "Not yet, but in the future we have services that will vet and match the perfect freelancer for your business"
+      }
+    ]
+  }
+  

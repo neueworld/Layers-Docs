@@ -104,7 +104,7 @@ async function publishCollectionItem(collectionId, itemIds) {
 export async function updateWebflowItem(collectionId, itemId, richTextContent, itemName, slug) {
   const options = {
     method: 'PATCH',
-    url: `https://api.webflow.com/v2/collections/${collectionId}/items/${itemId}/live`,
+    url: `https://api.webflow.com/v2/collections/${collectionId}/items/${itemId}/`,
     headers: {
       accept: 'application/json',
       'content-type': 'application/json',
@@ -126,22 +126,7 @@ export async function updateWebflowItem(collectionId, itemId, richTextContent, i
     const response = await axios.request(options);
     console.log('Item updated successfully:', response.data);
   } catch (error) {
-    console.error('Error updating item:');
-    // Check for the specific error message and handle it
-    if (error.response && error.response.data && error.response.data.msg === "Conflict: Live PATCH updates can't be applied to items that have never been published") {
-      console.log('Item has never been published. Attempting to publish now...');
-      try {
-        await publishCollectionItem(collectionId, [itemId]);
-        console.log('Re-attempting item update...');
-        await updateWebflowItem(collectionId, itemId, richTextContent, itemName, slug);  // Recursive call to retry update
-      } catch (publishError) {
-        console.error('Failed after publishing attempt:', publishError.data.message);
-        //throw publishError;
-      }
-    } else {
-      console.log("Item publishing failed")
-     // throw error;
-    }
+    console.log(error)
   }
 }
 
@@ -293,7 +278,7 @@ const isItemExist = async (collectionId, itemName, itemSlug) => {
   try {
     const collectionItems = await getCollectionItems(collectionId);
     return collectionItems.items.some(item => {
-      return item.fieldData.name === itemName
+      return item.fieldData.name === itemName && item.fieldData.slug === itemSlug;
     });
   } catch (error) {
     console.error(error);
@@ -333,6 +318,18 @@ const fetchAndPushContent = async (owner, repo, token, pageId, webflowToken) => 
     }
   }
 };
+const getItemIdIfExists = async (collectionId, itemName, itemSlug) => {
+  try {
+    const collectionItems = await getCollectionItems(collectionId);
+    const item = collectionItems.items.find(item => 
+      item.fieldData.name === itemName && item.fieldData.slug === itemSlug
+    );
+    return item ? item.id : null; // Return item ID if found, else return null
+  } catch (error) {
+    console.error("Error fetching collection items: ", error);
+    throw error;
+  }
+};
 
 const updateAllItems = async (owner, repo, siteId) => {
   const repoTree = await fetchRepoTree(owner, repo);
@@ -344,43 +341,49 @@ const updateAllItems = async (owner, repo, siteId) => {
       const slug = itemName.toLowerCase().replace(/\s+/g, '-');
       // Iterate through each collection to find a matching collection for the file
       for (const collection of collections.collections) {
-        console.log(`Checking for item: ${itemName} in collection: ${collection.displayName}`);
-        if (await isItemExist(collection.id, itemName, slug)) {
-          console.log(`Fetching content for: ${itemName}`);
+        const itemId = await getItemIdIfExists(collection.id, itemName, slug);
+        if (itemId) {
+          console.log("Name: ", itemName, " Slug: ", slug, " Item Id :",itemId);
           const fileContentResponse = await axios.get(item.url, {
             headers: {
               Authorization: `Bearer ${process.env.GT_TOKEN}`,
               Accept: 'application/vnd.github.v3.raw'
             },
           });
-
+      
+        
           const htmlContent = markdownIt.render(fileContentResponse.data);
-         // console.log(htmlContent)
           console.log(`Updating Webflow item: ${itemName} in collection: ${collection.displayName}`);
-          //await updateWebflowItem(collection.id, slug, htmlContent, itemName, slug);
+          await updateWebflowItem(collection.id, itemId, htmlContent, itemName, slug);
         } else {
           console.log(`No existing item matches: ${itemName} in collection: ${collection.displayName}`);
         }
       }
+      
     }
   }
 };
 
 
 const publishAllItems = async (owner, repo, siteId) => {
-  const repoTree = await fetchRepoTree(owner, repo);
-  const collections = await getCollection(siteId);
-
-  for (const item of repoTree) {
-    const itemName = item.path.replace('.md', '').split('/').pop();
-    const slug = itemName.toLowerCase().replace(/\s+/g, '-');
-
-    // Check if the item exists in the collection
-    if (await isItemExist(collections.id, itemName, slug)) {
-      console.log(`Publishing Webflow item: ${itemName}`);
-      await publishCollectionItem(collections.id, slug);
-    } else {
-      console.log(`No existing item matches: ${itemName}`);
+  const collections = await getAllCollectionItems(siteId);
+  for (const collection of collections) {
+    console.log("Current Collection: ", collection);
+  
+    // Now iterate through each item within the collection
+    for (const item of collection.items) {
+      console.log("Current Item: ", item);
+      
+      // Use the fieldData from each item
+      const itemId = await getItemIdIfExists(collection.collectionId, item.fieldData.name, item.fieldData.slug);
+      
+      if (itemId) {
+        console.log("Item ID Found: ", itemId);
+        // Assuming `publishCollectionItem` function takes a collection ID and an array of item IDs
+        await publishCollectionItem(collection.collectionId, [itemId]);
+      } else {
+        console.log(`No existing item matches: ${item.fieldData.name} in collection: ${collection.collectionId}`);
+      }
     }
   }
 };
@@ -393,14 +396,37 @@ const repo = 'Layers-Docs';
 const main = async (owner, repo, siteId) => {
   try {
     console.log("Starting update process...");
-    await updateAllItems(owner, repo, siteId);
+    //await updateAllItems(owner, repo, siteId);
     console.log("Update process completed successfully. Starting publishing process...");
-    //await publishAllItems(owner, repo, siteId);
+
+    await publishAllItems(owner, repo, siteId);
     //console.log("Publishing process completed successfully.");
+
+
+    console.log("----- Checking Collection Items -----")
+    const collectionItems = await getAllCollectionItems(siteId)
+
+    // Loop through each collection in the collectionItems array
+    collectionItems.forEach(collection => {
+      console.log(`Collection ID: ${collection.collectionId}`);
+      
+      // Loop through each item in the items array of the current collection
+      collection.items.forEach(item => {
+        // Assuming item object is already populated similar to the 'items' example you provided
+        console.log(`Name: ${item.fieldData.name}`);
+        console.log(`Slug: ${item.fieldData.slug}`);
+        console.log(`Data: ${item.fieldData.data}`);
+        console.log('---'); // Separator for better readability
+      });
+    });
+
+        
   } catch (error) {
     console.error("An error occurred:", error.message);
   }
 };
+
+
 
 // Example usage of the main function
 main(owner, repo, siteId);
