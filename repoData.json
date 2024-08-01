@@ -1,0 +1,14 @@
+{
+  "languages": [
+    {
+      "name": "Rust",
+      "size": 126826
+    },
+    {
+      "name": "Dockerfile",
+      "size": 865
+    }
+  ],
+  "readme": "# Proof Engine\n\n## Overview\n\nThe labor market on the Internet is densely populated, making talent filtering a challenging task. **Proof Engine** aims to address this issue by empowering talent through an innovative filtering mechanism.\n\n## Problem Statement\n\nThe internet labor market is crowded, which complicates talent filtering. Several challenges arise:\n- For those without prior client experience, breaking into the industry is difficult.\n- Post-project evaluations often emphasize client reviews over work quality.\n- Work sharing lacks a social dimension, necessitating significant time for work analysis.\n- Clients and employers face difficulty in efficiently evaluating work portfolios.\n\n## Solution: Proof Engine\n**Let's follow the Bitcoin's proof-of-work**\n**Proof Engine** is designed to solve these problems by enabling users to showcase their skills and work through third-party integrations like GitHub and Figma. It gathers data, analyze them and generates comprehensive reports that serve as proof of their capabilities and expertise.\n\n## Key Objectives\n\n- Provide an open-source algorithm to gather, analyze, and generate reports on proof-of-work.\n- Offer a reliable and standardized proof of work based on integrated third-party apps.\n- Enhance talent filtering by giving prominence to work quality and expertise.\n- Facilitate collaboration and team formation based on proof of work.\n\n## Use Cases\n\n### Freelance Marketplaces\n\n- Simplify talent filtering in crowded freelance marketplaces.\n- Enable newcomers to showcase their skills effectively, enhancing industry entry opportunities.\n- Shift the emphasis from client reviews to work quality and expertise.\n\n### Work Sharing\n\n- Improve the social aspect of work sharing, making it more interactive and engaging.\n- Enable effective collaboration during events by providing a platform to analyze and discuss work.\n\n### Client/Employer Perspective\n\n- Streamline the process for clients and employers to review and evaluate existing work portfolios.\n\n## Contributing\n\nWe welcome contributions from the community. To contribute, please follow the guidelines outlined in [CONTRIBUTING.md](link_to_contributing_md).\n\n## License\n\nThis project is dual-licensed:\n- [MIT License](LICENSE-MIT) (for contributors and personal use)\n- [Apache License 2.0](LICENSE-APACHE) (for contributors and personal use)\n\nFor commercial use, please contact us to discuss licensing options and terms tailored to your needs.\n\nSee [LICENSE-MIT](LICENSE-MIT) and [LICENSE-APACHE](LICENSE-APACHE) for more details.\n\n",
+  "tags": []
+}

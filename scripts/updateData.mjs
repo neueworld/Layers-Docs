@@ -4,7 +4,7 @@ import MarkdownIt from 'markdown-it';
 import { getCollection, getCollectionItems,updateWebflowItem,getAllCollectionItems } from './webflow.mjs';
 
 const markdownIt = new MarkdownIt();
-const siteId = "660e763c275e50fdf03ef908";
+const siteId = "";
 
 const owner = 'neueworld';
 const repo = 'Layers-Docs';

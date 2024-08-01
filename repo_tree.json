@@ -1,0 +1,2753 @@
+{
+  "sha": "576a011d5d9310f5b6ee039e68f5c66923dc4604",
+  "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/trees/576a011d5d9310f5b6ee039e68f5c66923dc4604",
+  "tree": [
+    {
+      "path": ".env",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b70b178ff04612fad7750b24d40f3ff91e8e21fd",
+      "size": 117,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/b70b178ff04612fad7750b24d40f3ff91e8e21fd"
+    },
+    {
+      "path": ".eslintrc.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4d765f2817874674ea266e8c29bbadd275a21fb5",
+      "size": 54,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/4d765f2817874674ea266e8c29bbadd275a21fb5"
+    },
+    {
+      "path": ".gitignore",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "88e0b74713ea380670fc631abbaf4d8f254d7dfb",
+      "size": 352,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/88e0b74713ea380670fc631abbaf4d8f254d7dfb"
+    },
+    {
+      "path": ".history",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "d27b46ac03845a6ef9ce5d46b4c9ac990a964029",
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/trees/d27b46ac03845a6ef9ce5d46b4c9ac990a964029"
+    },
+    {
+      "path": ".history/.env_20240315131053",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "size": 0,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": ".history/.env_20240315131244",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "58f3965041b7ff72be7ce92169c998922a480cd8",
+      "size": 41,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/58f3965041b7ff72be7ce92169c998922a480cd8"
+    },
+    {
+      "path": ".history/next.config_20240313105617.js",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a843cbee09afaadbf9c8dd1477dcccf7eb56af50",
+      "size": 118,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/a843cbee09afaadbf9c8dd1477dcccf7eb56af50"
+    },
+    {
+      "path": ".history/next.config_20240313192253.js",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9a0b892dff562f24ec824b1221ce9d75a9397ab0",
+      "size": 419,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/9a0b892dff562f24ec824b1221ce9d75a9397ab0"
+    },
+    {
+      "path": ".history/next.config_20240314084550.js",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "57625fec0bc9611b846bee1de86fa0afac52d4bb",
+      "size": 440,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/57625fec0bc9611b846bee1de86fa0afac52d4bb"
+    },
+    {
+      "path": ".history/next.config_20240314084729.js",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "821cfc44f72cd8b06687618a6d0e93670dbf6573",
+      "size": 442,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/821cfc44f72cd8b06687618a6d0e93670dbf6573"
+    },
+    {
+      "path": ".history/src",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "99741bfdfad75903e76927061f649bf60666011c",
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/trees/99741bfdfad75903e76927061f649bf60666011c"
+    },
+    {
+      "path": ".history/src/components",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "b531bc016d88ff1639731d5e3160b4465fa8e733",
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/trees/b531bc016d88ff1639731d5e3160b4465fa8e733"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240313105617.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4d25f469ef5bafd5d18e3fca126c02096ee174f9",
+      "size": 3107,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/4d25f469ef5bafd5d18e3fca126c02096ee174f9"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240314094208.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5f8b5b572d16ae4bca9a4156a37c1eb3fa64d0a4",
+      "size": 3157,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/5f8b5b572d16ae4bca9a4156a37c1eb3fa64d0a4"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240314094225.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "aa068d31776fb507922437dfdecec27f120ddcd3",
+      "size": 3202,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/aa068d31776fb507922437dfdecec27f120ddcd3"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240314095206.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "be2fd6c19ab7be3195f002a17bc6b2ab4c7dc2f8",
+      "size": 3886,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/be2fd6c19ab7be3195f002a17bc6b2ab4c7dc2f8"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240314185647.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "720c39513b875442dda310da8006ae1f64d013ff",
+      "size": 3852,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/720c39513b875442dda310da8006ae1f64d013ff"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240314191315.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ed741be17337a7e97ac864070c6dfa5308cb1cb8",
+      "size": 4628,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/ed741be17337a7e97ac864070c6dfa5308cb1cb8"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240314191512.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d2c9c6de55c319a8d769f6ae03f6e9491f167d3e",
+      "size": 4661,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/d2c9c6de55c319a8d769f6ae03f6e9491f167d3e"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240314192506.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d2c9c6de55c319a8d769f6ae03f6e9491f167d3e",
+      "size": 4661,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/d2c9c6de55c319a8d769f6ae03f6e9491f167d3e"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240314192621.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2e569534462eb63c58a2ece926b225b62ef38801",
+      "size": 4714,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/2e569534462eb63c58a2ece926b225b62ef38801"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240314195151.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "96fade61840962c2c5b0feced1884a17b11356fa",
+      "size": 4702,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/96fade61840962c2c5b0feced1884a17b11356fa"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240314195220.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9443a49c423b90ff1080b4b4b27808993971f5ae",
+      "size": 4697,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/9443a49c423b90ff1080b4b4b27808993971f5ae"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240314195320.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "96fade61840962c2c5b0feced1884a17b11356fa",
+      "size": 4702,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/96fade61840962c2c5b0feced1884a17b11356fa"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240314201036.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f486e4a316ad60ca0d70d663dfd2ced8a34e3091",
+      "size": 4718,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/f486e4a316ad60ca0d70d663dfd2ced8a34e3091"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240314202537.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "328599ce1e7fbde687857b7adf8a09ae18c4ee6d",
+      "size": 4823,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/328599ce1e7fbde687857b7adf8a09ae18c4ee6d"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240314202859.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5b50cdeec5a21c6e53a6ffeebe87898e32cf5c39",
+      "size": 4823,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/5b50cdeec5a21c6e53a6ffeebe87898e32cf5c39"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240314202933.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5421e8c9f74bcda9a14672e32b56f9e2f930c8f5",
+      "size": 4807,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/5421e8c9f74bcda9a14672e32b56f9e2f930c8f5"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240314213540.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "328599ce1e7fbde687857b7adf8a09ae18c4ee6d",
+      "size": 4823,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/328599ce1e7fbde687857b7adf8a09ae18c4ee6d"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240314213606.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6326073b719b95b66f0b9df1bb0df2ac952600c6",
+      "size": 4884,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/6326073b719b95b66f0b9df1bb0df2ac952600c6"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240314213802.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0898413f8671e30239310f942c9b993698baba20",
+      "size": 4875,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/0898413f8671e30239310f942c9b993698baba20"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240314213828.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9fdceeedc70112f881fe96a96778ba508d53a26a",
+      "size": 4916,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/9fdceeedc70112f881fe96a96778ba508d53a26a"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240314213904.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0c5131d68be7173adfe0856a0b1b319fc76f6e87",
+      "size": 4914,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/0c5131d68be7173adfe0856a0b1b319fc76f6e87"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240314214020.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b531bcafcfddb662020185c14a037b67d2bdc655",
+      "size": 4882,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/b531bcafcfddb662020185c14a037b67d2bdc655"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240314214831.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "dc4ee2b2bcfe9779ff94a796f0756e3c3f8d0c29",
+      "size": 4890,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/dc4ee2b2bcfe9779ff94a796f0756e3c3f8d0c29"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240314214942.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "160f81a1171f9588550af345887e6b806d459888",
+      "size": 4884,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/160f81a1171f9588550af345887e6b806d459888"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240314215000.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "dc4ee2b2bcfe9779ff94a796f0756e3c3f8d0c29",
+      "size": 4890,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/dc4ee2b2bcfe9779ff94a796f0756e3c3f8d0c29"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240314215012.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9422fc9b3f593a43a0b97cbd8d6aa13d9683abf0",
+      "size": 4874,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/9422fc9b3f593a43a0b97cbd8d6aa13d9683abf0"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240314215313.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "37bee9ee8c96761a1818caeed339630f183a4c59",
+      "size": 4877,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/37bee9ee8c96761a1818caeed339630f183a4c59"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240314215755.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "85c89a7f82561426d26f8c5ace00c93fca756ca3",
+      "size": 4895,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/85c89a7f82561426d26f8c5ace00c93fca756ca3"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240314222452.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e1157ed0e17462393956892a72002d8dd6c58a0c",
+      "size": 4894,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/e1157ed0e17462393956892a72002d8dd6c58a0c"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240314222722.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b001a9b46970cdf6d1e9937c84751c34a53058cf",
+      "size": 4876,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/b001a9b46970cdf6d1e9937c84751c34a53058cf"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240315100812.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ef22e3c81b41449cd0e014d4d5bb12edc71dddb2",
+      "size": 4870,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/ef22e3c81b41449cd0e014d4d5bb12edc71dddb2"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240315101140.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e8f0ca02ec298c7f5c49053725dacf1cd50ebcf1",
+      "size": 4872,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/e8f0ca02ec298c7f5c49053725dacf1cd50ebcf1"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240315103021.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "30985052b24b8c01493a49953d0fd14e65d952cb",
+      "size": 4896,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/30985052b24b8c01493a49953d0fd14e65d952cb"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240315103125.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7e43f3a21ce13eed8710dcc4522edb3e09fd3a42",
+      "size": 4894,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/7e43f3a21ce13eed8710dcc4522edb3e09fd3a42"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240315103400.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "bf8ecfb622e1c54bab73d4a9d0fa48c64da478dd",
+      "size": 4878,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/bf8ecfb622e1c54bab73d4a9d0fa48c64da478dd"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240315105558.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b001a9b46970cdf6d1e9937c84751c34a53058cf",
+      "size": 4876,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/b001a9b46970cdf6d1e9937c84751c34a53058cf"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240315123721.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "bbae835d4b9265ba2e4788b5d3ccd06eef56b6b0",
+      "size": 4931,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/bbae835d4b9265ba2e4788b5d3ccd06eef56b6b0"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240315123738.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "24530a0c2f2caef2653d2d56217f9b3ea8ef850e",
+      "size": 4933,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/24530a0c2f2caef2653d2d56217f9b3ea8ef850e"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240315133724.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d596ceae2ff56adcdd39820a69b31907c63a5618",
+      "size": 5708,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/d596ceae2ff56adcdd39820a69b31907c63a5618"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240315133806.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "946c31396bfc4c56e9539fe4153a35bc1b028291",
+      "size": 5720,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/946c31396bfc4c56e9539fe4153a35bc1b028291"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240315134024.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0ac5b3381ea92755457e22d1f372226cfc7fbca3",
+      "size": 5946,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/0ac5b3381ea92755457e22d1f372226cfc7fbca3"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240315134152.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4caafa2861489f45692dc9fdaa7c19d40baec371",
+      "size": 5948,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/4caafa2861489f45692dc9fdaa7c19d40baec371"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240315134317.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0fcb5a2750c6feca9951f8f9b951ab975b730878",
+      "size": 5981,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/0fcb5a2750c6feca9951f8f9b951ab975b730878"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240315134418.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e7a672eb10ed4ecf0fecd664cb76fe644f6b5e1f",
+      "size": 5964,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/e7a672eb10ed4ecf0fecd664cb76fe644f6b5e1f"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240315134629.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e7a672eb10ed4ecf0fecd664cb76fe644f6b5e1f",
+      "size": 5964,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/e7a672eb10ed4ecf0fecd664cb76fe644f6b5e1f"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240315134638.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4071e485c093a4e2e186402ba48dc5b7107c4bc4",
+      "size": 5904,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/4071e485c093a4e2e186402ba48dc5b7107c4bc4"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240315150609.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c807a73a70946ad575eb42844244950309b10b75",
+      "size": 6160,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/c807a73a70946ad575eb42844244950309b10b75"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240315151011.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b38931093f983cb64a734ffb26604c2fd4023c12",
+      "size": 6183,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/b38931093f983cb64a734ffb26604c2fd4023c12"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240315151239.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4cd9a28b58c98c377c0dbda4d8356e5f80066c10",
+      "size": 6201,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/4cd9a28b58c98c377c0dbda4d8356e5f80066c10"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240315151709.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b75195435acb844bc6124f6ab1c76132cf0cb27b",
+      "size": 6251,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/b75195435acb844bc6124f6ab1c76132cf0cb27b"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240315151817.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "cea187dea7d69aec988446decea84bd877050b5b",
+      "size": 6338,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/cea187dea7d69aec988446decea84bd877050b5b"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240315151846.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "095aaa6de197faf2f4a6269e8d474bbcc78cd996",
+      "size": 6344,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/095aaa6de197faf2f4a6269e8d474bbcc78cd996"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240315151953.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4819484e2959f63eede5d8a9b5c202c441723478",
+      "size": 6469,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/4819484e2959f63eede5d8a9b5c202c441723478"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240315152024.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "210b55ac4522b74010465094eebb40a371b85cac",
+      "size": 6464,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/210b55ac4522b74010465094eebb40a371b85cac"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240315152127.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "49862496148ef577930ede61b247a92141af417f",
+      "size": 6433,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/49862496148ef577930ede61b247a92141af417f"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240315152305.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5f16c2c2510bd9dbabf69ad42b4dfe3eec28b557",
+      "size": 6330,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/5f16c2c2510bd9dbabf69ad42b4dfe3eec28b557"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240315152414.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "cf5744e4297535afd4ab2ee88c7e543da9585899",
+      "size": 6358,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/cf5744e4297535afd4ab2ee88c7e543da9585899"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240315152455.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "04dc7bcb5e2112381c127c590922c259d819c6c6",
+      "size": 6360,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/04dc7bcb5e2112381c127c590922c259d819c6c6"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240315152750.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "23bd0313dfeb411b03cfa4b356a2cd9f3efd8027",
+      "size": 6388,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/23bd0313dfeb411b03cfa4b356a2cd9f3efd8027"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240315153009.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "14545603ca99255bbac34817be0a6a4fad13821e",
+      "size": 6420,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/14545603ca99255bbac34817be0a6a4fad13821e"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240315153045.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "51015c64ce194b8ff67070705a3996c5d8759df9",
+      "size": 6418,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/51015c64ce194b8ff67070705a3996c5d8759df9"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240315153056.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6b0aa2b1213834235a190d0b5788d17dbbddd0b8",
+      "size": 6395,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/6b0aa2b1213834235a190d0b5788d17dbbddd0b8"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240315153154.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "aa3284dde396a25bc1df3e7b45b4ce929cfa0acb",
+      "size": 6478,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/aa3284dde396a25bc1df3e7b45b4ce929cfa0acb"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240315153215.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "993d1b3162741511a0021da6a77f1da73a9d14ee",
+      "size": 6480,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/993d1b3162741511a0021da6a77f1da73a9d14ee"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240317100435.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3dea15954f19191f64e7edaa4e939b7b7412336b",
+      "size": 7533,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/3dea15954f19191f64e7edaa4e939b7b7412336b"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240317100523.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "69b228270c4322edb814dda68a9f289dbdb2674b",
+      "size": 7582,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/69b228270c4322edb814dda68a9f289dbdb2674b"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240317100628.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2dc8e9b844a1ec2c8e69a6c7817db5f8bb87d703",
+      "size": 7592,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/2dc8e9b844a1ec2c8e69a6c7817db5f8bb87d703"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240317102444.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6b5765732cf646ae7835caa6084b66a62c13a68b",
+      "size": 7593,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/6b5765732cf646ae7835caa6084b66a62c13a68b"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240317104723.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c64ac4aefe200a29a8b57ee5d9ca915411d00a5e",
+      "size": 7679,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/c64ac4aefe200a29a8b57ee5d9ca915411d00a5e"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240317104806.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "14732805812e50f027b9d3235877dcb59e58ef6d",
+      "size": 7699,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/14732805812e50f027b9d3235877dcb59e58ef6d"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240317105342.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "25002469f0234341823a0b5212cc8c3676432a63",
+      "size": 7679,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/25002469f0234341823a0b5212cc8c3676432a63"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240317110643.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a0fb2b5ffea75ef46976a523280ffaa568952127",
+      "size": 7687,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/a0fb2b5ffea75ef46976a523280ffaa568952127"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240317110649.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a0fb2b5ffea75ef46976a523280ffaa568952127",
+      "size": 7687,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/a0fb2b5ffea75ef46976a523280ffaa568952127"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240317110751.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "25002469f0234341823a0b5212cc8c3676432a63",
+      "size": 7679,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/25002469f0234341823a0b5212cc8c3676432a63"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240317110830.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7a2af838f3e06cd389fa0569ec627bf2eb526a5c",
+      "size": 7704,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/7a2af838f3e06cd389fa0569ec627bf2eb526a5c"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240317110919.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7a2af838f3e06cd389fa0569ec627bf2eb526a5c",
+      "size": 7704,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/7a2af838f3e06cd389fa0569ec627bf2eb526a5c"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240317111120.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7a2af838f3e06cd389fa0569ec627bf2eb526a5c",
+      "size": 7704,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/7a2af838f3e06cd389fa0569ec627bf2eb526a5c"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240317111243.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "cfcffaebf46ce26c5dbae96f6724ab499c8aca06",
+      "size": 7713,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/cfcffaebf46ce26c5dbae96f6724ab499c8aca06"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240317111312.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7a2af838f3e06cd389fa0569ec627bf2eb526a5c",
+      "size": 7704,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/7a2af838f3e06cd389fa0569ec627bf2eb526a5c"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240317194036.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e3767dbf26a34491bdb19711d1362cf50e4d6aa3",
+      "size": 7992,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/e3767dbf26a34491bdb19711d1362cf50e4d6aa3"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240317194109.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f7feb5aaef881b001cab18be43eb149df531eb90",
+      "size": 7994,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/f7feb5aaef881b001cab18be43eb149df531eb90"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240317194211.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "282c8ffaf898779dacb48a261ff34fe5884a53b8",
+      "size": 8016,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/282c8ffaf898779dacb48a261ff34fe5884a53b8"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240317194251.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5b9bd4df76118b8cf51e2c3773d9123b05190844",
+      "size": 7712,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/5b9bd4df76118b8cf51e2c3773d9123b05190844"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240317194253.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f355d75e000475e68e572423fcaa54cc6c1e9fc4",
+      "size": 7719,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/f355d75e000475e68e572423fcaa54cc6c1e9fc4"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240317200109.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ed5a6d667325ef4cf9e05412a6c6d2716447d3ee",
+      "size": 7713,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/ed5a6d667325ef4cf9e05412a6c6d2716447d3ee"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240317200202.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "dfca909fa348037613957e47373d2cbc4c61410b",
+      "size": 7768,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/dfca909fa348037613957e47373d2cbc4c61410b"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240317200840.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5162030d3b1a95646bc9a40096ca736a1b0cbf9c",
+      "size": 7830,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/5162030d3b1a95646bc9a40096ca736a1b0cbf9c"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240317200909.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5855b0692dce02c6e2d7f6a4f9b62943e37a8247",
+      "size": 7785,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/5855b0692dce02c6e2d7f6a4f9b62943e37a8247"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240317201237.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "104b68562353ee4dfa14443b11ac8d70baf2bfd3",
+      "size": 7694,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/104b68562353ee4dfa14443b11ac8d70baf2bfd3"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240317201252.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3d1bc8f36dc927e65e3ee1e50f13fc12984a9bec",
+      "size": 7703,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/3d1bc8f36dc927e65e3ee1e50f13fc12984a9bec"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240317202002.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "eb61bc135b498026ba90e766589f4a58dff007b6",
+      "size": 7695,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/eb61bc135b498026ba90e766589f4a58dff007b6"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240318002430.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "104b68562353ee4dfa14443b11ac8d70baf2bfd3",
+      "size": 7694,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/104b68562353ee4dfa14443b11ac8d70baf2bfd3"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240318101103.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f5255f01c6263dcbc83e93d3891daa173e46be88",
+      "size": 7837,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/f5255f01c6263dcbc83e93d3891daa173e46be88"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240318101233.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f5255f01c6263dcbc83e93d3891daa173e46be88",
+      "size": 7837,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/f5255f01c6263dcbc83e93d3891daa173e46be88"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240318102057.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d0c5cea83bc3455107beeb4130975cfe73c0439b",
+      "size": 8052,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/d0c5cea83bc3455107beeb4130975cfe73c0439b"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240318102404.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "926c7da0549c72908b80e30ac2c03b50448f8d13",
+      "size": 8428,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/926c7da0549c72908b80e30ac2c03b50448f8d13"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240318102439.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "db1f2533f7ddc622b341b7c3fc82d28e3efd3516",
+      "size": 8216,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/db1f2533f7ddc622b341b7c3fc82d28e3efd3516"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240318102517.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1698c9f5c15ed58bd1d926a4c88ed4b0b1ff2519",
+      "size": 8332,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/1698c9f5c15ed58bd1d926a4c88ed4b0b1ff2519"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240318102855.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a6ec2e093c9fea47e6441d9f50b1aafcef5f8fe3",
+      "size": 8425,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/a6ec2e093c9fea47e6441d9f50b1aafcef5f8fe3"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240318102945.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "794a75913e01e13852b755f57974d2e88eeda0d6",
+      "size": 8222,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/794a75913e01e13852b755f57974d2e88eeda0d6"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240318105443.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e3b9e96f58c6dda80d2796acfc986eb835ce5c6b",
+      "size": 8221,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/e3b9e96f58c6dda80d2796acfc986eb835ce5c6b"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240318123527.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "dbf8c903e96b89cdf88740ffd04465d85dbd4142",
+      "size": 8416,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/dbf8c903e96b89cdf88740ffd04465d85dbd4142"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240318123600.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "cd5307c16937f17f5180047964e3bc2c09cf0ff9",
+      "size": 8447,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/cd5307c16937f17f5180047964e3bc2c09cf0ff9"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240318123648.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "08b05d466e710f935acb86377d501c810a060ef0",
+      "size": 8331,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/08b05d466e710f935acb86377d501c810a060ef0"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240318133035.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "078bcd7abe0449a7713f7072e143d897a4265f18",
+      "size": 8282,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/078bcd7abe0449a7713f7072e143d897a4265f18"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240318133939.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5cc707388bdf6ae4e475cceb612159032ea514ad",
+      "size": 8318,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/5cc707388bdf6ae4e475cceb612159032ea514ad"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240318134004.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "093d3f1a21ec8e534c2cffabb55b7ad3344528bc",
+      "size": 8346,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/093d3f1a21ec8e534c2cffabb55b7ad3344528bc"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240318134026.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1182a976b966f98d7cc77d49df4f0e0132a8ae5d",
+      "size": 8285,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/1182a976b966f98d7cc77d49df4f0e0132a8ae5d"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240318134319.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8451faffe29daab85768c445f203c9336ebb39d7",
+      "size": 8477,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/8451faffe29daab85768c445f203c9336ebb39d7"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240318134403.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3d9d955f99c5c8e5d57c174a2d774cea7a571965",
+      "size": 8574,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/3d9d955f99c5c8e5d57c174a2d774cea7a571965"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240318134603.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "041c6f14c2e516fd492f2b7af63845f24e95a9b1",
+      "size": 8414,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/041c6f14c2e516fd492f2b7af63845f24e95a9b1"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240318134638.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6e3e2e57e443858ac5dde1fedff6e237f738203d",
+      "size": 8380,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/6e3e2e57e443858ac5dde1fedff6e237f738203d"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240318134806.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "578d95368900ea168a76a4c5c3f5ca31bb3de20c",
+      "size": 8414,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/578d95368900ea168a76a4c5c3f5ca31bb3de20c"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240318135120.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "59e5d80a8886b3e9a834ab7a7469baba1cb825f8",
+      "size": 8396,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/59e5d80a8886b3e9a834ab7a7469baba1cb825f8"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240318135500.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f2b6da228348d436b39b103541ec41b11fda78c9",
+      "size": 8381,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/f2b6da228348d436b39b103541ec41b11fda78c9"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240318135819.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "643d571cc975c03f67fba619d7bfbe2553f24e89",
+      "size": 8738,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/643d571cc975c03f67fba619d7bfbe2553f24e89"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240318140221.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d056dcd7903ab7bacc8968044f0a883525ee2057",
+      "size": 8410,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/d056dcd7903ab7bacc8968044f0a883525ee2057"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240318140549.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d4255123e068b16443a2b556a1c52d5e2ac5ee65",
+      "size": 8439,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/d4255123e068b16443a2b556a1c52d5e2ac5ee65"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240318145135.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ebdc32a6978172a8562dd752cf023cb41a49a71c",
+      "size": 8764,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/ebdc32a6978172a8562dd752cf023cb41a49a71c"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240318145528.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "71ee28816aa9a521e0c51bafa14cca703994af19",
+      "size": 8695,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/71ee28816aa9a521e0c51bafa14cca703994af19"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240318150635.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0457d2f2862a4b848f6edb82b33cc0554d9d6a16",
+      "size": 8760,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/0457d2f2862a4b848f6edb82b33cc0554d9d6a16"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240318150644.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4fecf0502a7af1d2ce40964b1de22b326f6f9db5",
+      "size": 8760,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/4fecf0502a7af1d2ce40964b1de22b326f6f9db5"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240318151041.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "580ef3bb6d26d21f4ed4683f0ea6ce9b35ec5a5c",
+      "size": 8810,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/580ef3bb6d26d21f4ed4683f0ea6ce9b35ec5a5c"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240318151058.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4b9322c2d16b4c84673e8898c383dac9306e15a8",
+      "size": 8812,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/4b9322c2d16b4c84673e8898c383dac9306e15a8"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240318151119.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f3e2e5fb25478781faab0e9adec5fd1a17d3f9a6",
+      "size": 8812,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/f3e2e5fb25478781faab0e9adec5fd1a17d3f9a6"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240318151147.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "23e7f35227f4793a689e3b871e677abd285c564c",
+      "size": 8821,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/23e7f35227f4793a689e3b871e677abd285c564c"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240318151249.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ff401deb86d5716cd832a55a8016fac430764549",
+      "size": 8774,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/ff401deb86d5716cd832a55a8016fac430764549"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240318152552.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ff401deb86d5716cd832a55a8016fac430764549",
+      "size": 8774,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/ff401deb86d5716cd832a55a8016fac430764549"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240318153919.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9aaed74857c827c27b550dee88f9b049ad948142",
+      "size": 8765,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/9aaed74857c827c27b550dee88f9b049ad948142"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240318165757.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9b1262148a68d04c3ebcdd476bd0cef9d69d06d3",
+      "size": 8789,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/9b1262148a68d04c3ebcdd476bd0cef9d69d06d3"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240318190656.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2c601a4a66ec609738e69c1135076008340b8219",
+      "size": 8790,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/2c601a4a66ec609738e69c1135076008340b8219"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240318190822.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "40b56ef309603800f195b6a23e25833786430a3a",
+      "size": 8766,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/40b56ef309603800f195b6a23e25833786430a3a"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240318191026.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "aa9cda609ed5075e1913031eab383aa361015e55",
+      "size": 8799,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/aa9cda609ed5075e1913031eab383aa361015e55"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240318191125.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "86b595ec8e4d1bda7662c7f7970fed36552442b2",
+      "size": 8829,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/86b595ec8e4d1bda7662c7f7970fed36552442b2"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240318191217.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "39184712710f85e98c2126f9970f67a95882fad3",
+      "size": 8793,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/39184712710f85e98c2126f9970f67a95882fad3"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240318205048.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "822b5d11b8fa786df96122f14b73b07febfdaf04",
+      "size": 8827,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/822b5d11b8fa786df96122f14b73b07febfdaf04"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240318205320.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4d903587b80d03be723f61397668f2fae4fb7ce1",
+      "size": 8797,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/4d903587b80d03be723f61397668f2fae4fb7ce1"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240318210028.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6c347ba8790280a32be9cb5447fab8882f6a5526",
+      "size": 8622,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/6c347ba8790280a32be9cb5447fab8882f6a5526"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240318210034.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "790f12ff139886722cc509ef5c0e48390abbea0d",
+      "size": 8637,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/790f12ff139886722cc509ef5c0e48390abbea0d"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240318210338.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2a6be7ca0c7e3d6025ec336461d8e9b0d33d7ca5",
+      "size": 8596,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/2a6be7ca0c7e3d6025ec336461d8e9b0d33d7ca5"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240318211456.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "14849dd3f16227bcfd3ad07b9af0780597ba3da0",
+      "size": 8533,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/14849dd3f16227bcfd3ad07b9af0780597ba3da0"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240318211512.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ab95745ae8f19d5667a48b0803b6e71453c79629",
+      "size": 8602,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/ab95745ae8f19d5667a48b0803b6e71453c79629"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240318214407.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "39ac5ac08bfd29f82056218dae372fd81223867a",
+      "size": 8576,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/39ac5ac08bfd29f82056218dae372fd81223867a"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240318214805.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4fd0d4b19d633855347aea5f916205a38c36f156",
+      "size": 8763,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/4fd0d4b19d633855347aea5f916205a38c36f156"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240318223720.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b082071d404a97f127161e00d9a0d4ce31b27c9c",
+      "size": 8798,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/b082071d404a97f127161e00d9a0d4ce31b27c9c"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240318223823.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a312899f75fa52b8c89047b675ffb866f36166c5",
+      "size": 8810,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/a312899f75fa52b8c89047b675ffb866f36166c5"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240318230430.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c6be3f8598f43acdfc1b1b7faa1b700f8db80b29",
+      "size": 9076,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/c6be3f8598f43acdfc1b1b7faa1b700f8db80b29"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240319125426.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6ba5d816c78ff3f7a2a142ec16a2da5d72c38458",
+      "size": 9121,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/6ba5d816c78ff3f7a2a142ec16a2da5d72c38458"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240319130651.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8b38255a86977b585d04dceb963204987c836f29",
+      "size": 10471,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/8b38255a86977b585d04dceb963204987c836f29"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240319130935.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e5fa10c35b4eb8f53eedef6350df7cded17324c2",
+      "size": 10516,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/e5fa10c35b4eb8f53eedef6350df7cded17324c2"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240319131144.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a233ddfa647373d7f483e7864089e990a0a72f9c",
+      "size": 10624,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/a233ddfa647373d7f483e7864089e990a0a72f9c"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240319131955.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "863304169c7a30ab9389bf95e1ff6e0ca1f8a05a",
+      "size": 10673,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/863304169c7a30ab9389bf95e1ff6e0ca1f8a05a"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240319132106.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "797f8e53f154bad82fc1f2619d7237bc20fc0198",
+      "size": 11280,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/797f8e53f154bad82fc1f2619d7237bc20fc0198"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240319132242.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "fc831fe30bde8b7ae334107e1f4ecbc88fa7ff3b",
+      "size": 11283,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/fc831fe30bde8b7ae334107e1f4ecbc88fa7ff3b"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240319132340.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "fa0db492b0090bd903028d6fc70c979a83ea905b",
+      "size": 11282,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/fa0db492b0090bd903028d6fc70c979a83ea905b"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240319134413.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4cfc7e868e4bbbfde64ae8ac59af988e208ed8ee",
+      "size": 11454,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/4cfc7e868e4bbbfde64ae8ac59af988e208ed8ee"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240319134832.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c8fd268b45cede75596f868d128ff83a6cb51728",
+      "size": 12003,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/c8fd268b45cede75596f868d128ff83a6cb51728"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240319134959.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "17c6c4c035e98b776c90b2e49011213946e6940b",
+      "size": 11999,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/17c6c4c035e98b776c90b2e49011213946e6940b"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240319135040.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0dce520eae59ae039d28d4b3b937b098db58cad4",
+      "size": 12001,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/0dce520eae59ae039d28d4b3b937b098db58cad4"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240319135156.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "22a30b0b317348ee3410e407065829503de209a8",
+      "size": 12035,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/22a30b0b317348ee3410e407065829503de209a8"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240319144831.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "abe9d093b013b8f792c84e3a092e40db2b9bff2f",
+      "size": 12072,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/abe9d093b013b8f792c84e3a092e40db2b9bff2f"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240319145315.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a49b3bd66932070e082681ec930c754201c786ec",
+      "size": 12061,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/a49b3bd66932070e082681ec930c754201c786ec"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240319151233.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b2533f8497c7c0cbc9f9b9a8efbae3405617d928",
+      "size": 12150,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/b2533f8497c7c0cbc9f9b9a8efbae3405617d928"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240319151929.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4d4c5b7eb367e2ac4a7d8aa39b68612f1a5c5036",
+      "size": 10654,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/4d4c5b7eb367e2ac4a7d8aa39b68612f1a5c5036"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240319152008.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1232496afbbedcf955d82876f15ca5ff82926072",
+      "size": 10660,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/1232496afbbedcf955d82876f15ca5ff82926072"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240319152201.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "04f638d9019d1f551b8fdb95f5b91011b56dabb5",
+      "size": 10662,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/04f638d9019d1f551b8fdb95f5b91011b56dabb5"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240319152248.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b47c3d1e7f5054a65d17fa8ccfd4adf872a02894",
+      "size": 10666,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/b47c3d1e7f5054a65d17fa8ccfd4adf872a02894"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240319152410.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "63f442ed0237ec99c5727baf14bfc5559939432f",
+      "size": 10670,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/63f442ed0237ec99c5727baf14bfc5559939432f"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240319152835.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "abec26ab16d5d8f4737aa4da39f6a9c2f50ff6e3",
+      "size": 11255,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/abec26ab16d5d8f4737aa4da39f6a9c2f50ff6e3"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240319160610.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2dad6cebdd9a79b5559e829192505e6c70348736",
+      "size": 11228,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/2dad6cebdd9a79b5559e829192505e6c70348736"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240319161013.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "bd681959a07e6a8870332d163061d0f7a91755be",
+      "size": 11230,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/bd681959a07e6a8870332d163061d0f7a91755be"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240319161318.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2c52ee7e9ab72cb6ead192fba669ff1c9eeaad4d",
+      "size": 11251,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/2c52ee7e9ab72cb6ead192fba669ff1c9eeaad4d"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240319161449.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "bf746bd6ab540dbf4d5a1ccc4043963b04d747ed",
+      "size": 11266,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/bf746bd6ab540dbf4d5a1ccc4043963b04d747ed"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240319161510.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a13f118248af76091490f713fdf04a94222effec",
+      "size": 11217,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/a13f118248af76091490f713fdf04a94222effec"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240319161527.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a28f0d4933112b6d6bbb63c7d52145de62087675",
+      "size": 11245,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/a28f0d4933112b6d6bbb63c7d52145de62087675"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240319161609.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e247a0b14530af6c95c0ec76e3bbc20e0ca6a214",
+      "size": 11266,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/e247a0b14530af6c95c0ec76e3bbc20e0ca6a214"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240319161635.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d7816ad2b93ce89747bfc61c9f7383e99dcb8ecc",
+      "size": 11251,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/d7816ad2b93ce89747bfc61c9f7383e99dcb8ecc"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240319161708.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "51ac8b68490a6e96fe57375b0119da349fca3320",
+      "size": 11259,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/51ac8b68490a6e96fe57375b0119da349fca3320"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240319161809.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9e6b1420211acaf2844efc5e83ff013b7e0197f3",
+      "size": 11267,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/9e6b1420211acaf2844efc5e83ff013b7e0197f3"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240319161843.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5b6b14d26d608459432798a6a36223fda2dde89a",
+      "size": 11275,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/5b6b14d26d608459432798a6a36223fda2dde89a"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240319161914.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d3bbbc40306112e8032a3b1e263e740d573f43b8",
+      "size": 11265,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/d3bbbc40306112e8032a3b1e263e740d573f43b8"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240319162041.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "cb27bca596dc0285617ad0e61d500682b48861d4",
+      "size": 11363,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/cb27bca596dc0285617ad0e61d500682b48861d4"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240319162118.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "82a2136cbef3ff46a93f069d790f6ff923c03df3",
+      "size": 11361,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/82a2136cbef3ff46a93f069d790f6ff923c03df3"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240319162433.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1e0dea7aa1e278a0526a4b15c7fa6a78388c76bc",
+      "size": 11377,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/1e0dea7aa1e278a0526a4b15c7fa6a78388c76bc"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240319162509.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "fb1a1ab9bca57acbf5b03d1af191f7781841882b",
+      "size": 11356,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/fb1a1ab9bca57acbf5b03d1af191f7781841882b"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240319162547.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "85bd836a9bff5ad68fd2232e14a77f371a926e18",
+      "size": 11354,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/85bd836a9bff5ad68fd2232e14a77f371a926e18"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240319162809.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a6a976f240dd6fe73b37dd4981fa47b7c82776bb",
+      "size": 11364,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/a6a976f240dd6fe73b37dd4981fa47b7c82776bb"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240319165015.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a40139ee2f2c4688311b36abeab281298b7ce9c0",
+      "size": 11406,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/a40139ee2f2c4688311b36abeab281298b7ce9c0"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240319165825.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "573276acbaf528d6c8c72340474ea862a364f3cc",
+      "size": 11372,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/573276acbaf528d6c8c72340474ea862a364f3cc"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240319170234.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "58a86b536ce3d3b13e0f53dde65bad45284ee371",
+      "size": 11374,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/58a86b536ce3d3b13e0f53dde65bad45284ee371"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240319170832.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "363fa3a257806d455f2ea11fdd546e8c5ee580e2",
+      "size": 11388,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/363fa3a257806d455f2ea11fdd546e8c5ee580e2"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240319171010.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "fb740f123cc57584b452bf07222c476670a97221",
+      "size": 12132,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/fb740f123cc57584b452bf07222c476670a97221"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240319171537.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "17566667c56393ba342756cac8e0a7ede3811208",
+      "size": 11909,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/17566667c56393ba342756cac8e0a7ede3811208"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240319171613.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "206da5f68df995623ba048384aed06a2e3c26077",
+      "size": 11913,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/206da5f68df995623ba048384aed06a2e3c26077"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240319171753.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "87149807c9b00937bc5a7225df36924aff3126f6",
+      "size": 12674,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/87149807c9b00937bc5a7225df36924aff3126f6"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240319190109.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "102ede0f5afaf717bf7f50c55523728051ea825b",
+      "size": 12721,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/102ede0f5afaf717bf7f50c55523728051ea825b"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240319190523.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8b09b8c623814d2f878c755af84ec9994206dbc1",
+      "size": 12723,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/8b09b8c623814d2f878c755af84ec9994206dbc1"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240319190531.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7f4e40d0891ab122482dcb447b387d50e44fce94",
+      "size": 12725,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/7f4e40d0891ab122482dcb447b387d50e44fce94"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240319190628.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "fe07ae385b7b8140f5a0a6ed94f00e9d428da48a",
+      "size": 12723,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/fe07ae385b7b8140f5a0a6ed94f00e9d428da48a"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240319190736.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "81c5c889874bc738bf8532fb2790004fc2d5cdf7",
+      "size": 12759,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/81c5c889874bc738bf8532fb2790004fc2d5cdf7"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240319192030.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7cba5a69434380f840767de972ed054d41889205",
+      "size": 12717,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/7cba5a69434380f840767de972ed054d41889205"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240319192313.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "bd9e7dd2348e1d58b9db4e2ee9496176796b1644",
+      "size": 12681,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/bd9e7dd2348e1d58b9db4e2ee9496176796b1644"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240319192713.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1eab30ed4d6bf521b29765bd25fd73b9ec52340e",
+      "size": 13211,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/1eab30ed4d6bf521b29765bd25fd73b9ec52340e"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240319192729.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0c0bf59be29b28e51c27ddbad7e379f4956cc4dd",
+      "size": 13191,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/0c0bf59be29b28e51c27ddbad7e379f4956cc4dd"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240319193119.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4ed99fbf559056e46571e8b1abcd868eebc83b75",
+      "size": 13195,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/4ed99fbf559056e46571e8b1abcd868eebc83b75"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240319193223.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0ec0497bdae35c8630bf101c6025310e2b93ff90",
+      "size": 13088,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/0ec0497bdae35c8630bf101c6025310e2b93ff90"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240319193317.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "420f6ba9db6a95c41da1dd28dbd90684b48848fe",
+      "size": 13084,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/420f6ba9db6a95c41da1dd28dbd90684b48848fe"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240319193724.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "229c1dc0cc76a91c32726298fcb57fb89b7e7a2e",
+      "size": 13189,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/229c1dc0cc76a91c32726298fcb57fb89b7e7a2e"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240319193936.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "fe6cec5ab2d544ff7411423791fadf09cb8de3d0",
+      "size": 13196,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/fe6cec5ab2d544ff7411423791fadf09cb8de3d0"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240319194120.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "dfef479edbc43572e1600c2bbb0b9618f6330330",
+      "size": 13184,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/dfef479edbc43572e1600c2bbb0b9618f6330330"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240319194204.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a2c65d2cce930134dcc603f08542bc4b9f9fde57",
+      "size": 13182,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/a2c65d2cce930134dcc603f08542bc4b9f9fde57"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240319194323.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f040cab4b6449ea67b9ef7a1e95767e51f6685d9",
+      "size": 13192,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/f040cab4b6449ea67b9ef7a1e95767e51f6685d9"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240319194425.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c4b5c21b101f840050d7d9a4936b81426bfa1990",
+      "size": 13218,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/c4b5c21b101f840050d7d9a4936b81426bfa1990"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240319194909.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9e3008c2e81eb244c4c501648891ed34a0ea180c",
+      "size": 13276,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/9e3008c2e81eb244c4c501648891ed34a0ea180c"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240319195124.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4a13cb5180d1262d344865a08c3ea2aead4aad63",
+      "size": 13442,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/4a13cb5180d1262d344865a08c3ea2aead4aad63"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240319195209.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3b21fe31991f7885c69e479f709c58906779011f",
+      "size": 13450,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/3b21fe31991f7885c69e479f709c58906779011f"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240319195306.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "903f090cd202771d3796da2c21e00cddb78f2449",
+      "size": 13444,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/903f090cd202771d3796da2c21e00cddb78f2449"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240319195342.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8b93fab82ee0d95f4d4effa1c96926c7743ed071",
+      "size": 13452,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/8b93fab82ee0d95f4d4effa1c96926c7743ed071"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240319195507.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "079b9d414464719dadc1a85ea3fc19cf8e1fff85",
+      "size": 13427,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/079b9d414464719dadc1a85ea3fc19cf8e1fff85"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240319195603.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8b93fab82ee0d95f4d4effa1c96926c7743ed071",
+      "size": 13452,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/8b93fab82ee0d95f4d4effa1c96926c7743ed071"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240319195614.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9baa2e22fdf8d878894656f4141e670615a40383",
+      "size": 13460,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/9baa2e22fdf8d878894656f4141e670615a40383"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240319195629.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8b93fab82ee0d95f4d4effa1c96926c7743ed071",
+      "size": 13452,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/8b93fab82ee0d95f4d4effa1c96926c7743ed071"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240319195742.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b8993525be015f11dff91be1df4d5eb15b38e7d4",
+      "size": 13394,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/b8993525be015f11dff91be1df4d5eb15b38e7d4"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240319195850.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8e79cefb44a2ca9a69eb0d83b721962a87e1c471",
+      "size": 13402,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/8e79cefb44a2ca9a69eb0d83b721962a87e1c471"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240319195935.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1ee5c731857c90bea0f4ea10e87adb9cdc0dc0e1",
+      "size": 13410,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/1ee5c731857c90bea0f4ea10e87adb9cdc0dc0e1"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240319200127.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a0f2d7cedc234d8efad03e6bbcc63693ea8c19a4",
+      "size": 13412,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/a0f2d7cedc234d8efad03e6bbcc63693ea8c19a4"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240319200202.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "299769d28934ff8dfd6e913c7404ac444a960da9",
+      "size": 13413,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/299769d28934ff8dfd6e913c7404ac444a960da9"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240319204417.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "229279fbf94817b2eab6d9db3986088089caa226",
+      "size": 12857,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/229279fbf94817b2eab6d9db3986088089caa226"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240319210213.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6fbac71258f0636d3ae77bfdc143782954cff505",
+      "size": 13766,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/6fbac71258f0636d3ae77bfdc143782954cff505"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240319210922.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e6527b91393ce639bdba72b76a3e370fccafd531",
+      "size": 14157,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/e6527b91393ce639bdba72b76a3e370fccafd531"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240319210944.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "bc41f870da58a1a6191a7cb51fa0bbf474948ad8",
+      "size": 14156,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/bc41f870da58a1a6191a7cb51fa0bbf474948ad8"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240319211116.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "832dd173bef3c338a66280914aa3ccb4ff293766",
+      "size": 14203,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/832dd173bef3c338a66280914aa3ccb4ff293766"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240319211131.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e8492d4f1f6c676ea5e08957a1d394b7f180875a",
+      "size": 14240,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/e8492d4f1f6c676ea5e08957a1d394b7f180875a"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240319212106.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "789260b7651163697d9b2333d89110401841ff24",
+      "size": 14372,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/789260b7651163697d9b2333d89110401841ff24"
+    },
+    {
+      "path": ".history/src/components/Dashboard_20240319212222.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "cfa51dfba9ab460cccf734c80083dbb7e843780d",
+      "size": 14352,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/cfa51dfba9ab460cccf734c80083dbb7e843780d"
+    },
+    {
+      "path": ".history/src/components/SmartAccountCreator_20240318132744.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "size": 0,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": ".history/src/components/SmartAccountCreator_20240318132801.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "776c88c1ca2b5da6e2a32a737d7a48c4d049806d",
+      "size": 1521,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/776c88c1ca2b5da6e2a32a737d7a48c4d049806d"
+    },
+    {
+      "path": ".history/src/components/SmartAccountCreator_20240318132904.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6cf6bce2d22d33edcb001556f1b153cd03efff1e",
+      "size": 1638,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/6cf6bce2d22d33edcb001556f1b153cd03efff1e"
+    },
+    {
+      "path": ".history/src/components/SmartAccountCreator_20240318210637.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "776c88c1ca2b5da6e2a32a737d7a48c4d049806d",
+      "size": 1521,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/776c88c1ca2b5da6e2a32a737d7a48c4d049806d"
+    },
+    {
+      "path": ".history/src/components/SmartAccountCreator_20240319150641.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9afcb8472cefc3f9027abc72eadbc65344e36b47",
+      "size": 3118,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/9afcb8472cefc3f9027abc72eadbc65344e36b47"
+    },
+    {
+      "path": ".history/src/components/SmartAccountCreator_20240319150654.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "56d3f1393301b8f68d17fca26c2db832a6cf9eec",
+      "size": 3150,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/56d3f1393301b8f68d17fca26c2db832a6cf9eec"
+    },
+    {
+      "path": ".history/src/pages",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "17dc6c888f3b4d3a26675fdfc58ea6529fe60054",
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/trees/17dc6c888f3b4d3a26675fdfc58ea6529fe60054"
+    },
+    {
+      "path": ".history/src/pages/index_20240313105617.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "347e39f00b02ce931450b19b1c34059f6dad6238",
+      "size": 2976,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/347e39f00b02ce931450b19b1c34059f6dad6238"
+    },
+    {
+      "path": ".history/src/pages/index_20240315133359.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7a35a00e7aa0c450adeeb16f5cc93e6fee1f5a09",
+      "size": 2975,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/7a35a00e7aa0c450adeeb16f5cc93e6fee1f5a09"
+    },
+    {
+      "path": ".history/src/pages/login_20240313105617.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4e09743e63f597720620f7796d11236025c40393",
+      "size": 3288,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/4e09743e63f597720620f7796d11236025c40393"
+    },
+    {
+      "path": ".history/src/pages/login_20240313203737.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "49daf29356f50a30517b22a94cfdc797741c7a44",
+      "size": 3334,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/49daf29356f50a30517b22a94cfdc797741c7a44"
+    },
+    {
+      "path": ".history/src/pages/login_20240313204629.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "36e1fde70e62a97bcd5849aae65f28e56bc13469",
+      "size": 3437,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/36e1fde70e62a97bcd5849aae65f28e56bc13469"
+    },
+    {
+      "path": ".history/src/pages/login_20240313212507.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5bd5986f0853300c5fe0564f2c064a05561d7c6d",
+      "size": 3453,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/5bd5986f0853300c5fe0564f2c064a05561d7c6d"
+    },
+    {
+      "path": ".history/src/pages/login_20240313212520.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9bbd18ef2c40d3a3d5db539c5824ee1f3a628f05",
+      "size": 3467,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/9bbd18ef2c40d3a3d5db539c5824ee1f3a628f05"
+    },
+    {
+      "path": ".history/src/pages/login_20240313212543.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c17bd33449071c76f7803c84873c99332b0973d9",
+      "size": 3453,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/c17bd33449071c76f7803c84873c99332b0973d9"
+    },
+    {
+      "path": ".history/src/pages/login_20240314084500.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d6e483c14ba0f029b52bd51546c708e977449469",
+      "size": 3573,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/d6e483c14ba0f029b52bd51546c708e977449469"
+    },
+    {
+      "path": ".history/src/pages/login_20240314084937.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "de62d1098073b42b68b689ebf3db3c20bdda8955",
+      "size": 3575,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/de62d1098073b42b68b689ebf3db3c20bdda8955"
+    },
+    {
+      "path": ".history/src/pages/login_20240314085445.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9b3078ac2494ad4cca6e133e36a635c45cc26d2c",
+      "size": 3489,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/9b3078ac2494ad4cca6e133e36a635c45cc26d2c"
+    },
+    {
+      "path": ".history/src/pages/login_20240314085636.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2eb6ca3451d6898bab504f7fd2d88fbf95c8fa67",
+      "size": 3380,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/2eb6ca3451d6898bab504f7fd2d88fbf95c8fa67"
+    },
+    {
+      "path": ".history/src/utils",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "e814ee54f4ed931ba67cdd95bb1c139a4dc05fd1",
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/trees/e814ee54f4ed931ba67cdd95bb1c139a4dc05fd1"
+    },
+    {
+      "path": ".history/src/utils/getSigner_20240314084919.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "size": 0,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": ".history/src/utils/getSigner_20240314085246.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b0b09cacbc46533af61d30c6bbfeb8175a9c3223",
+      "size": 468,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/b0b09cacbc46533af61d30c6bbfeb8175a9c3223"
+    },
+    {
+      "path": ".history/src/utils/getSigner_20240315131047.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f593791acc3cf93eae819f5be9d02c9a4fb445af",
+      "size": 886,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/f593791acc3cf93eae819f5be9d02c9a4fb445af"
+    },
+    {
+      "path": ".history/src/utils/getSigner_20240315133205.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e98cc8a256c0d57c4afcba179484814eafa52ad2",
+      "size": 1365,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/e98cc8a256c0d57c4afcba179484814eafa52ad2"
+    },
+    {
+      "path": ".history/src/utils/getSigner_20240315133255.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e98cc8a256c0d57c4afcba179484814eafa52ad2",
+      "size": 1365,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/e98cc8a256c0d57c4afcba179484814eafa52ad2"
+    },
+    {
+      "path": ".history/src/utils/getSigner_20240315133333.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ba00cfa7e8009396dcb4eefe12b407767569fe24",
+      "size": 1395,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/ba00cfa7e8009396dcb4eefe12b407767569fe24"
+    },
+    {
+      "path": ".history/src/utils/getSigner_20240318123715.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "size": 0,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": ".history/src/utils/lit_20240313105617.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c560e1a2dbcefaf7434569fb5d0528fec9dcbbb1",
+      "size": 7699,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/c560e1a2dbcefaf7434569fb5d0528fec9dcbbb1"
+    },
+    {
+      "path": ".history/src/utils/lit_20240313200143.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a8d91eb8851d7532e327c547a56bcf394ba88983",
+      "size": 7811,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/a8d91eb8851d7532e327c547a56bcf394ba88983"
+    },
+    {
+      "path": ".history/src/utils/lit_20240313200348.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "dc477715dffc0d89f4b2c0c1302812e96c9d7a9b",
+      "size": 7799,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/dc477715dffc0d89f4b2c0c1302812e96c9d7a9b"
+    },
+    {
+      "path": ".history/src/utils/lit_20240313200446.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a8d91eb8851d7532e327c547a56bcf394ba88983",
+      "size": 7811,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/a8d91eb8851d7532e327c547a56bcf394ba88983"
+    },
+    {
+      "path": ".history/src/utils/lit_20240313202708.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2e42b7ccc77e8a35239e0bace4d13d927a858367",
+      "size": 7832,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/2e42b7ccc77e8a35239e0bace4d13d927a858367"
+    },
+    {
+      "path": ".history/src/utils/lit_20240313203317.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a1c224d550fa76a1bd0cbd4a68f09c0f8aaf3e05",
+      "size": 7820,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/a1c224d550fa76a1bd0cbd4a68f09c0f8aaf3e05"
+    },
+    {
+      "path": ".history/src/utils/lit_20240313204051.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c4af061ad64a05067a72428936578044465767f0",
+      "size": 7875,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/c4af061ad64a05067a72428936578044465767f0"
+    },
+    {
+      "path": ".history/src/utils/lit_20240313204603.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a1c224d550fa76a1bd0cbd4a68f09c0f8aaf3e05",
+      "size": 7820,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/a1c224d550fa76a1bd0cbd4a68f09c0f8aaf3e05"
+    },
+    {
+      "path": ".history/src/utils/lit_20240317201958.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7cd5e5c0b045e4876c8caf7ff862182524288f9c",
+      "size": 7850,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/7cd5e5c0b045e4876c8caf7ff862182524288f9c"
+    },
+    {
+      "path": ".history/src/utils/lit_20240317202048.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a1c224d550fa76a1bd0cbd4a68f09c0f8aaf3e05",
+      "size": 7820,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/a1c224d550fa76a1bd0cbd4a68f09c0f8aaf3e05"
+    },
+    {
+      "path": ".history/src/utils/lit_20240318123158.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "bc63d997ff82c35a43c4baeb4055041c3314fd88",
+      "size": 7856,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/bc63d997ff82c35a43c4baeb4055041c3314fd88"
+    },
+    {
+      "path": ".history/src/utils/lit_20240318123523.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a1c224d550fa76a1bd0cbd4a68f09c0f8aaf3e05",
+      "size": 7820,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/a1c224d550fa76a1bd0cbd4a68f09c0f8aaf3e05"
+    },
+    {
+      "path": ".history/src/utils/lit_20240318130750.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7cd5e5c0b045e4876c8caf7ff862182524288f9c",
+      "size": 7850,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/7cd5e5c0b045e4876c8caf7ff862182524288f9c"
+    },
+    {
+      "path": ".history/src/utils/lit_20240318130838.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a1c224d550fa76a1bd0cbd4a68f09c0f8aaf3e05",
+      "size": 7820,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/a1c224d550fa76a1bd0cbd4a68f09c0f8aaf3e05"
+    },
+    {
+      "path": ".history/src/utils/lit_20240318211548.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c25b775fef692ad1a08fc8a60b79edb57374e4bb",
+      "size": 7875,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/c25b775fef692ad1a08fc8a60b79edb57374e4bb"
+    },
+    {
+      "path": ".prettierignore",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3f9344d2502d88c6d457b520c721d4c7284fadcf",
+      "size": 31,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/3f9344d2502d88c6d457b520c721d4c7284fadcf"
+    },
+    {
+      "path": ".prettierrc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "eee87f1662609bdafc5f3f117217ed55d30f79d6",
+      "size": 90,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/eee87f1662609bdafc5f3f117217ed55d30f79d6"
+    },
+    {
+      "path": "README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "90ad4f8ec069494a34ebe74975bf9857af7aafee",
+      "size": 934,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/90ad4f8ec069494a34ebe74975bf9857af7aafee"
+    },
+    {
+      "path": "context.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a9962ffc7bc06869f18aede1c60a864abe0af8bf",
+      "size": 78,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/a9962ffc7bc06869f18aede1c60a864abe0af8bf"
+    },
+    {
+      "path": "flags.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "33c7ec2ba73adfc2fc4e9a97b9ccfd2f3b58bc38",
+      "size": 17,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/33c7ec2ba73adfc2fc4e9a97b9ccfd2f3b58bc38"
+    },
+    {
+      "path": "jsconfig.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b8d6842d7fad0a64e5ffa846e104342233782852",
+      "size": 77,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/b8d6842d7fad0a64e5ffa846e104342233782852"
+    },
+    {
+      "path": "next-env.d.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4f11a03dc6cc37f2b5105c08f2e7b24c603ab2f4",
+      "size": 201,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/4f11a03dc6cc37f2b5105c08f2e7b24c603ab2f4"
+    },
+    {
+      "path": "next.config.js",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "821cfc44f72cd8b06687618a6d0e93670dbf6573",
+      "size": 442,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/821cfc44f72cd8b06687618a6d0e93670dbf6573"
+    },
+    {
+      "path": "package-lock.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c416933f2eabc09ef977fdcab9cb0e6ba4c1f9e6",
+      "size": 1647807,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/c416933f2eabc09ef977fdcab9cb0e6ba4c1f9e6"
+    },
+    {
+      "path": "package.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d2f5cef6615c75aa28b8801ef0770cf2bdb8172d",
+      "size": 1156,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/d2f5cef6615c75aa28b8801ef0770cf2bdb8172d"
+    },
+    {
+      "path": "props.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9e26dfeeb6e641a33dae4961196235bdb965b21b",
+      "size": 2,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/9e26dfeeb6e641a33dae4961196235bdb965b21b"
+    },
+    {
+      "path": "public",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "ac7a24fd43869537ed6b8522fa0773160a4fdb70",
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/trees/ac7a24fd43869537ed6b8522fa0773160a4fdb70"
+    },
+    {
+      "path": "public/apple.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "62884d4434e804acc046a395a5044ad10d932280",
+      "size": 38468,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/62884d4434e804acc046a395a5044ad10d932280"
+    },
+    {
+      "path": "public/coinbase.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "658d76901dee83c31d7faf41f6f72d52be550b40",
+      "size": 6328,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/658d76901dee83c31d7faf41f6f72d52be550b40"
+    },
+    {
+      "path": "public/discord.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e9dc50d7feed9b4e50265cdf12a52a8e3f0b2b59",
+      "size": 10386,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/e9dc50d7feed9b4e50265cdf12a52a8e3f0b2b59"
+    },
+    {
+      "path": "public/favicon.ico",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7a07f0ebaa28ac005ed408380395d08e1fe06d8c",
+      "size": 15406,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/7a07f0ebaa28ac005ed408380395d08e1fe06d8c"
+    },
+    {
+      "path": "public/google.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9ab6798dc2e85709d1e74b6731c851e409530b76",
+      "size": 55096,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/9ab6798dc2e85709d1e74b6731c851e409530b76"
+    },
+    {
+      "path": "public/lit.svg",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f5187d32744e682fae48ca5846e86c002ecb135a",
+      "size": 1222,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/f5187d32744e682fae48ca5846e86c002ecb135a"
+    },
+    {
+      "path": "public/metamask.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "43221a39f17d5e5fede50bc8974aec7dbb8f28dd",
+      "size": 23631,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/43221a39f17d5e5fede50bc8974aec7dbb8f28dd"
+    },
+    {
+      "path": "src",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "b31001a4b829359415a76e2b45e0b18cd29feb07",
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/trees/b31001a4b829359415a76e2b45e0b18cd29feb07"
+    },
+    {
+      "path": "src/components",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "47cfa118dde46466bc90cfe31e4ae6b5ffd0a9d4",
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/trees/47cfa118dde46466bc90cfe31e4ae6b5ffd0a9d4"
+    },
+    {
+      "path": "src/components/AccountSelection.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "bf0aa400030c69a1cb9c3d415a63bfd2d6c24cee",
+      "size": 2166,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/bf0aa400030c69a1cb9c3d415a63bfd2d6c24cee"
+    },
+    {
+      "path": "src/components/AuthMethods.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "951f5959fdbbb429d3fe5ec1b828f6d19af47718",
+      "size": 4861,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/951f5959fdbbb429d3fe5ec1b828f6d19af47718"
+    },
+    {
+      "path": "src/components/CreateAccount.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "164eafbbb13ac1515876b4c864698bd5132d188a",
+      "size": 712,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/164eafbbb13ac1515876b4c864698bd5132d188a"
+    },
+    {
+      "path": "src/components/Dashboard.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d4219df9ae7bd73dbef646b3c008696777c64adc",
+      "size": 17609,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/d4219df9ae7bd73dbef646b3c008696777c64adc"
+    },
+    {
+      "path": "src/components/Loading.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "80cb463639544679c9942683d86c97901511b6ce",
+      "size": 485,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/80cb463639544679c9942683d86c97901511b6ce"
+    },
+    {
+      "path": "src/components/LoginMethods.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "47fa6c555d41548a6da792af0134996b71c5fe6f",
+      "size": 2202,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/47fa6c555d41548a6da792af0134996b71c5fe6f"
+    },
+    {
+      "path": "src/components/SignUpMethods.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1ecb15ba784c3efa482366b7c45fa5a2e72daa0b",
+      "size": 2566,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/1ecb15ba784c3efa482366b7c45fa5a2e72daa0b"
+    },
+    {
+      "path": "src/components/SmartAccountCreator.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "56d3f1393301b8f68d17fca26c2db832a6cf9eec",
+      "size": 3150,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/56d3f1393301b8f68d17fca26c2db832a6cf9eec"
+    },
+    {
+      "path": "src/components/StytchOTP.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1e29729574578bbae9172fe740f1bbd80449f79e",
+      "size": 4318,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/1e29729574578bbae9172fe740f1bbd80449f79e"
+    },
+    {
+      "path": "src/components/WalletMethods.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "95a08c98078f728934cdff776b306137526a3e67",
+      "size": 1830,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/95a08c98078f728934cdff776b306137526a3e67"
+    },
+    {
+      "path": "src/components/WebAuthn.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f2be5fa7523ac87a0f417fdb38aeeb095a5abe9b",
+      "size": 2670,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/f2be5fa7523ac87a0f417fdb38aeeb095a5abe9b"
+    },
+    {
+      "path": "src/constats",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "7a60e22656e43daafc2fc99426f55df09c17726e",
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/trees/7a60e22656e43daafc2fc99426f55df09c17726e"
+    },
+    {
+      "path": "src/constats/auth.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "362bbf20a85e48483710e5ff61760b7355a18e65",
+      "size": 63,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/362bbf20a85e48483710e5ff61760b7355a18e65"
+    },
+    {
+      "path": "src/context",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "aab1a57dc2dbf7f439669d44bac0502176fd21c1",
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/trees/aab1a57dc2dbf7f439669d44bac0502176fd21c1"
+    },
+    {
+      "path": "src/context/AuthContext.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e885b2222c3315b1aaf4dddf31d381cbce1ef139",
+      "size": 2396,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/e885b2222c3315b1aaf4dddf31d381cbce1ef139"
+    },
+    {
+      "path": "src/context/thirdweb-auth.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4c7d8cc7c3c74f944945b2f28a92c33bbff5ed9f",
+      "size": 1760,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/4c7d8cc7c3c74f944945b2f28a92c33bbff5ed9f"
+    },
+    {
+      "path": "src/hooks",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "fa08d3baa966bedb251b65dfd40d56c7085e9677",
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/trees/fa08d3baa966bedb251b65dfd40d56c7085e9677"
+    },
+    {
+      "path": "src/hooks/useAccounts.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a2bd8b4e64b947f308bbc15b05eb4dc4a341377c",
+      "size": 1837,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/a2bd8b4e64b947f308bbc15b05eb4dc4a341377c"
+    },
+    {
+      "path": "src/hooks/useAuthenticate.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1a25272a3f26e390a08a5e639ff9a6f68a6265b4",
+      "size": 4107,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/1a25272a3f26e390a08a5e639ff9a6f68a6265b4"
+    },
+    {
+      "path": "src/hooks/useIsMounted.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "436287702ddbf4d390a040de9d926fcef95482c3",
+      "size": 195,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/436287702ddbf4d390a040de9d926fcef95482c3"
+    },
+    {
+      "path": "src/hooks/useLogin.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "95bf6ac2765b0df90dda564ec6dce6e9c180e9f0",
+      "size": 3329,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/95bf6ac2765b0df90dda564ec6dce6e9c180e9f0"
+    },
+    {
+      "path": "src/hooks/useSession.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d74cfce6be96631fb4520ef923154bd3d50baa86",
+      "size": 1680,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/d74cfce6be96631fb4520ef923154bd3d50baa86"
+    },
+    {
+      "path": "src/hooks/useThirdwebAuth.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "174274cf13bc00e5e6b0721205e438a072bafe14",
+      "size": 6286,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/174274cf13bc00e5e6b0721205e438a072bafe14"
+    },
+    {
+      "path": "src/pages",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "8e2f7051791c8309d9bb513666ae12dca58eb774",
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/trees/8e2f7051791c8309d9bb513666ae12dca58eb774"
+    },
+    {
+      "path": "src/pages/_app.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "24e88b0d5232154a693db943c19714e93e55b7de",
+      "size": 2203,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/24e88b0d5232154a693db943c19714e93e55b7de"
+    },
+    {
+      "path": "src/pages/_document.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e1e9cbbb75aa145f4867b5a247daa7e6764cd01c",
+      "size": 233,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/e1e9cbbb75aa145f4867b5a247daa7e6764cd01c"
+    },
+    {
+      "path": "src/pages/index.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "bf276df851670f44fcff7f8111ead87d3c6c08d3",
+      "size": 2999,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/bf276df851670f44fcff7f8111ead87d3c6c08d3"
+    },
+    {
+      "path": "src/pages/login.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9a6fbd9672933bbb5dbe7073fc0f7e5f50d9c13f",
+      "size": 5975,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/9a6fbd9672933bbb5dbe7073fc0f7e5f50d9c13f"
+    },
+    {
+      "path": "src/styles",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "c806a89a971222f0f51e11a3a4d9e1881fc9fd7e",
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/trees/c806a89a971222f0f51e11a3a4d9e1881fc9fd7e"
+    },
+    {
+      "path": "src/styles/globals.css",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d4d50e6d2e650e588a7ea2e473fea1a144913e31",
+      "size": 11746,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/d4d50e6d2e650e588a7ea2e473fea1a144913e31"
+    },
+    {
+      "path": "src/utils",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "de9e22ed007676a9a948c26c2ab95c36a50ec15d",
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/trees/de9e22ed007676a9a948c26c2ab95c36a50ec15d"
+    },
+    {
+      "path": "src/utils/getUserData.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "443269733a606068e33eb5a651374f1c9cb1083b",
+      "size": 513,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/443269733a606068e33eb5a651374f1c9cb1083b"
+    },
+    {
+      "path": "src/utils/lit.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f7621d557d66def71896d00c4f2273633c9d964b",
+      "size": 8870,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/f7621d557d66def71896d00c4f2273633c9d964b"
+    },
+    {
+      "path": "src/utils/login.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "33b8c505d0bf785b78279f2f84d546bb5f8c7d34",
+      "size": 4256,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/33b8c505d0bf785b78279f2f84d546bb5f8c7d34"
+    },
+    {
+      "path": "tsconfig.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "521663d3f7c60c29dbce72f4967421df0e14185e",
+      "size": 584,
+      "url": "https://api.github.com/repos/aduttya/Wallet-Frontend/git/blobs/521663d3f7c60c29dbce72f4967421df0e14185e"
+    }
+  ],
+  "truncated": false
+}
