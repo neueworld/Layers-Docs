@@ -1,0 +1,38 @@
+{
+  "prompts": {
+    "Project Showcasing": {
+      "prompt": "Write an engaging Twitter post to showcase my latest GitHub project. Highlight the tech stack, main features, and my efforts in developing it. Focus on specific benefits and features of the project. The post should appeal to both technical and non-technical audiences without using generic phrases like \"perfect for coders and non-coders alike.\" Do not include hashtags. Character limit: 280 characters. Include the project URL at the end.",
+      "examples": [
+        {
+          "generated": "Unveiling my latest GitHub project, Layers-Docs! Crafted in JavaScript and Docker, it brings an innovative take on documentation. Dive in and uncover my efforts in creating a streamlined, immersive guide. Non-techies, fear not! The project is designed with readability in mind. Explore it here: https://github.com/neueworld/Layers-Docs",
+          "refined": ""
+        },
+        {
+          "generated": "Just unveiled my latest GitHub project: Layers-Docs! It's a JavaScript powerhouse paired with some Dockerfile wizardry for simplicity and efficiency. Remarkable features include comprehensive documentation, a robust repo tree, and a range of incredible scripts. Collaborative efforts from an elite team have led to a polished outcome. It's waiting for you to discover its full potential at https://github.com/neueworld/Layers-Docs",
+          "refined": ""
+        },
+        {
+          "generated": "\"Explore the new frontier of documentation with our latest Github project, Layers-Docs, masterfully crafted with JavaScript & Dockerfile. This groundbreaking resource lets you navigate effortlessly through comprehensive user-friendly scripts with more direction, less friction. Our dedicated team has meticulously assembled this project, emphasizing ease-of-use & comprehensibility. For coders—simplify your work. For the less tech-savvy — understand with clarity. Dive in: https://github.com/neueworld/Layers-Docs\"",
+          "refined": ""
+        },
+        {
+          "generated": "Unveiling our latest GitHub project! Crafted with JavaScript and Dockerfile skillsets, \"Layers-Docs\" streamlines your workflow. Open doors to ef'cient performances with its striking features predominantly in leafy 'repoTree' hierarchies and comprehensive 'docs'. Check it out: https://github.com/neueworld/Layers-Docs",
+          "refined": ""
+        }
+      ]
+    },
+    "Project Update": {
+      "prompt": "Write an informative Twitter post about the latest updates to my GitHub project. Highlight recent changes and their impact on the project. The post should attract both technical and non-technical audiences. Do not include hashtags. Character limit: 280 characters. Include the project URL at the end.",
+      "examples": [
+        {
+          "generated": "Exciting updates in our project! GPT-4 post gen scripts are now included & set to revolutionize how we showcase projects. We've also improved data handling with a custom GPT file. And it's all written in accessible JavaScript & Dockerfile. Check it out at https://github.com/neueworld/Layers-Docs",
+          "refined": ""
+        },
+        {
+          "generated": "Exciting updates for Layers-Docs on GitHub! New GPT-4 post generation scripts have been added, along with a showcase prompt for GPT-4. Now, you can publish all GitHub data at once! Discover the power of JavaScript and Dockerfile in action: https://github.com/neueworld/Layers-Docs",
+          "refined": ""
+        }
+      ]
+    }
+  }
+}

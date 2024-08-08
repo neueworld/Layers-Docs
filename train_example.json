@@ -1,0 +1,63 @@
+{
+    "prompts": {
+      "Project Showcasing": {
+        "prompt": "Write an engaging Twitter post to showcase my latest GitHub project. Highlight the tech stack, main features, and my efforts in developing it. Focus on specific benefits and features of the project. The post should appeal to both technical and non-technical audiences without using generic phrases like \"perfect for coders and non-coders alike.\" Do not include hashtags. Character limit: 280 characters. Include the project URL at the end.",
+        "examples": [
+          {
+            "generated": "Excited to share my new project on GitHub! Built with JavaScript and Docker, it streamlines development with a clean, modular architecture. Check it out: https://github.com/neueworld/Layers-Docs",
+            "refined": "Explore Layers-Docs! 🚀 Built with JavaScript and Docker, this project offers a modular architecture for streamlined development. Dive into the code and see how you can enhance your projects: https://github.com/neueworld/Layers-Docs"
+          },
+          {
+            "generated": "Check out my latest project! Built using JavaScript and Docker, it simplifies coding with its modular design. Explore now: https://github.com/neueworld/Layers-Docs",
+            "refined": "Discover Layers-Docs! 🚀 Our new open-source project powered by JavaScript and Dockerfile, brings practical simplicity to coding. Created with thoughtful attention to detail, this project fosters efficient development practices with its intelligently designed architecture. Contribute and learn with us at https://github.com/neueworld/Layers-Docs! 🛠️🖥️"
+          }
+        ]
+      },
+      "Project Update": {
+        "prompt": "Write an informative Twitter post about the latest updates to my GitHub project. Highlight recent changes and their impact on the project. The post should attract both technical and non-technical audiences. Do not include hashtags. Character limit: 280 characters. Include the project URL at the end.",
+        "examples": [
+          {
+            "generated": "We've just updated our GitHub project! Check out the latest changes and improvements. See how these updates enhance the project: https://github.com/neueworld/Layers-Docs",
+            "refined": "New updates to Layers-Docs! 🛠️ We've optimized the JavaScript modules and enhanced Docker integration, making development even smoother. Explore the latest changes: https://github.com/neueworld/Layers-Docs"
+          }
+        ]
+      },
+      "Highlight Something": {
+        "prompt": "Create a Twitter post highlighting specific aspects of my GitHub project. Focus on the tech stack, languages used, key points from the README file, and other notable files. Make it appealing to both technical and non-technical audiences. Do not include hashtags. Character limit: 280 characters. Include the project URL at the end.",
+        "examples": [
+          {
+            "generated": "Highlighting some key aspects of our project! Built with JavaScript and Docker, and detailed in our README file. Learn more: https://github.com/neueworld/Layers-Docs",
+            "refined": "Diving into Layers-Docs! 🖥️ Built with JavaScript and Docker, our project’s README file covers everything from setup to contribution guidelines. Check out the notable files: https://github.com/neueworld/Layers-Docs"
+          }
+        ]
+      },
+      "Achievements and Milestones": {
+        "prompt": "Write a celebratory Twitter post highlighting the achievements and milestones of my GitHub project. Mention significant tags, key commits, and the tech stack used. The post should engage both technical and non-technical audiences. Do not include hashtags. Character limit: 280 characters. Include the project URL at the end.",
+        "examples": [
+          {
+            "generated": "Celebrating a milestone! Our GitHub project has hit 100 stars. Thanks to everyone for their support. Built with JavaScript and Docker. Check it out: https://github.com/neueworld/Layers-Docs",
+            "refined": "Celebrating 100 stars on Layers-Docs! 🌟 Huge thanks to our community. Key commits include modular JavaScript updates and enhanced Docker support. See the milestones: https://github.com/neueworld/Layers-Docs"
+          }
+        ]
+      },
+      "Learn and Growth": {
+        "prompt": "Create an insightful Twitter post highlighting the learning and growth opportunities within my GitHub project. Focus on the README file, repo structure, and key issues. Make it appealing to developers and those interested in project development. Do not include hashtags. Character limit: 280 characters. Include the project URL at the end.",
+        "examples": [
+          {
+            "generated": "Our project is a great learning resource! Check out our README file for setup instructions and explore the repo structure. Join us: https://github.com/neueworld/Layers-Docs",
+            "refined": "Learning with Layers-Docs! 📚 Our detailed README and structured repo offer great insights into project development. Dive into key issues and grow with us: https://github.com/neueworld/Layers-Docs"
+          }
+        ]
+      },
+      "New Category Placeholder": {
+        "prompt": "Add the new prompt here.",
+        "examples": [
+          {
+            "generated": "Add the generated example here.",
+            "refined": "Add the refined example here."
+          }
+        ]
+      }
+    }
+  }
+  

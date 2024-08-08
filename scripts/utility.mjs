@@ -1,13 +1,14 @@
-const axios = require('axios');
-const fs = require('fs').promises;
-const path = require('path');
+import axios from 'axios';
+import { promises as fs } from 'fs';
+import path from 'path';
+import dotenv from 'dotenv';
 
-require('dotenv').config();
+dotenv.config();
 
 const baseUrl = process.env.BASE_URL;
 const githubToken = process.env.GT_TOKEN;
 
-export async function getTechStack(owner, repo) {
+async function getTechStack(owner, repo) {
     const client = await createClient();
     const url = `${baseUrl}analyze?owner=${owner}&repo=${repo}`;
   
@@ -254,7 +255,7 @@ const queries = {
     `
 };
 
-export async function fetchRepoData(owner, repo, fields) {
+async function fetchRepoData(owner, repo, fields) {
     const data = {};
     for (const field of fields) {
         if (field === 'techStack') {
@@ -292,19 +293,7 @@ async function fetchRepoBranches(owner, repo) {
     return response.data.map(branch => branch.name);
 }
 
-async function saveToFile(data, filename) {
-    return new Promise((resolve, reject) => {
-        fs.writeFile(filename, JSON.stringify(data, null, 2), 'utf8', (err) => {
-            if (err) {
-                console.error('Error saving to file:', err);
-                reject(err);
-            } else {
-                console.log('Data successfully saved to', filename);
-                resolve();
-            }
-        });
-    });
-}
+
   
 async function fetchRepoTree(owner, repo) {
     const client = await createClient();
@@ -332,15 +321,9 @@ const OPENAI_API_URL = 'https://api.openai.com/v1/chat/completions';
 const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
 
 const prompts = {
-    "Project Showcasing": [
-        {
-          "prompt": "Write an engaging Twitter post to showcase my latest GitHub project. Highlight the tech stack, main features, and my efforts in developing it. Focus on specific benefits and features of the project. The post should appeal to both technical and non-technical audiences without using generic phrases like \"perfect for coders and non-coders alike.\" Do not include hashtags. Character limit: 280 characters. Include the project URL at the end."
-        },
-        {
-          "prompt": "Create an eye-catching Twitter post to highlight the unique features of my GitHub project. Focus on the innovative aspects and how it stands out from similar projects. Avoid using jargon and make it accessible to a broad audience. Character limit: 280 characters. Include the project URL at the end."
-        }
-      ],
-        "Project Update": `
+    "Project Showcasing": 
+          `Write an engaging Twitter post to showcase my latest GitHub project. Highlight the tech stack, main features, and my efforts in developing it. Focus on specific benefits and features of the project. The post should appeal to both technical and non-technical audiences without using generic phrases like \"perfect for coders and non-coders alike.\" Do not include hashtags. Character limit: 280 characters. Include the project URL at the end.`,
+    "Project Update": `
         Write an informative Twitter post about the latest updates to my GitHub project. Highlight recent changes and their impact on the project. The post should attract both technical and non-technical audiences. Do not include hashtags. Character limit: 280 characters. Include the project URL at the end.
     `,
     "Highlight Something": `
@@ -362,121 +345,5 @@ const promptMappings = {
     "Learn and Growth": ["readme", "repoTree", "issues"]
 };
   
-async function getOpenAIResponse(prompt, data) {
-    console.log("prompt : ",prompt)
-    console.log("data : ",data)
-    try {
-        const response = await axios.post(
-            OPENAI_API_URL,
-            {
-                model: 'gpt-4',
-                messages: [
-                    {
-                        role: 'system',
-                        content: 'You are a writer for a developer forum.'
-                    },
-                    {
-                        role: 'user',
-                        content: `${prompt}\n\nData:\n${JSON.stringify(data, null, 2)}`
-                    }
-                ]
-            },
-            {
-                headers: {
-                    Authorization: `Bearer ${OPENAI_API_KEY}`,
-                    'Content-Type': 'application/json'
-                }
-            }
-        );
-  
-        return response.data.choices[0].message.content;
-    } catch (error) {
-        console.error('Error fetching OpenAI response:', error.response ? error.response.data : error.message);
-        throw error;
-    }
-}
 
-async function fetchAndSendRepoDataToOpenAI(owner, repo, selectedPromptKey) {
-    try {
-        const fields = promptMappings[selectedPromptKey];
-        const repoData = await fetchRepoData(owner, repo, fields);
-        
-        if (fields.includes('techStack')) {
-            repoData.techStack = await getTechStack(owner, repo);
-        }
-    
-        const data = {
-            url: `https://github.com/${owner}/${repo}`,
-            ...repoData
-        };
-        
-        const prompt = prompts[selectedPromptKey];
-        const response = await getOpenAIResponse(prompt, data);
-        return response
-    } catch (error) {
-        console.error('Error fetching and sending repository data to OpenAI:', error);
-    }
-}
-  
-// (async () => {
-//     try {
-//       const owner = 'neueworld';
-//       const repo = 'Layers-Docs';
-//       const selectedCategory = "Project Showcasing"; // Specify the category here
-//       const outputFilePath = 'results.json';
-//       let results = {};
-//      console.log(results)
-//       // Check if the file already exists and read its content
-//       try {
-//         const data = await fs.readFile(outputFilePath, 'utf8');
-//         if (data.trim().length > 0) {
-//           results = JSON.parse(data);
-//         }
-//       } catch (error) {
-//         // If the file doesn't exist, we start with an empty object
-//         if (error.code !== 'ENOENT') {
-//           console.error("Error reading file:", error);
-//           throw error;
-//         }
-//       }
-  
-//       // Ensure the selected category exists in results
-//       if (!results.prompts[selectedCategory]) {
-//         console.log("result.prompts not decalred properly")
-//         results.prompts[selectedCategory] = [];
-//       }
-
-//       const promptList = prompts[selectedCategory];
-//       // Process each prompt in the selected category
-//       for (const promptItem of promptList) {
-//         const prompt = promptItem.prompt;
-//         console.log(": ",results.prompt[selectedCategory])
-//         let existingPrompt = results.prompts[selectedCategory].find(p => p.prompt === prompt);
-  
-//         if (!existingPrompt) {
-//           existingPrompt = {
-//             prompt: prompt,
-//             examples: []
-//           };
-//           results.prompts[selectedCategory].push(existingPrompt);
-//         }
-  
-//         // Generate and add examples for each prompt
-//         for (let i = 0; i < 2; i++) {
-//           console.log(`Running iteration ${i + 1} for prompt: ${prompt}`);
-//           const generatedResult = await fetchAndSendRepoDataToOpenAI(owner, repo, prompt);
-//           console.log("Generated Result:", generatedResult);
-//           existingPrompt.examples.push({ generated: generatedResult, refined: "" });
-//         }
-//       }
-  
-//       // Write the updated results object to the file once after all iterations
-//       await fs.writeFile(outputFilePath, JSON.stringify(results, null, 2));
-//       console.log(`All results saved to ${outputFilePath}`);
-  
-//     } catch (error) {
-//       console.error('Error fetching repository data:', error.message);
-//     }
-//   })();
-  
-
+export { prompts, promptMappings,fetchRepoData,getTechStack }

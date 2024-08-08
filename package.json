@@ -9,8 +9,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@langchain/openai": "^0.2.6",
     "axios": "^1.6.8",
     "dotenv": "^16.4.5",
+    "langchain": "^0.2.13",
     "markdown-it": "^14.1.0"
   }
 }
