@@ -9,10 +9,13 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@langchain/community": "^0.2.25",
+    "@langchain/langgraph": "^0.0.33",
     "@langchain/openai": "^0.2.6",
     "axios": "^1.6.8",
     "dotenv": "^16.4.5",
     "langchain": "^0.2.13",
-    "markdown-it": "^14.1.0"
+    "markdown-it": "^14.1.0",
+    "pdf-parse": "^1.1.1"
   }
 }
