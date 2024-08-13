@@ -12,6 +12,7 @@
     "@langchain/community": "^0.2.25",
     "@langchain/langgraph": "^0.0.33",
     "@langchain/openai": "^0.2.6",
+    "@octokit/rest": "^21.0.1",
     "axios": "^1.6.8",
     "dotenv": "^16.4.5",
     "langchain": "^0.2.13",

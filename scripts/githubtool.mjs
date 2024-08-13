@@ -212,8 +212,8 @@ const GitHubDataToolWrapped = new DynamicStructuredTool({
     schema: z.object({
       fields: z.array(z.string()).describe("List of fields to fetch from the repository"),
     }),
-    func: async ({ fields }) => {
-      const toolInstance = new GitHubDataLangChainTool({ owner: 'neueworld', repo: 'layers' });
+    func: async ({ owner, repo, fields }) => {
+      const toolInstance = new GitHubDataLangChainTool({ owner,repo});
       return JSON.stringify(await toolInstance.fetchRepoData(fields));
     },
 });
@@ -268,5 +268,5 @@ const workExperienceTool = new DynamicStructuredTool({
     },
   });
   
-  export {GitHubDataToolWrapped,workExperienceTool};
+  export {GitHubDataToolWrapped,workExperienceTool,GitHubDataLangChainTool};
   
