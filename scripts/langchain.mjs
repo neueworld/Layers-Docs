@@ -13,12 +13,20 @@ import {GitHubDataToolWrapped,workExperienceTool,GitHubDataLangChainTool} from '
 import { createOpenAIFunctionsAgent,AgentExecutor} from "langchain/agents";
 import { DynamicStructuredTool } from "@langchain/core/tools";
 import { z } from "zod";
+import { HumanMessage, SystemMessage,AIMessage } from "@langchain/core/messages";
+import { TokenTextSplitter } from 'langchain/text_splitter';
+import { OpenAIEmbeddings } from "@langchain/openai";
+import { MemoryVectorStore } from "langchain/vectorstores/memory";
+
+import { CacheBackedEmbeddings } from "langchain/embeddings/cache_backed";
+import { InMemoryStore } from "@langchain/core/stores";
+import { RecursiveCharacterTextSplitter } from "@langchain/textsplitters";
+import { FaissStore } from "@langchain/community/vectorstores/faiss";
 
 
 const model = new ChatOpenAI({ model: "gpt-4" });
 const parser = new StringOutputParser();
 
-import { HumanMessage, SystemMessage,AIMessage } from "@langchain/core/messages";
 
 // const githubDataTool = new GitHubDataToolWrapped({ owner: "neueworld", repo: "layers" });
 
@@ -93,7 +101,7 @@ async function fetchAndSendRepoData(owner, repo, selectedPromptKey) {
       // Execute the tool call
       const toolCall = toolCalls[0];
       const toolResult = await GitHubDataToolWrapped.func(toolCall.args);
-      
+      console.log("toolResult : ",toolResult)
       // Parse the JSON result
       const repoData = JSON.parse(toolResult);
       
@@ -242,47 +250,149 @@ const GitHubDataTool = new DynamicStructuredTool({
 
 const modelWithTools = model.bindTools([GitHubDataTool]);
 
+// async function answerQuery(query, owner, repo) {
+//   // First, let the model decide what data to fetch
+//   const initialResponse = await modelWithTools.invoke([
+//     new SystemMessage(`You are an AI assistant that helps answer questions about GitHub repositories. 
+//     You have access to a tool that can fetch data from GitHub. The repository you're currently working with is owned by '${owner}' and is named '${repo}'.
+//     When you need to fetch data, use the GitHubDataTool and always specify the owner as '${owner}' and the repo as '${repo}'.`),
+//     new HumanMessage(query)
+//   ]);
+  
+//   // Extract the tool calls from the initial response
+//   const toolCalls = initialResponse.tool_calls;
+  
+//   if (toolCalls && toolCalls.length > 0) {
+//     // Execute the tool call
+//     const toolCall = toolCalls[0];
+//     const toolResult = await GitHubDataTool.func({
+//       owner: owner,
+//       repo: repo,
+//       fields: toolCall.args.fields
+//     });
+    
+//     // Parse the JSON result
+//     const repoData = JSON.parse(toolResult);
+    
+//     // Now, ask the model to answer the query based on the fetched data
+//     const answerResponse = await model.invoke([
+//       new SystemMessage(`You are an AI assistant that helps answer questions about GitHub repositories. 
+//       You have access to data fetched from the '${owner}/${repo}' repository.`),
+//       new HumanMessage(query),
+//       new AIMessage(initialResponse.content),
+//       new HumanMessage(`Here's the data fetched from the GitHub repository:
+//         ${JSON.stringify(repoData, null, 2)}
+//         Please answer the original query based on this data. Provide a clear and concise explanation suitable for non-technical users.`)
+//     ]);
+    
+//     return answerResponse.content;
+//   } else {
+//     return "I couldn't fetch the necessary data to answer your query. Could you please rephrase or provide more context?";
+//   }
+// }
+
+
+// Initialize cache-backed embeddings
+const underlyingEmbeddings = new OpenAIEmbeddings();
+const inMemoryStore = new InMemoryStore();
+const cacheBackedEmbeddings = CacheBackedEmbeddings.fromBytesStore(
+  underlyingEmbeddings,
+  inMemoryStore,
+  {
+    namespace: underlyingEmbeddings.modelName,
+  }
+);
+
+// Initialize an object to store FaissStore instances for each repository
+const repositoryVectorStores = {};
+
+// Create a text splitter instance outside the function to avoid recreation
+const splitter = new RecursiveCharacterTextSplitter({
+  chunkSize: 1000,
+  chunkOverlap: 200,
+});
+
 async function answerQuery(query, owner, repo) {
-  // First, let the model decide what data to fetch
-  const initialResponse = await modelWithTools.invoke([
-    new SystemMessage(`You are an AI assistant that helps answer questions about GitHub repositories. 
-    You have access to a tool that can fetch data from GitHub. The repository you're currently working with is owned by '${owner}' and is named '${repo}'.
-    When you need to fetch data, use the GitHubDataTool and always specify the owner as '${owner}' and the repo as '${repo}'.`),
-    new HumanMessage(query)
-  ]);
-  
-  // Extract the tool calls from the initial response
-  const toolCalls = initialResponse.tool_calls;
-  
-  if (toolCalls && toolCalls.length > 0) {
-    // Execute the tool call
-    const toolCall = toolCalls[0];
-    const toolResult = await GitHubDataTool.func({
-      owner: owner,
-      repo: repo,
-      fields: toolCall.args.fields
-    });
-    
-    // Parse the JSON result
-    const repoData = JSON.parse(toolResult);
-    
-    // Now, ask the model to answer the query based on the fetched data
+  try {
+    // Check if we already have a vector store for this repository
+    const repoKey = `${owner}/${repo}`;
+    let vectorStore = repositoryVectorStores[repoKey];
+
+    if (!vectorStore) {
+      console.log("Creating new vector store for repository:", repoKey);
+      
+      try {
+        // Fetch initial data about the repository
+        const initialData = await GitHubDataTool.func({
+          owner: owner,
+          repo: repo,
+          fields: ["description", "readme", "languages"]
+        });
+
+        const rawDocuments = [initialData]; // Assume initialData is already an object
+        const documents = await splitter.splitDocuments(rawDocuments);
+
+        // Create and store the vector store
+        vectorStore = await FaissStore.fromDocuments(documents, cacheBackedEmbeddings);
+        repositoryVectorStores[repoKey] = vectorStore;
+      } catch (error) {
+        console.error("Error creating vector store:", error);
+        throw new Error("Failed to initialize repository data");
+      }
+    }
+
+    // Use modelWithTools to determine what additional data might be needed
+    const initialResponse = await modelWithTools.invoke([
+      new SystemMessage(`You are an AI assistant that helps answer questions about GitHub repositories. 
+      You have access to a tool that can fetch additional data from GitHub if needed. The repository you're currently working with is owned by '${owner}' and is named '${repo}'.
+      Determine if you need any additional data to answer the query and request it using the tool. Be specific and request only the necessary data.`),
+      new HumanMessage(query)
+    ]);
+
+    const toolCalls = initialResponse.additional_kwargs?.tool_calls || [];
+    console.log('Tool call arguments:', toolCalls);
+
+    let additionalData = [];
+    if (toolCalls.length > 0) {
+      // Execute all tool calls
+      for (const toolCall of toolCalls) {
+        try {
+          const args = JSON.parse(toolCall.function.arguments);
+          const result = await GitHubDataTool.func({
+            owner: owner,
+            repo: repo,
+            ...args
+          });
+          const newDocuments = await splitter.splitDocuments([result]);
+          await vectorStore.addDocuments(newDocuments);
+          additionalData.push({ name: toolCall.function.name, result });
+        } catch (error) {
+          console.error(`Error processing tool call: ${error.message}`);
+        }
+      }
+    }
+
+    // Perform similarity search
+    const relevantChunks = await vectorStore.similaritySearch(query, 5);
+
+    // Final query to answer based on fetched data
     const answerResponse = await model.invoke([
       new SystemMessage(`You are an AI assistant that helps answer questions about GitHub repositories. 
-      You have access to data fetched from the '${owner}/${repo}' repository.`),
+      You have access to relevant data fetched from the '${owner}/${repo}' repository.`),
       new HumanMessage(query),
       new AIMessage(initialResponse.content),
-      new HumanMessage(`Here's the data fetched from the GitHub repository:
-        ${JSON.stringify(repoData, null, 2)}
-        Please answer the original query based on this data.`)
+      new HumanMessage(`Here's the relevant data from the GitHub repository:
+        ${JSON.stringify(relevantChunks, null, 2)}
+        Additional data fetched: ${JSON.stringify(additionalData, null, 2)}
+        Please answer the original query based on this data. Provide a clear and concise explanation suitable for non-technical clients.`)
     ]);
-    
+
     return answerResponse.content;
-  } else {
-    return "I couldn't fetch the necessary data to answer your query. Could you please rephrase or provide more context?";
+  } catch (error) {
+    console.error('Error in answerQuery:', error);
+    return `I encountered an error while trying to answer your query: ${error.message}. Please try again or contact support if the problem persists.`;
   }
 }
-
 
 
 (async () => {
@@ -293,13 +403,17 @@ async function answerQuery(query, owner, repo) {
       const owner = "neueworld";
       const repo = "Proof-Engine";
       const queries = [
-        "What programming languages are used in this repository?",
-        "Can you summarize the main purpose of this project based on its README?",
-        "Who are the contributors to this repository?",
-        "What technologies or frameworks does this project use?",
-        "Is this a beginner-friendly project? Why or why not?"
+        "How active is this developer on this project? Can you tell me about their recent contributions?",
+        "What can you tell me about the quality of the code in this repository? Is it well-organized and easy to understand?",
+        "Does this project show evidence of the developer's ability to work in a team? How so?",
+        "Are there any indicators of the developer's problem-solving skills in this repository?",
+        "Can you find any examples of the developer implementing best practices or following industry standards?",
+        "Does this project demonstrate any particular strengths or specializations of the developer?",
+        "Is there evidence of the developer's ability to learn and adapt to new technologies?",
+        "How well does the developer document their work? Is the project easy for others to understand and potentially contribute to?",
+        "Are there any signs of the developer's attention to detail or commitment to quality in this project?",
+        "Based on this repository, what can you tell me about the developer's experience level and expertise?"
       ];
-    
       for (const query of queries) {
         console.log(`Query: ${query}`);
         const answer = await answerQuery(query, owner, repo);
