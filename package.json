@@ -13,7 +13,7 @@
     "@langchain/langgraph": "^0.0.33",
     "@langchain/openai": "^0.2.7",
     "@octokit/rest": "^21.0.1",
-    "axios": "^1.6.8",
+    "axios": ">=1.7.4",
     "chromadb": "^1.8.1",
     "dotenv": "^16.4.5",
     "faiss-node": "^0.5.1",
