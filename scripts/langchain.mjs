@@ -17,12 +17,12 @@ import { HumanMessage, SystemMessage,AIMessage } from "@langchain/core/messages"
 import { TokenTextSplitter } from 'langchain/text_splitter';
 import { OpenAIEmbeddings } from "@langchain/openai";
 import { MemoryVectorStore } from "langchain/vectorstores/memory";
-
+import { Redis } from "ioredis";
 import { CacheBackedEmbeddings } from "langchain/embeddings/cache_backed";
 import { InMemoryStore } from "@langchain/core/stores";
 import { RecursiveCharacterTextSplitter } from "@langchain/textsplitters";
 import { FaissStore } from "@langchain/community/vectorstores/faiss";
-
+import { RedisByteStore } from "@langchain/community/storage/ioredis";
 
 const model = new ChatOpenAI({ model: "gpt-4" });
 const parser = new StringOutputParser();
@@ -40,6 +40,19 @@ const agent = createReactAgent({
   tools: agentTools,
 
 });
+
+// Initialize Redis client with error handling
+const redisClient = new Redis({
+  host: process.env.REDIS_HOST || 'localhost',
+  port: process.env.REDIS_PORT || 6379,
+  // Add password if needed: password: process.env.REDIS_PASSWORD,
+});
+
+redisClient.on('error', (err) => {
+  console.error('Redis Client Error', err);
+  // Implement appropriate error handling for your application
+});
+
 
 const messages = [
   new SystemMessage("Translate the following from English into Hindi"),
@@ -181,7 +194,7 @@ async function processPdfAndGenerateContent(pdfPath, promptText) {
 
   try {
     const prompt = await promptTemplate.format({ resumeContent: pdfContent });
-    const result = await model.call(prompt);
+    const result = await model.invoke(prompt);
     const parsed = await parser.parse(result);
     return parsed;
   } catch (error) {
@@ -293,16 +306,16 @@ const modelWithTools = model.bindTools([GitHubDataTool]);
 
 
 // Initialize cache-backed embeddings
+const redisStore = new RedisByteStore({ client: redisClient });
 const underlyingEmbeddings = new OpenAIEmbeddings();
 const inMemoryStore = new InMemoryStore();
 const cacheBackedEmbeddings = CacheBackedEmbeddings.fromBytesStore(
   underlyingEmbeddings,
-  inMemoryStore,
+  redisStore,
   {
     namespace: underlyingEmbeddings.modelName,
   }
 );
-
 // Initialize an object to store FaissStore instances for each repository
 const repositoryVectorStores = {};
 
@@ -312,29 +325,98 @@ const splitter = new RecursiveCharacterTextSplitter({
   chunkOverlap: 200,
 });
 
+async function waitForRedisConnection(timeout = 5000) {
+  return new Promise((resolve, reject) => {
+    const checkInterval = 100; // Check every 100ms
+    let elapsedTime = 0;
+
+    const intervalId = setInterval(() => {
+      if (redisClient.status === 'ready') {
+        clearInterval(intervalId);
+        resolve();
+      } else if (redisClient.status === 'end') {
+        clearInterval(intervalId);
+        reject(new Error('Redis connection ended'));
+      } else if (elapsedTime >= timeout) {
+        clearInterval(intervalId);
+        reject(new Error(`Redis connection timeout after ${timeout}ms`));
+      }
+      elapsedTime += checkInterval;
+    }, checkInterval);
+  });
+}
+
+async function ensureRedisConnection() {
+  if (redisClient.status === 'wait') {
+    await redisClient.connect();
+  } else if (redisClient.status === 'connecting') {
+    await waitForRedisConnection();
+  } else if (redisClient.status !== 'ready') {
+    throw new Error(`Unexpected Redis status: ${redisClient.status}`);
+  }
+}
+
 async function answerQuery(query, owner, repo) {
+
   try {
+    
+    console.log('Redis status before ensuring connection:', redisClient.status);
+    await ensureRedisConnection();
+    console.log('Redis status after ensuring connection:', redisClient.status);
+
     // Check if we already have a vector store for this repository
     const repoKey = `${owner}/${repo}`;
     let vectorStore = repositoryVectorStores[repoKey];
 
+    if (typeof global.repositoryVectorStores === 'undefined') {
+      global.repositoryVectorStores = {};
+    }
+
     if (!vectorStore) {
       console.log("Creating new vector store for repository:", repoKey);
-      
       try {
         // Fetch initial data about the repository
         const initialData = await GitHubDataTool.func({
           owner: owner,
           repo: repo,
-          fields: ["description", "readme", "languages"]
+          fields: ["readme", "languages"]
         });
+        console.log("Initial data fetched:", JSON.stringify(initialData, null, 2));
 
-        const rawDocuments = [initialData]; // Assume initialData is already an object
-        const documents = await splitter.splitDocuments(rawDocuments);
+        // Parse the raw document data
+        const parsedData = typeof initialData === 'string' ? JSON.parse(initialData) : initialData;
+        
+        // Create separate documents for README and languages
+        const documents = [];
+        
+        if (parsedData.readme && parsedData.readme.object && parsedData.readme.object.text) {
+          const readmeChunks = await splitter.splitText(parsedData.readme.object.text);
+          documents.push(...readmeChunks.map(chunk => ({
+            pageContent: chunk,
+            metadata: { source: 'README.md' }
+          })));
+        }
+        
+        if (parsedData.languages && parsedData.languages.languages && parsedData.languages.languages.edges) {
+          const languagesContent = parsedData.languages.languages.edges
+            .map(edge => `${edge.node.name}: ${edge.size} bytes`)
+            .join('\n');
+          documents.push({
+            pageContent: `Repository Languages:\n${languagesContent}`,
+            metadata: { source: 'Languages' }
+          });
+        }
+        
+        console.log("Processed documents:", JSON.stringify(documents, null, 2));
 
-        // Create and store the vector store
-        vectorStore = await FaissStore.fromDocuments(documents, cacheBackedEmbeddings);
-        repositoryVectorStores[repoKey] = vectorStore;
+        if (documents.length > 0) {
+          vectorStore = await FaissStore.fromDocuments(documents, cacheBackedEmbeddings);
+          global.repositoryVectorStores[repoKey] = vectorStore;
+        } else {
+          console.log("No documents were created from the initial data.");
+          return "I couldn't process any meaningful data from the repository. The repository might be empty or there might be an issue accessing its contents.";
+        }
+
       } catch (error) {
         console.error("Error creating vector store:", error);
         throw new Error("Failed to initialize repository data");
@@ -374,6 +456,7 @@ async function answerQuery(query, owner, repo) {
 
     // Perform similarity search
     const relevantChunks = await vectorStore.similaritySearch(query, 5);
+    console.log("Relevant chunks found:", JSON.stringify(relevantChunks, null, 2));
 
     // Final query to answer based on fetched data
     const answerResponse = await model.invoke([
@@ -392,6 +475,7 @@ async function answerQuery(query, owner, repo) {
     console.error('Error in answerQuery:', error);
     return `I encountered an error while trying to answer your query: ${error.message}. Please try again or contact support if the problem persists.`;
   }
+
 }
 
 
@@ -414,10 +498,17 @@ async function answerQuery(query, owner, repo) {
         "Are there any signs of the developer's attention to detail or commitment to quality in this project?",
         "Based on this repository, what can you tell me about the developer's experience level and expertise?"
       ];
+      
       for (const query of queries) {
         console.log(`Query: ${query}`);
         const answer = await answerQuery(query, owner, repo);
         console.log(`Answer: ${answer}\n`);
+        
+        // Optionally, add a check here to break the loop if a critical error occurs
+        if (answer.includes("I encountered an error while initializing data for the repository")) {
+          console.log("Stopping queries due to repository initialization error.");
+          break;
+        }
       }
     
       // const fields = promptMappings[selectedCategory]
