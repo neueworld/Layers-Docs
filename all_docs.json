@@ -1,0 +1,1567 @@
+[
+  {
+    "pageContent": "| Challenge    | Link                                                                                        | Description                                                    | Prizes                  |\n| ------------ | ------------------------------------------------------------------------------------------- | -------------------------------------------------------------- | ----------------------- |\n| Challenge 1  | [`Start`](https://github.com/Polygon-Advocates/idThon/blob/main/challenge-1.md)         | 🐧 Documentation deep dive                     | PFP|\n| Challenge 2  | [`Start`](https://github.com/Polygon-Advocates/idThon/blob/main/challenge-2.md)         |  🐯 Building a VC Gated Website with Polygon ID | PFP and Swags  |\n| Challenge 3  | [`Start`](https://github.com/Polygon-Advocates/idThon/blob/main/challenge-3.md)         |  🦊 **Open track**, Build any  projects using Polygon ID tools | Pool prize of **💲4500** and an exclusive call with ID Team |\n\n---",
+    "metadata": {
+      "chunk_index": 2,
+      "forks": 0,
+      "lastUpdated": "2023-06-27T16:29:46Z",
+      "owner": "aduttya",
+      "repoName": "idThon",
+      "stars": 0,
+      "total_chunks": 5,
+      "type": "readme",
+      "loc": {
+        "lines": {
+          "from": 26,
+          "to": 32
+        }
+      }
+    }
+  },
+  {
+    "pageContent": "- [Priyatham Varma](https://twitter.com/Mister_V_Varma)\n- [Megabyte](https://twitter.com/megabyte0x)\n- [Lucifer](https://twitter.com/Lucifer0x17)\n- [Ananyaa Gupta](https://twitter.com/Momosdo)\n- [Nuno](https://twitter.com/nunomiguelcg)",
+    "metadata": {
+      "chunk_index": 4,
+      "forks": 0,
+      "lastUpdated": "2023-06-27T16:29:46Z",
+      "owner": "aduttya",
+      "repoName": "idThon",
+      "stars": 0,
+      "total_chunks": 5,
+      "type": "readme",
+      "loc": {
+        "lines": {
+          "from": 52,
+          "to": 56
+        }
+      }
+    }
+  },
+  {
+    "pageContent": "## ❓ Got Questions or Need Help?\n\nJoin our dedicated Telegram group to seek assistance from the IDThon community and organizers.\n\nWe suggest you to start with the below videos to gain some ideas about the following topics easing your understanding.\n\n**Issuer node 101: [Link to the video](https://drive.google.com/file/d/1OX2BCCEBNSUq-lxgCzjssiGRIi93xk6w/view?usp=sharing)**  \n  \n**JS SDK & Wallet SDK: [Link to the video](https://drive.google.com/file/d/1ui803i2fvWy3z9ZBivdwwjXDyevxkfkv/view?usp=sharing)**  \n  \n**Using the Verifier SDK: [Link to the video](https://drive.google.com/file/d/1ZCFpnxOi-nWYUoGrGbSEcjIf1Vmb35NP/view?usp=sharing)**\n\n🚪 **Join here** : [zkBuilders](https://t.me/zkPowerBuilders)  post your doubts and quries here ✨\n\n---\n\n**Creators & Contributors:** 🥷🏻",
+    "metadata": {
+      "chunk_index": 3,
+      "forks": 0,
+      "lastUpdated": "2023-06-27T16:29:46Z",
+      "owner": "aduttya",
+      "repoName": "idThon",
+      "stars": 0,
+      "total_chunks": 5,
+      "type": "readme",
+      "loc": {
+        "lines": {
+          "from": 34,
+          "to": 50
+        }
+      }
+    }
+  },
+  {
+    "pageContent": "# Competitive Programming Submissions\n![](https://img.shields.io/static/v1?label=Language&labelColor=blue&message=C%2b%2b17&color=00599c&style=for-the-badge&logo=c%2b%2b)\n\n## Compilation of my successful submissions on various Competitive Programming Platforms\n\n|#|Timestamp|Problem|Solution|Remark|\n|:-:|:-:|:-:|:-:|:-:|\n|1|24 Jan,21 19:10 IST|[Catch the thief (CATHIEF)](https://www.codechef.com/problems/CATHIEF)|[View](https://www.codechef.com/viewsolution/41813864)|this is test problem|",
+    "metadata": {
+      "chunk_index": 0,
+      "forks": 0,
+      "lastUpdated": "2021-01-24T13:42:24Z",
+      "owner": "aduttya",
+      "primaryLanguage": "C++",
+      "repoName": "cp",
+      "stars": 0,
+      "total_chunks": 1,
+      "type": "readme",
+      "loc": {
+        "lines": {
+          "from": 1,
+          "to": 8
+        }
+      }
+    }
+  },
+  {
+    "pageContent": "- [thirdweb Auth Documentation](https://docs.thirdweb.com/auth) - learn about thirdweb Auth.\n- [thirdweb React Documentation](https://docs.thirdweb.com/react) - learn about our React SDK.\n- [thirdweb Portal](https://docs.thirdweb.com) - check our guides and development resources.\n  \nYou can check out [the thirdweb GitHub organization](https://github.com/thirdweb-dev) - your feedback and contributions are welcome!\n\n## Join our Discord!\n\nFor any questions, suggestions, join our discord at [https://discord.gg/thirdweb](https://discord.gg/thirdweb).",
+    "metadata": {
+      "chunk_index": 1,
+      "forks": 0,
+      "lastUpdated": "2024-03-15T05:14:53Z",
+      "owner": "aduttya",
+      "primaryLanguage": "TypeScript",
+      "repoName": "thirdweb-backend",
+      "stars": 0,
+      "total_chunks": 2,
+      "type": "readme",
+      "loc": {
+        "lines": {
+          "from": 35,
+          "to": 43
+        }
+      }
+    }
+  },
+  {
+    "pageContent": "⚠️ **IMPORTANT**: To be eligible for evaluation, make sure to submit your solutions through the [IDThon Challenge Submission Form](https://airtable.com/shrNCmi6zP4RDklNi).",
+    "metadata": {
+      "chunk_index": 1,
+      "forks": 0,
+      "lastUpdated": "2023-06-27T16:29:46Z",
+      "owner": "aduttya",
+      "repoName": "idThon",
+      "stars": 0,
+      "total_chunks": 5,
+      "type": "readme",
+      "loc": {
+        "lines": {
+          "from": 24,
+          "to": 24
+        }
+      }
+    }
+  },
+  {
+    "pageContent": "# Welcome to IDThon - Way to decentalised Identity 🆔 👀 \n\n![image](https://github.com/Polygon-Advocates/idThon/assets/128218414/571441ca-3fca-47bb-b5f8-af8c1a2d014f)\n\n\n**IDThon** is an exciting set of challenges focused on helping the understating of decentralised Identify with Polygon ID.\n\nIt brings together developers, creators, and enthusiasts to explore innovative solutions in the field of identity management using **Polygon ID**. The event is open to all participants who are passionate about leveraging decentralized technologies for secure and user-centric identity systems.\n\n\n---\n\n## First Steps\n\n- [ ] Fork the repository\n- [ ] Create a new branch `username_idThon`, e.g., `JohnDoe_IDThon`\n- [ ] Create `solution-1.md`, `solution-2.md`, and `solution-3.md` in the root directory for your respective solutions.\n- [ ] Let's get started! Begin solving the challenges.\n\n---\n\n## Challenges",
+    "metadata": {
+      "chunk_index": 0,
+      "forks": 0,
+      "lastUpdated": "2023-06-27T16:29:46Z",
+      "owner": "aduttya",
+      "repoName": "idThon",
+      "stars": 0,
+      "total_chunks": 5,
+      "type": "readme",
+      "loc": {
+        "lines": {
+          "from": 1,
+          "to": 22
+        }
+      }
+    }
+  },
+  {
+    "pageContent": "# Anchor-Mint-and-Transfer-Smart-Contract",
+    "metadata": {
+      "chunk_index": 0,
+      "forks": 0,
+      "lastUpdated": "2022-07-09T02:59:21Z",
+      "owner": "aduttya",
+      "repoName": "Anchor-Mint-and-Transfer-Smart-Contract",
+      "stars": 0,
+      "total_chunks": 1,
+      "type": "readme",
+      "loc": {
+        "lines": {
+          "from": 1,
+          "to": 1
+        }
+      }
+    }
+  },
+  {
+    "pageContent": "{\"type\":\"repo\",\"name\":\"cp\",\"fullName\":\"aduttya/cp\",\"description\":null,\"languages\":[\"C++\"],\"primaryLanguage\":\"C++\",\"createdAt\":\"2021-01-24T12:50:03Z\",\"lastUpdated\":\"2021-01-24T13:42:24Z\",\"lastPushed\":\"2021-01-24T13:42:22Z\",\"stars\":0,\"watchers\":0,\"forks\":0,\"issues\":0,\"license\":null,\"topics\":[],\"isForked\":false,\"defaultBranch\":\"master\",\"size\":1}",
+    "metadata": {
+      "chunk_index": 0,
+      "createdAt": "2021-01-24T12:50:03Z",
+      "forks": 0,
+      "isForked": false,
+      "lastUpdated": "2021-01-24T13:42:24Z",
+      "name": "cp",
+      "owner": "aduttya",
+      "primaryLanguage": "C++",
+      "size": 1,
+      "stars": 0,
+      "topics": "",
+      "total_chunks": 1,
+      "type": "repo",
+      "loc": {
+        "lines": {
+          "from": 1,
+          "to": 1
+        }
+      }
+    }
+  },
+  {
+    "pageContent": "- Improve the social aspect of work sharing, making it more interactive and engaging.\n- Enable effective collaboration during events by providing a platform to analyze and discuss work.\n\n### Client/Employer Perspective\n\n- Streamline the process for clients and employers to review and evaluate existing work portfolios.\n\n## Contributing\n\nWe welcome contributions from the community. To contribute, please follow the guidelines outlined in [CONTRIBUTING.md](link_to_contributing_md).\n\n## License\n\nThis project is dual-licensed:\n- [MIT License](LICENSE-MIT) (for contributors and personal use)\n- [Apache License 2.0](LICENSE-APACHE) (for contributors and personal use)\n\nFor commercial use, please contact us to discuss licensing options and terms tailored to your needs.\n\nSee [LICENSE-MIT](LICENSE-MIT) and [LICENSE-APACHE](LICENSE-APACHE) for more details.",
+    "metadata": {
+      "chunk_index": 2,
+      "forks": 0,
+      "lastUpdated": "2023-12-05T16:36:25Z",
+      "owner": "aduttya",
+      "repoName": "PoW",
+      "stars": 1,
+      "total_chunks": 3,
+      "type": "readme",
+      "loc": {
+        "lines": {
+          "from": 36,
+          "to": 55
+        }
+      }
+    }
+  },
+  {
+    "pageContent": "# Programmable MPC Wallets with Flexible Auth 🔑\n\nThis is an example web app that shows how you can mint and use Lit's programmable MPC wallets with social accounts, one-time passwords, and passkeys using [Lit JS SDK](https://developer.litprotocol.com/v2/).\n\n## 💻 Getting Started\n\n1. Clone this repo and install dependencies:\n\n```bash\ngit clone git@github.com:LIT-Protocol/pkp-social-auth-example.git\n\ncd pkp-social-auth-example\n\nnpm install\n```\n\n2. Add your Stytch project's `project_id` and `public_token` to `.env.local`:\n\n```bash\nNEXT_PUBLIC_STYTCH_PROJECT_ID=\"<Your Stytch Project ID>\"\nNEXT_PUBLIC_STYTCH_PUBLIC_TOKEN=\"<Your Stytch Public Token>\"\n```\n\nIf you're not using Stytch, feel free to comment out the Stytch provider `StytchProvider` and Stytch component `StytchOTP`.\n\n3. Start your development server:\n\n```bash\nnpm run dev\n```\n\n4. Visit [http://localhost:3000](http://localhost:3000) to start playing with the app.",
+    "metadata": {
+      "chunk_index": 0,
+      "forks": 0,
+      "lastUpdated": "2024-03-15T05:18:09Z",
+      "owner": "aduttya",
+      "primaryLanguage": "TypeScript",
+      "repoName": "Wallet-Frontend",
+      "stars": 0,
+      "total_chunks": 1,
+      "type": "readme",
+      "loc": {
+        "lines": {
+          "from": 1,
+          "to": 32
+        }
+      }
+    }
+  },
+  {
+    "pageContent": "{\"type\":\"repo\",\"name\":\"data-encryption\",\"fullName\":\"aduttya/data-encryption\",\"description\":null,\"languages\":[\"TypeScript\",\"JavaScript\",\"HTML\"],\"primaryLanguage\":\"TypeScript\",\"createdAt\":\"2024-03-06T11:42:59Z\",\"lastUpdated\":\"2024-03-08T04:21:51Z\",\"lastPushed\":\"2024-03-08T04:21:48Z\",\"stars\":0,\"watchers\":0,\"forks\":0,\"issues\":0,\"license\":null,\"topics\":[],\"isForked\":false,\"defaultBranch\":\"main\",\"size\":195}",
+    "metadata": {
+      "chunk_index": 0,
+      "createdAt": "2024-03-06T11:42:59Z",
+      "forks": 0,
+      "isForked": false,
+      "lastUpdated": "2024-03-08T04:21:51Z",
+      "name": "data-encryption",
+      "owner": "aduttya",
+      "primaryLanguage": "TypeScript",
+      "size": 195,
+      "stars": 0,
+      "topics": "",
+      "total_chunks": 1,
+      "type": "repo",
+      "loc": {
+        "lines": {
+          "from": 1,
+          "to": 1
+        }
+      }
+    }
+  },
+  {
+    "pageContent": "{\"type\":\"repo\",\"name\":\"idThon\",\"fullName\":\"aduttya/idThon\",\"description\":\"idThon Challenges Repo\",\"languages\":[],\"primaryLanguage\":null,\"createdAt\":\"2023-06-27T16:29:46Z\",\"lastUpdated\":\"2023-06-27T16:29:46Z\",\"lastPushed\":\"2023-06-27T16:30:54Z\",\"stars\":0,\"watchers\":0,\"forks\":0,\"issues\":0,\"license\":null,\"topics\":[],\"isForked\":true,\"defaultBranch\":\"main\",\"size\":22}",
+    "metadata": {
+      "chunk_index": 0,
+      "createdAt": "2023-06-27T16:29:46Z",
+      "forks": 0,
+      "isForked": true,
+      "lastUpdated": "2023-06-27T16:29:46Z",
+      "name": "idThon",
+      "owner": "aduttya",
+      "size": 22,
+      "stars": 0,
+      "topics": "",
+      "total_chunks": 1,
+      "type": "repo",
+      "loc": {
+        "lines": {
+          "from": 1,
+          "to": 1
+        }
+      }
+    }
+  },
+  {
+    "pageContent": "```jsx\n<ConnectionProvider endpoint={MAINNET_ENDPOINT}>\n    <WalletProvider wallets={wallets} autoConnect={connectWallet}>\n        <WalletModalProvider>\n            <ConfigProvider\n                recipient={recipient}\n                label={label}\n                splToken={MAINNET_USDC_MINT}\n                symbol=\"USDC\"\n                icon={<USDCIcon />}\n                decimals={6}\n                minDecimals={2}\n                requiredConfirmations={9}\n                connectWallet={connectWallet}\n            >\n```\n\n## Deploying to Vercel\n\nYou can deploy this point of sale app to Vercel with a few clicks. Fork the project and configure it like this:\n\n![Solana Pay Point of Sale app Vercel configuration](solana-pay-point-of-sale-vercel.png)\n\nOnce the deployment finishes, navigate to\n```\nhttps://<YOUR DEPLOYMENT URL>?recipient=<YOUR WALLET ADDRESS>&label=Your+Store+Name\n```\n\n## License",
+    "metadata": {
+      "chunk_index": 3,
+      "forks": 0,
+      "lastUpdated": "2022-07-10T08:27:51Z",
+      "owner": "aduttya",
+      "primaryLanguage": "TypeScript",
+      "repoName": "Solana-pay",
+      "stars": 0,
+      "total_chunks": 5,
+      "type": "readme",
+      "loc": {
+        "lines": {
+          "from": 90,
+          "to": 118
+        }
+      }
+    }
+  },
+  {
+    "pageContent": "# nextjs-solidity-browser-compiler\n\n![Preview](/solidity-browser-compiler.gif)\n\nA solidity frontend compiler example built with Next.js and solc-js\n\n[Live Preview](https://nextjs-solidity-browser-compiler.vercel.app/)\n\n## Setup\n\nRun in a terminal with yarn:\n\n```bash\nyarn install\n```\n\n\n## Start\n\nRun in a terminal to start a development server:\n\n```bash\nyarn dev\n```\n\nThen go to\n```\nhttp://localhost:3000/\n```",
+    "metadata": {
+      "chunk_index": 0,
+      "forks": 0,
+      "lastUpdated": "2023-03-10T04:25:18Z",
+      "owner": "aduttya",
+      "primaryLanguage": "TypeScript",
+      "repoName": "In-Browser-Solidity-Compiler",
+      "stars": 0,
+      "total_chunks": 1,
+      "type": "readme",
+      "loc": {
+        "lines": {
+          "from": 3,
+          "to": 31
+        }
+      }
+    }
+  },
+  {
+    "pageContent": "{\"type\":\"repo\",\"name\":\"Test-Repo\",\"fullName\":\"aduttya/Test-Repo\",\"description\":null,\"languages\":[\"HTML\",\"CSS\"],\"primaryLanguage\":\"HTML\",\"createdAt\":\"2024-03-06T13:44:14Z\",\"lastUpdated\":\"2024-03-06T15:57:02Z\",\"lastPushed\":\"2024-03-06T15:56:58Z\",\"stars\":0,\"watchers\":0,\"forks\":0,\"issues\":0,\"license\":null,\"topics\":[],\"isForked\":false,\"defaultBranch\":\"main\",\"size\":3}",
+    "metadata": {
+      "chunk_index": 0,
+      "createdAt": "2024-03-06T13:44:14Z",
+      "forks": 0,
+      "isForked": false,
+      "lastUpdated": "2024-03-06T15:57:02Z",
+      "name": "Test-Repo",
+      "owner": "aduttya",
+      "primaryLanguage": "HTML",
+      "size": 3,
+      "stars": 0,
+      "topics": "",
+      "total_chunks": 1,
+      "type": "repo",
+      "loc": {
+        "lines": {
+          "from": 1,
+          "to": 1
+        }
+      }
+    }
+  },
+  {
+    "pageContent": "{\"type\":\"repo\",\"name\":\"app\",\"fullName\":\"aduttya/app\",\"description\":null,\"languages\":[\"JavaScript\",\"CSS\"],\"primaryLanguage\":\"JavaScript\",\"createdAt\":\"2023-02-11T11:03:24Z\",\"lastUpdated\":\"2023-02-11T11:05:07Z\",\"lastPushed\":\"2023-02-11T11:03:56Z\",\"stars\":0,\"watchers\":0,\"forks\":0,\"issues\":0,\"license\":null,\"topics\":[],\"isForked\":false,\"defaultBranch\":\"main\",\"size\":50}",
+    "metadata": {
+      "chunk_index": 0,
+      "createdAt": "2023-02-11T11:03:24Z",
+      "forks": 0,
+      "isForked": false,
+      "lastUpdated": "2023-02-11T11:05:07Z",
+      "name": "app",
+      "owner": "aduttya",
+      "primaryLanguage": "JavaScript",
+      "size": 50,
+      "stars": 0,
+      "topics": "",
+      "total_chunks": 1,
+      "type": "repo",
+      "loc": {
+        "lines": {
+          "from": 1,
+          "to": 1
+        }
+      }
+    }
+  },
+  {
+    "pageContent": "{\"type\":\"repo\",\"name\":\"stream\",\"fullName\":\"aduttya/stream\",\"description\":null,\"languages\":[\"JavaScript\"],\"primaryLanguage\":\"JavaScript\",\"createdAt\":\"2022-09-19T06:32:51Z\",\"lastUpdated\":\"2022-09-19T09:48:40Z\",\"lastPushed\":\"2022-09-30T06:04:31Z\",\"stars\":0,\"watchers\":0,\"forks\":0,\"issues\":0,\"license\":null,\"topics\":[],\"isForked\":false,\"defaultBranch\":\"main\",\"size\":42}",
+    "metadata": {
+      "chunk_index": 0,
+      "createdAt": "2022-09-19T06:32:51Z",
+      "forks": 0,
+      "isForked": false,
+      "lastUpdated": "2022-09-19T09:48:40Z",
+      "name": "stream",
+      "owner": "aduttya",
+      "primaryLanguage": "JavaScript",
+      "size": 42,
+      "stars": 0,
+      "topics": "",
+      "total_chunks": 1,
+      "type": "repo",
+      "loc": {
+        "lines": {
+          "from": 1,
+          "to": 1
+        }
+      }
+    }
+  },
+  {
+    "pageContent": "{\"type\":\"repo\",\"name\":\"thirdweb-backend\",\"fullName\":\"aduttya/thirdweb-backend\",\"description\":null,\"languages\":[\"TypeScript\",\"JavaScript\"],\"primaryLanguage\":\"TypeScript\",\"createdAt\":\"2024-03-15T05:11:09Z\",\"lastUpdated\":\"2024-03-15T05:14:53Z\",\"lastPushed\":\"2024-03-15T05:14:49Z\",\"stars\":0,\"watchers\":0,\"forks\":0,\"issues\":0,\"license\":\"Apache License 2.0\",\"topics\":[],\"isForked\":false,\"defaultBranch\":\"main\",\"size\":120}",
+    "metadata": {
+      "chunk_index": 0,
+      "createdAt": "2024-03-15T05:11:09Z",
+      "forks": 0,
+      "isForked": false,
+      "lastUpdated": "2024-03-15T05:14:53Z",
+      "name": "thirdweb-backend",
+      "owner": "aduttya",
+      "primaryLanguage": "TypeScript",
+      "size": 120,
+      "stars": 0,
+      "topics": "",
+      "total_chunks": 1,
+      "type": "repo",
+      "loc": {
+        "lines": {
+          "from": 1,
+          "to": 1
+        }
+      }
+    }
+  },
+  {
+    "pageContent": "# Proof Engine\n\n## Overview\n\nThe labor market on the Internet is densely populated, making talent filtering a challenging task. **Proof Engine** aims to address this issue by empowering talent through an innovative filtering mechanism.\n\n## Problem Statement\n\nThe internet labor market is crowded, which complicates talent filtering. Several challenges arise:\n- For those without prior client experience, breaking into the industry is difficult.\n- Post-project evaluations often emphasize client reviews over work quality.\n- Work sharing lacks a social dimension, necessitating significant time for work analysis.\n- Clients and employers face difficulty in efficiently evaluating work portfolios.",
+    "metadata": {
+      "chunk_index": 0,
+      "forks": 0,
+      "lastUpdated": "2023-12-05T16:36:25Z",
+      "owner": "aduttya",
+      "repoName": "PoW",
+      "stars": 1,
+      "total_chunks": 3,
+      "type": "readme",
+      "loc": {
+        "lines": {
+          "from": 1,
+          "to": 13
+        }
+      }
+    }
+  },
+  {
+    "pageContent": "{\"type\":\"repo\",\"name\":\"Anchor-Mint-and-Transfer-Smart-Contract\",\"fullName\":\"aduttya/Anchor-Mint-and-Transfer-Smart-Contract\",\"description\":null,\"languages\":[\"TypeScript\",\"Rust\"],\"primaryLanguage\":null,\"createdAt\":\"2022-07-16T14:00:51Z\",\"lastUpdated\":\"2022-07-09T02:59:21Z\",\"lastPushed\":\"2022-06-06T04:26:54Z\",\"stars\":0,\"watchers\":0,\"forks\":0,\"issues\":0,\"license\":null,\"topics\":[],\"isForked\":true,\"defaultBranch\":\"master\",\"size\":69}",
+    "metadata": {
+      "chunk_index": 0,
+      "createdAt": "2022-07-16T14:00:51Z",
+      "forks": 0,
+      "isForked": true,
+      "lastUpdated": "2022-07-09T02:59:21Z",
+      "name": "Anchor-Mint-and-Transfer-Smart-Contract",
+      "owner": "aduttya",
+      "size": 69,
+      "stars": 0,
+      "topics": "",
+      "total_chunks": 1,
+      "type": "repo",
+      "loc": {
+        "lines": {
+          "from": 1,
+          "to": 1
+        }
+      }
+    }
+  },
+  {
+    "pageContent": "{\"type\":\"repo\",\"name\":\"Layers-DNS-testing\",\"fullName\":\"aduttya/Layers-DNS-testing\",\"description\":null,\"languages\":[\"JavaScript\",\"Solidity\",\"CSS\"],\"primaryLanguage\":\"JavaScript\",\"createdAt\":\"2023-02-09T06:28:06Z\",\"lastUpdated\":\"2023-02-09T06:32:24Z\",\"lastPushed\":\"2023-02-09T06:54:20Z\",\"stars\":0,\"watchers\":0,\"forks\":0,\"issues\":0,\"license\":null,\"topics\":[],\"isForked\":false,\"defaultBranch\":\"main\",\"size\":1159}",
+    "metadata": {
+      "chunk_index": 0,
+      "createdAt": "2023-02-09T06:28:06Z",
+      "forks": 0,
+      "isForked": false,
+      "lastUpdated": "2023-02-09T06:32:24Z",
+      "name": "Layers-DNS-testing",
+      "owner": "aduttya",
+      "primaryLanguage": "JavaScript",
+      "size": 1159,
+      "stars": 0,
+      "topics": "",
+      "total_chunks": 1,
+      "type": "repo",
+      "loc": {
+        "lines": {
+          "from": 1,
+          "to": 1
+        }
+      }
+    }
+  },
+  {
+    "pageContent": "{\"type\":\"repo\",\"name\":\"Quilt\",\"fullName\":\"aduttya/Quilt\",\"description\":\"Solana Implementation for quilt\",\"languages\":[\"TypeScript\",\"JavaScript\",\"HTML\",\"Rust\",\"CSS\"],\"primaryLanguage\":\"TypeScript\",\"createdAt\":\"2022-08-17T05:47:31Z\",\"lastUpdated\":\"2022-08-26T05:28:49Z\",\"lastPushed\":\"2022-08-31T08:55:57Z\",\"stars\":0,\"watchers\":0,\"forks\":1,\"issues\":1,\"license\":null,\"topics\":[],\"isForked\":false,\"defaultBranch\":\"main\",\"size\":3625}",
+    "metadata": {
+      "chunk_index": 0,
+      "createdAt": "2022-08-17T05:47:31Z",
+      "forks": 1,
+      "isForked": false,
+      "lastUpdated": "2022-08-26T05:28:49Z",
+      "name": "Quilt",
+      "owner": "aduttya",
+      "primaryLanguage": "TypeScript",
+      "size": 3625,
+      "stars": 0,
+      "topics": "",
+      "total_chunks": 1,
+      "type": "repo",
+      "loc": {
+        "lines": {
+          "from": 1,
+          "to": 1
+        }
+      }
+    }
+  },
+  {
+    "pageContent": "# Advanced Sample Hardhat Project\n\nThis project demonstrates an advanced Hardhat use case, integrating other tools commonly used alongside Hardhat in the ecosystem.\n\nThe project comes with a sample contract, a test for that contract, a sample script that deploys that contract, and an example of a task implementation, which simply lists the available accounts. It also comes with a variety of other tools, preconfigured to work with the project code.\n\nTry running some of the following tasks:\n\n```shell\nnpx hardhat accounts\nnpx hardhat compile\nnpx hardhat clean\nnpx hardhat test\nnpx hardhat node\nnpx hardhat help\nREPORT_GAS=true npx hardhat test\nnpx hardhat coverage\nnpx hardhat run scripts/deploy.js\nnode scripts/deploy.js\nnpx eslint '**/*.js'\nnpx eslint '**/*.js' --fix\nnpx prettier '**/*.{json,sol,md}' --check\nnpx prettier '**/*.{json,sol,md}' --write\nnpx solhint 'contracts/**/*.sol'\nnpx solhint 'contracts/**/*.sol' --fix\n```\n\n# Etherscan verification",
+    "metadata": {
+      "chunk_index": 0,
+      "forks": 0,
+      "lastUpdated": "2021-10-30T12:27:14Z",
+      "owner": "aduttya",
+      "primaryLanguage": "JavaScript",
+      "repoName": "hardhatAdvanced",
+      "stars": 0,
+      "total_chunks": 2,
+      "type": "readme",
+      "loc": {
+        "lines": {
+          "from": 1,
+          "to": 28
+        }
+      }
+    }
+  },
+  {
+    "pageContent": "# Advanced Sample Hardhat Project\n\nThis project demonstrates an advanced Hardhat use case, integrating other tools commonly used alongside Hardhat in the ecosystem.\n\nThe project comes with a sample contract, a test for that contract, a sample script that deploys that contract, and an example of a task implementation, which simply lists the available accounts. It also comes with a variety of other tools, preconfigured to work with the project code.\n\nTry running some of the following tasks:\n\n```shell\nnpx hardhat accounts\nnpx hardhat compile\nnpx hardhat clean\nnpx hardhat test\nnpx hardhat node\nnpx hardhat help\nREPORT_GAS=true npx hardhat test\nnpx hardhat coverage\nnpx hardhat run scripts/deploy.js\nnode scripts/deploy.js\nnpx eslint '**/*.js'\nnpx eslint '**/*.js' --fix\nnpx prettier '**/*.{json,sol,md}' --check\nnpx prettier '**/*.{json,sol,md}' --write\nnpx solhint 'contracts/**/*.sol'\nnpx solhint 'contracts/**/*.sol' --fix\n```\n\n# Etherscan verification",
+    "metadata": {
+      "chunk_index": 0,
+      "forks": 0,
+      "lastUpdated": "2022-07-11T09:00:53Z",
+      "owner": "aduttya",
+      "primaryLanguage": "Solidity",
+      "repoName": "Learnweb3",
+      "stars": 0,
+      "total_chunks": 2,
+      "type": "readme",
+      "loc": {
+        "lines": {
+          "from": 1,
+          "to": 28
+        }
+      }
+    }
+  },
+  {
+    "pageContent": "# Point of Sale\n\nThis is an example of how you can use the `@solana/pay` JavaScript library to create a simple point of sale system.\n\nYou can [check out the demo](https://solana-labs.github.io/solana-pay/app?recipient=GvHeR432g7MjN9uKyX3Dzg66TqwrEWgANLnnFZXMeyyj&label=Solana+Pay) (using devnet), use the code as a reference, or run it yourself to start accepting decentralized payments in-person.\n\n## Prerequisites\n\nTo build and run this app locally, you'll need:\n\n-   Node.js v14.17.0 or above\n-   Yarn\n-   <details>\n        <summary> Setup two wallets on <a href=\"https://phantom.app\">Phantom</a> (Merchant and Customer) </summary>\n\n    #### 1. Create merchant wallet\n\n    Follow the [guide][1] on how to create a wallet. This wallet will provide the recipient address.\n\n    #### 2. Create customer wallet\n\n    Follow the [guide][1] on how to create another wallet. This wallet will be paying for the goods/services.\n\n    #### 3. Set Phantom to connect to devnet",
+    "metadata": {
+      "chunk_index": 0,
+      "forks": 0,
+      "lastUpdated": "2022-07-10T08:27:51Z",
+      "owner": "aduttya",
+      "primaryLanguage": "TypeScript",
+      "repoName": "Solana-pay",
+      "stars": 0,
+      "total_chunks": 5,
+      "type": "readme",
+      "loc": {
+        "lines": {
+          "from": 1,
+          "to": 24
+        }
+      }
+    }
+  },
+  {
+    "pageContent": "{\"type\":\"repo\",\"name\":\"solanaNFT\",\"fullName\":\"aduttya/solanaNFT\",\"description\":\"Solana NFT Project using anchor and metaplex\",\"languages\":[\"Rust\",\"TypeScript\",\"JavaScript\",\"HTML\",\"CSS\"],\"primaryLanguage\":\"Rust\",\"createdAt\":\"2022-07-18T12:02:34Z\",\"lastUpdated\":\"2023-06-01T02:24:31Z\",\"lastPushed\":\"2022-07-18T12:03:22Z\",\"stars\":1,\"watchers\":1,\"forks\":0,\"issues\":0,\"license\":null,\"topics\":[],\"isForked\":false,\"defaultBranch\":\"main\",\"size\":443}",
+    "metadata": {
+      "chunk_index": 0,
+      "createdAt": "2022-07-18T12:02:34Z",
+      "forks": 0,
+      "isForked": false,
+      "lastUpdated": "2023-06-01T02:24:31Z",
+      "name": "solanaNFT",
+      "owner": "aduttya",
+      "primaryLanguage": "Rust",
+      "size": 443,
+      "stars": 1,
+      "topics": "",
+      "total_chunks": 1,
+      "type": "repo",
+      "loc": {
+        "lines": {
+          "from": 1,
+          "to": 1
+        }
+      }
+    }
+  },
+  {
+    "pageContent": "{\"type\":\"repo\",\"name\":\"hardhatAdvanced\",\"fullName\":\"aduttya/hardhatAdvanced\",\"description\":\"Introductional hardhat advanced project\",\"languages\":[\"JavaScript\",\"Solidity\"],\"primaryLanguage\":\"JavaScript\",\"createdAt\":\"2021-10-30T12:25:47Z\",\"lastUpdated\":\"2021-10-30T12:27:14Z\",\"lastPushed\":\"2021-10-30T12:27:11Z\",\"stars\":0,\"watchers\":0,\"forks\":0,\"issues\":0,\"license\":null,\"topics\":[],\"isForked\":false,\"defaultBranch\":\"master\",\"size\":261}",
+    "metadata": {
+      "chunk_index": 0,
+      "createdAt": "2021-10-30T12:25:47Z",
+      "forks": 0,
+      "isForked": false,
+      "lastUpdated": "2021-10-30T12:27:14Z",
+      "name": "hardhatAdvanced",
+      "owner": "aduttya",
+      "primaryLanguage": "JavaScript",
+      "size": 261,
+      "stars": 0,
+      "topics": "",
+      "total_chunks": 1,
+      "type": "repo",
+      "loc": {
+        "lines": {
+          "from": 1,
+          "to": 1
+        }
+      }
+    }
+  },
+  {
+    "pageContent": "{\"type\":\"repo\",\"name\":\"airbnb\",\"fullName\":\"aduttya/airbnb\",\"description\":\"Clone of airbnb in web3\",\"languages\":[\"JavaScript\",\"CSS\"],\"primaryLanguage\":\"JavaScript\",\"createdAt\":\"2022-10-11T14:04:18Z\",\"lastUpdated\":\"2022-10-11T14:05:38Z\",\"lastPushed\":\"2022-10-11T14:05:34Z\",\"stars\":0,\"watchers\":0,\"forks\":1,\"issues\":0,\"license\":null,\"topics\":[],\"isForked\":false,\"defaultBranch\":\"main\",\"size\":50}",
+    "metadata": {
+      "chunk_index": 0,
+      "createdAt": "2022-10-11T14:04:18Z",
+      "forks": 1,
+      "isForked": false,
+      "lastUpdated": "2022-10-11T14:05:38Z",
+      "name": "airbnb",
+      "owner": "aduttya",
+      "primaryLanguage": "JavaScript",
+      "size": 50,
+      "stars": 0,
+      "topics": "",
+      "total_chunks": 1,
+      "type": "repo",
+      "loc": {
+        "lines": {
+          "from": 1,
+          "to": 1
+        }
+      }
+    }
+  },
+  {
+    "pageContent": "{\"type\":\"repo\",\"name\":\"voting\",\"fullName\":\"aduttya/voting\",\"description\":\"voting system using blockchain\",\"languages\":[],\"primaryLanguage\":null,\"createdAt\":\"2021-08-28T09:52:18Z\",\"lastUpdated\":\"2021-09-10T03:14:52Z\",\"lastPushed\":\"2021-09-06T08:00:19Z\",\"stars\":0,\"watchers\":0,\"forks\":0,\"issues\":0,\"license\":null,\"topics\":[],\"isForked\":false,\"defaultBranch\":\"main\",\"size\":540}",
+    "metadata": {
+      "chunk_index": 0,
+      "createdAt": "2021-08-28T09:52:18Z",
+      "forks": 0,
+      "isForked": false,
+      "lastUpdated": "2021-09-10T03:14:52Z",
+      "name": "voting",
+      "owner": "aduttya",
+      "size": 540,
+      "stars": 0,
+      "topics": "",
+      "total_chunks": 1,
+      "type": "repo",
+      "loc": {
+        "lines": {
+          "from": 1,
+          "to": 1
+        }
+      }
+    }
+  },
+  {
+    "pageContent": "{\"type\":\"repo\",\"name\":\"Learnweb3\",\"fullName\":\"aduttya/Learnweb3\",\"description\":\"This repo contains progress form learnweb3\",\"languages\":[\"Solidity\",\"JavaScript\"],\"primaryLanguage\":\"Solidity\",\"createdAt\":\"2022-07-11T08:58:54Z\",\"lastUpdated\":\"2022-07-11T09:00:53Z\",\"lastPushed\":\"2022-07-11T11:02:49Z\",\"stars\":0,\"watchers\":0,\"forks\":0,\"issues\":0,\"license\":null,\"topics\":[],\"isForked\":false,\"defaultBranch\":\"main\",\"size\":270}",
+    "metadata": {
+      "chunk_index": 0,
+      "createdAt": "2022-07-11T08:58:54Z",
+      "forks": 0,
+      "isForked": false,
+      "lastUpdated": "2022-07-11T09:00:53Z",
+      "name": "Learnweb3",
+      "owner": "aduttya",
+      "primaryLanguage": "Solidity",
+      "size": 270,
+      "stars": 0,
+      "topics": "",
+      "total_chunks": 1,
+      "type": "repo",
+      "loc": {
+        "lines": {
+          "from": 1,
+          "to": 1
+        }
+      }
+    }
+  },
+  {
+    "pageContent": "{\"type\":\"repo\",\"name\":\"nft\",\"fullName\":\"aduttya/nft\",\"description\":\"ERC721 token\",\"languages\":[\"JavaScript\",\"Solidity\",\"HTML\",\"CSS\",\"Shell\"],\"primaryLanguage\":\"JavaScript\",\"createdAt\":\"2021-12-12T09:56:07Z\",\"lastUpdated\":\"2021-12-12T10:12:07Z\",\"lastPushed\":\"2021-12-12T10:09:11Z\",\"stars\":0,\"watchers\":0,\"forks\":0,\"issues\":0,\"license\":\"MIT License\",\"topics\":[],\"isForked\":false,\"defaultBranch\":\"main\",\"size\":10854}",
+    "metadata": {
+      "chunk_index": 0,
+      "createdAt": "2021-12-12T09:56:07Z",
+      "forks": 0,
+      "isForked": false,
+      "lastUpdated": "2021-12-12T10:12:07Z",
+      "name": "nft",
+      "owner": "aduttya",
+      "primaryLanguage": "JavaScript",
+      "size": 10854,
+      "stars": 0,
+      "topics": "",
+      "total_chunks": 1,
+      "type": "repo",
+      "loc": {
+        "lines": {
+          "from": 1,
+          "to": 1
+        }
+      }
+    }
+  },
+  {
+    "pageContent": "{\"type\":\"repo\",\"name\":\"nftmarketplace\",\"fullName\":\"aduttya/nftmarketplace\",\"description\":null,\"languages\":[\"JavaScript\",\"HTML\",\"Solidity\"],\"primaryLanguage\":\"JavaScript\",\"createdAt\":\"2021-10-21T05:21:00Z\",\"lastUpdated\":\"2021-10-21T05:26:29Z\",\"lastPushed\":\"2021-10-21T05:26:24Z\",\"stars\":0,\"watchers\":0,\"forks\":0,\"issues\":0,\"license\":null,\"topics\":[],\"isForked\":false,\"defaultBranch\":\"master\",\"size\":17340}",
+    "metadata": {
+      "chunk_index": 0,
+      "createdAt": "2021-10-21T05:21:00Z",
+      "forks": 0,
+      "isForked": false,
+      "lastUpdated": "2021-10-21T05:26:29Z",
+      "name": "nftmarketplace",
+      "owner": "aduttya",
+      "primaryLanguage": "JavaScript",
+      "size": 17340,
+      "stars": 0,
+      "topics": "",
+      "total_chunks": 1,
+      "type": "repo",
+      "loc": {
+        "lines": {
+          "from": 1,
+          "to": 1
+        }
+      }
+    }
+  },
+  {
+    "pageContent": "This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).\n\n## Getting Started\n\nFirst, run the development server:\n\n```bash\nnpm run dev\n# or\nyarn dev\n```\n\nOpen [http://localhost:3000](http://localhost:3000) with your browser to see the result.\n\nYou can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.\n\n[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.\n\nThe `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.\n\n## Learn More\n\nTo learn more about Next.js, take a look at the following resources:",
+    "metadata": {
+      "chunk_index": 0,
+      "forks": 1,
+      "lastUpdated": "2022-10-11T14:05:38Z",
+      "owner": "aduttya",
+      "primaryLanguage": "JavaScript",
+      "repoName": "airbnb",
+      "stars": 0,
+      "total_chunks": 2,
+      "type": "readme",
+      "loc": {
+        "lines": {
+          "from": 1,
+          "to": 23
+        }
+      }
+    }
+  },
+  {
+    "pageContent": "This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).\n\n## Getting Started\n\nFirst, run the development server:\n\n```bash\nnpm run dev\n# or\nyarn dev\n```\n\nOpen [http://localhost:3000](http://localhost:3000) with your browser to see the result.\n\nYou can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.\n\n[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.\n\nThe `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.\n\n## Learn More\n\nTo learn more about Next.js, take a look at the following resources:",
+    "metadata": {
+      "chunk_index": 0,
+      "forks": 0,
+      "lastUpdated": "2023-02-11T11:05:07Z",
+      "owner": "aduttya",
+      "primaryLanguage": "JavaScript",
+      "repoName": "app",
+      "stars": 0,
+      "total_chunks": 2,
+      "type": "readme",
+      "loc": {
+        "lines": {
+          "from": 1,
+          "to": 23
+        }
+      }
+    }
+  },
+  {
+    "pageContent": "{\"type\":\"repo\",\"name\":\"In-Browser-Solidity-Compiler\",\"fullName\":\"aduttya/In-Browser-Solidity-Compiler\",\"description\":\"Compiling Solidity in the browser\",\"languages\":[\"TypeScript\",\"CSS\",\"JavaScript\"],\"primaryLanguage\":\"TypeScript\",\"createdAt\":\"2023-03-10T04:23:14Z\",\"lastUpdated\":\"2023-03-10T04:25:18Z\",\"lastPushed\":\"2023-03-10T04:25:15Z\",\"stars\":0,\"watchers\":0,\"forks\":0,\"issues\":0,\"license\":null,\"topics\":[],\"isForked\":false,\"defaultBranch\":\"main\",\"size\":509}",
+    "metadata": {
+      "chunk_index": 0,
+      "createdAt": "2023-03-10T04:23:14Z",
+      "forks": 0,
+      "isForked": false,
+      "lastUpdated": "2023-03-10T04:25:18Z",
+      "name": "In-Browser-Solidity-Compiler",
+      "owner": "aduttya",
+      "primaryLanguage": "TypeScript",
+      "size": 509,
+      "stars": 0,
+      "topics": "",
+      "total_chunks": 1,
+      "type": "repo",
+      "loc": {
+        "lines": {
+          "from": 1,
+          "to": 1
+        }
+      }
+    }
+  },
+  {
+    "pageContent": "- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.\n- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.\n\nYou can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!\n\n## Deploy on Vercel\n\nThe easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.\n\nCheck out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.",
+    "metadata": {
+      "chunk_index": 1,
+      "forks": 0,
+      "lastUpdated": "2023-02-11T11:05:07Z",
+      "owner": "aduttya",
+      "primaryLanguage": "JavaScript",
+      "repoName": "app",
+      "stars": 0,
+      "total_chunks": 2,
+      "type": "readme",
+      "loc": {
+        "lines": {
+          "from": 25,
+          "to": 34
+        }
+      }
+    }
+  },
+  {
+    "pageContent": "- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.\n- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.\n\nYou can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!\n\n## Deploy on Vercel\n\nThe easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.\n\nCheck out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.",
+    "metadata": {
+      "chunk_index": 1,
+      "forks": 1,
+      "lastUpdated": "2022-10-11T14:05:38Z",
+      "owner": "aduttya",
+      "primaryLanguage": "JavaScript",
+      "repoName": "airbnb",
+      "stars": 0,
+      "total_chunks": 2,
+      "type": "readme",
+      "loc": {
+        "lines": {
+          "from": 25,
+          "to": 34
+        }
+      }
+    }
+  },
+  {
+    "pageContent": "## Getting Started\n\nThis example demonstrates how to use thirdweb Auth with an express backend and react frontend.\n\nTo run this project, you need will first need to install the dependencies for the client and express backend with the following commands:\n\n```bash\ncd client && npm install\ncd express && npm install\n# or\ncd client && yarn install\ncd express && yarn install\n```\n\nNext, you need to create a `/express/.env` file (within the `/express`) directory and add the `ADMIN_PRIVATE_KEY` variable to it with the private key of the wallet you want to use as the admin wallet to generate and verify payloads. Your file should use something like the following:\n\n```/express/.env\nADMIN_PRIVATE_KEY=...\n```\n\nThen, you can run the project by running the following two commands in separate terminals:\n\n```bash\nnpm run dev\nnpm run server\n# or\nyarn dev\nyarn server\n```\n\n## Learn More\n\nTo learn more about thirdweb, take a look at the following resources:",
+    "metadata": {
+      "chunk_index": 0,
+      "forks": 0,
+      "lastUpdated": "2024-03-15T05:14:53Z",
+      "owner": "aduttya",
+      "primaryLanguage": "TypeScript",
+      "repoName": "thirdweb-backend",
+      "stars": 0,
+      "total_chunks": 2,
+      "type": "readme",
+      "loc": {
+        "lines": {
+          "from": 1,
+          "to": 33
+        }
+      }
+    }
+  },
+  {
+    "pageContent": "## Solution: Proof Engine\n**Let's follow the Bitcoin's proof-of-work**\n**Proof Engine** is designed to solve these problems by enabling users to showcase their skills and work through third-party integrations like GitHub and Figma. It gathers data, analyze them and generates comprehensive reports that serve as proof of their capabilities and expertise.\n\n## Key Objectives\n\n- Provide an open-source algorithm to gather, analyze, and generate reports on proof-of-work.\n- Offer a reliable and standardized proof of work based on integrated third-party apps.\n- Enhance talent filtering by giving prominence to work quality and expertise.\n- Facilitate collaboration and team formation based on proof of work.\n\n## Use Cases\n\n### Freelance Marketplaces\n\n- Simplify talent filtering in crowded freelance marketplaces.\n- Enable newcomers to showcase their skills effectively, enhancing industry entry opportunities.\n- Shift the emphasis from client reviews to work quality and expertise.\n\n### Work Sharing",
+    "metadata": {
+      "chunk_index": 1,
+      "forks": 0,
+      "lastUpdated": "2023-12-05T16:36:25Z",
+      "owner": "aduttya",
+      "repoName": "PoW",
+      "stars": 1,
+      "total_chunks": 3,
+      "type": "readme",
+      "loc": {
+        "lines": {
+          "from": 15,
+          "to": 34
+        }
+      }
+    }
+  },
+  {
+    "pageContent": "# Quilt\nSolana Implementation for quilt\n\nHow mapping works on Ethereum https://photos.app.goo.gl/Pn7P2xo7Wunemd9A8\n\nHow mapping works on solana https://photos.app.goo.gl/S5S29cqzUHTgHkeD7",
+    "metadata": {
+      "chunk_index": 0,
+      "forks": 1,
+      "lastUpdated": "2022-08-26T05:28:49Z",
+      "owner": "aduttya",
+      "primaryLanguage": "TypeScript",
+      "repoName": "Quilt",
+      "stars": 0,
+      "total_chunks": 1,
+      "type": "readme",
+      "loc": {
+        "lines": {
+          "from": 1,
+          "to": 6
+        }
+      }
+    }
+  },
+  {
+    "pageContent": "# voting\nvoting system using blockchain",
+    "metadata": {
+      "chunk_index": 0,
+      "forks": 0,
+      "lastUpdated": "2021-09-10T03:14:52Z",
+      "owner": "aduttya",
+      "repoName": "voting",
+      "stars": 0,
+      "total_chunks": 1,
+      "type": "readme",
+      "loc": {
+        "lines": {
+          "from": 1,
+          "to": 2
+        }
+      }
+    }
+  },
+  {
+    "pageContent": "{\"type\":\"repo\",\"name\":\"PoW\",\"fullName\":\"aduttya/PoW\",\"description\":\"The Algo to empower next generation Proof-of-work based freelancing platforms.\",\"languages\":[],\"primaryLanguage\":null,\"createdAt\":\"2023-12-04T13:55:27Z\",\"lastUpdated\":\"2023-12-05T16:36:25Z\",\"lastPushed\":\"2023-12-04T13:56:15Z\",\"stars\":1,\"watchers\":1,\"forks\":0,\"issues\":0,\"license\":null,\"topics\":[],\"isForked\":false,\"defaultBranch\":\"main\",\"size\":2}",
+    "metadata": {
+      "chunk_index": 0,
+      "createdAt": "2023-12-04T13:55:27Z",
+      "forks": 0,
+      "isForked": false,
+      "lastUpdated": "2023-12-05T16:36:25Z",
+      "name": "PoW",
+      "owner": "aduttya",
+      "size": 2,
+      "stars": 1,
+      "topics": "",
+      "total_chunks": 1,
+      "type": "repo",
+      "loc": {
+        "lines": {
+          "from": 1,
+          "to": 1
+        }
+      }
+    }
+  },
+  {
+    "pageContent": "{\"type\":\"repo\",\"name\":\"Smart-contract-deployment\",\"fullName\":\"aduttya/Smart-contract-deployment\",\"description\":\"Smart contract deployment on mainnet or testnet\",\"languages\":[\"JavaScript\",\"Solidity\"],\"primaryLanguage\":\"JavaScript\",\"createdAt\":\"2021-08-29T05:01:54Z\",\"lastUpdated\":\"2021-08-29T05:37:15Z\",\"lastPushed\":\"2021-08-29T05:37:11Z\",\"stars\":0,\"watchers\":0,\"forks\":1,\"issues\":0,\"license\":null,\"topics\":[],\"isForked\":false,\"defaultBranch\":\"main\",\"size\":9738}",
+    "metadata": {
+      "chunk_index": 0,
+      "createdAt": "2021-08-29T05:01:54Z",
+      "forks": 1,
+      "isForked": false,
+      "lastUpdated": "2021-08-29T05:37:15Z",
+      "name": "Smart-contract-deployment",
+      "owner": "aduttya",
+      "primaryLanguage": "JavaScript",
+      "size": 9738,
+      "stars": 0,
+      "topics": "",
+      "total_chunks": 1,
+      "type": "repo",
+      "loc": {
+        "lines": {
+          "from": 1,
+          "to": 1
+        }
+      }
+    }
+  },
+  {
+    "pageContent": "{\"type\":\"repo\",\"name\":\"aduttya.github.io\",\"fullName\":\"aduttya/aduttya.github.io\",\"description\":null,\"languages\":[\"HTML\",\"CSS\"],\"primaryLanguage\":\"HTML\",\"createdAt\":\"2024-03-06T16:00:57Z\",\"lastUpdated\":\"2024-03-07T14:41:13Z\",\"lastPushed\":\"2024-03-06T16:04:58Z\",\"stars\":0,\"watchers\":0,\"forks\":0,\"issues\":0,\"license\":null,\"topics\":[],\"isForked\":false,\"defaultBranch\":\"main\",\"size\":1}",
+    "metadata": {
+      "chunk_index": 0,
+      "createdAt": "2024-03-06T16:00:57Z",
+      "forks": 0,
+      "isForked": false,
+      "lastUpdated": "2024-03-07T14:41:13Z",
+      "name": "aduttya.github.io",
+      "owner": "aduttya",
+      "primaryLanguage": "HTML",
+      "size": 1,
+      "stars": 0,
+      "topics": "",
+      "total_chunks": 1,
+      "type": "repo",
+      "loc": {
+        "lines": {
+          "from": 1,
+          "to": 1
+        }
+      }
+    }
+  },
+  {
+    "pageContent": "{\"type\":\"repo\",\"name\":\"smartContractHacks\",\"fullName\":\"aduttya/smartContractHacks\",\"description\":\"common smart contract vulnerabilities\",\"languages\":[\"JavaScript\",\"Solidity\"],\"primaryLanguage\":\"JavaScript\",\"createdAt\":\"2021-09-25T13:47:50Z\",\"lastUpdated\":\"2021-09-26T10:51:52Z\",\"lastPushed\":\"2021-09-26T10:51:50Z\",\"stars\":0,\"watchers\":0,\"forks\":0,\"issues\":0,\"license\":null,\"topics\":[],\"isForked\":false,\"defaultBranch\":\"main\",\"size\":32}",
+    "metadata": {
+      "chunk_index": 0,
+      "createdAt": "2021-09-25T13:47:50Z",
+      "forks": 0,
+      "isForked": false,
+      "lastUpdated": "2021-09-26T10:51:52Z",
+      "name": "smartContractHacks",
+      "owner": "aduttya",
+      "primaryLanguage": "JavaScript",
+      "size": 32,
+      "stars": 0,
+      "topics": "",
+      "total_chunks": 1,
+      "type": "repo",
+      "loc": {
+        "lines": {
+          "from": 1,
+          "to": 1
+        }
+      }
+    }
+  },
+  {
+    "pageContent": "- 👋 Hi, I’m @aduttya and I'm a Blockchian dev\n- 👀 I’m interested crypto universe and Blockchain technology\n- 🌱 I’m currently working with Ethereum, Binance Smart Chain \n- 💞️ I’m looking to collaborate on Projects\n- 📫 anjayyadaav379@gmail.com\n\n<!---\naduttya/aduttya is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.\nYou can click the Preview link to take a look at your changes.\n--->",
+    "metadata": {
+      "chunk_index": 0,
+      "forks": 0,
+      "lastUpdated": "2021-08-29T05:44:56Z",
+      "owner": "aduttya",
+      "repoName": "aduttya",
+      "stars": 0,
+      "total_chunks": 1,
+      "type": "readme",
+      "loc": {
+        "lines": {
+          "from": 1,
+          "to": 10
+        }
+      }
+    }
+  },
+  {
+    "pageContent": "{\"type\":\"repo\",\"name\":\"hardhat\",\"fullName\":\"aduttya/hardhat\",\"description\":\"Hardhat basic config\",\"languages\":[\"JavaScript\",\"Solidity\"],\"primaryLanguage\":\"JavaScript\",\"createdAt\":\"2021-09-05T14:32:01Z\",\"lastUpdated\":\"2021-09-05T15:30:15Z\",\"lastPushed\":\"2021-09-05T15:30:07Z\",\"stars\":0,\"watchers\":0,\"forks\":0,\"issues\":0,\"license\":null,\"topics\":[],\"isForked\":false,\"defaultBranch\":\"main\",\"size\":62029}",
+    "metadata": {
+      "chunk_index": 0,
+      "createdAt": "2021-09-05T14:32:01Z",
+      "forks": 0,
+      "isForked": false,
+      "lastUpdated": "2021-09-05T15:30:15Z",
+      "name": "hardhat",
+      "owner": "aduttya",
+      "primaryLanguage": "JavaScript",
+      "size": 62029,
+      "stars": 0,
+      "topics": "",
+      "total_chunks": 1,
+      "type": "repo",
+      "loc": {
+        "lines": {
+          "from": 1,
+          "to": 1
+        }
+      }
+    }
+  },
+  {
+    "pageContent": "{\"type\":\"repo\",\"name\":\"aduttya\",\"fullName\":\"aduttya/aduttya\",\"description\":\"Config files for my GitHub profile.\",\"languages\":[],\"primaryLanguage\":null,\"createdAt\":\"2021-08-29T05:41:35Z\",\"lastUpdated\":\"2021-08-29T05:44:56Z\",\"lastPushed\":\"2021-08-29T05:44:54Z\",\"stars\":0,\"watchers\":0,\"forks\":0,\"issues\":0,\"license\":null,\"topics\":[\"config\",\"github-config\"],\"isForked\":false,\"defaultBranch\":\"main\",\"size\":0}",
+    "metadata": {
+      "chunk_index": 0,
+      "createdAt": "2021-08-29T05:41:35Z",
+      "forks": 0,
+      "isForked": false,
+      "lastUpdated": "2021-08-29T05:44:56Z",
+      "name": "aduttya",
+      "owner": "aduttya",
+      "size": 0,
+      "stars": 0,
+      "topics": "config,github-config",
+      "total_chunks": 1,
+      "type": "repo",
+      "loc": {
+        "lines": {
+          "from": 1,
+          "to": 1
+        }
+      }
+    }
+  },
+  {
+    "pageContent": "# Smart-contract-deployment\nSmart contract deployment on mainnet or testnet(Binance Smart Chain or Ethereum)\n\n# Packages need for starting\n```sh\nnpm i @truffle/hdwallet-provider\n```\n```sh\nnpm i ethereumjs-wallet\n```\nYou also need a RPC privider\n```sh\nhttps://moralis.io/speedy-nodes/\n```\n```sh\nhttps://app.ankr.com/api\n```\n```sh\nhttps://chainstack.com/build-better-with-binance-smart-chain/\n```\n```sh\nhttps://getblock.io/\n```\n```sh\nhttps://quiknode.io/\n```\nBinance Faucet for Test BNB\n```sh\nhttps://testnet.binance.org/faucet-smart\n```\nNow you have testnet(chain BNB) so start with interact.js file and follow along.\nchange your account address,private key and RPC API service and you are all set.",
+    "metadata": {
+      "chunk_index": 0,
+      "forks": 1,
+      "lastUpdated": "2021-08-29T05:37:15Z",
+      "owner": "aduttya",
+      "primaryLanguage": "JavaScript",
+      "repoName": "Smart-contract-deployment",
+      "stars": 0,
+      "total_chunks": 1,
+      "type": "readme",
+      "loc": {
+        "lines": {
+          "from": 1,
+          "to": 32
+        }
+      }
+    }
+  },
+  {
+    "pageContent": "{\"type\":\"repo\",\"name\":\"Solana-pay\",\"fullName\":\"aduttya/Solana-pay\",\"description\":\"This is solana pay\",\"languages\":[\"TypeScript\",\"CSS\",\"HTML\"],\"primaryLanguage\":\"TypeScript\",\"createdAt\":\"2022-07-10T08:22:46Z\",\"lastUpdated\":\"2022-07-10T08:27:51Z\",\"lastPushed\":\"2022-07-10T08:27:48Z\",\"stars\":0,\"watchers\":0,\"forks\":0,\"issues\":0,\"license\":\"Apache License 2.0\",\"topics\":[],\"isForked\":false,\"defaultBranch\":\"main\",\"size\":187}",
+    "metadata": {
+      "chunk_index": 0,
+      "createdAt": "2022-07-10T08:22:46Z",
+      "forks": 0,
+      "isForked": false,
+      "lastUpdated": "2022-07-10T08:27:51Z",
+      "name": "Solana-pay",
+      "owner": "aduttya",
+      "primaryLanguage": "TypeScript",
+      "size": 187,
+      "stars": 0,
+      "topics": "",
+      "total_chunks": 1,
+      "type": "repo",
+      "loc": {
+        "lines": {
+          "from": 1,
+          "to": 1
+        }
+      }
+    }
+  },
+  {
+    "pageContent": "{\"type\":\"repo\",\"name\":\"ERC20\",\"fullName\":\"aduttya/ERC20\",\"description\":\"create first ERC 20 token from scratch\",\"languages\":[\"JavaScript\",\"Solidity\",\"HTML\",\"CSS\"],\"primaryLanguage\":\"JavaScript\",\"createdAt\":\"2021-07-14T10:01:50Z\",\"lastUpdated\":\"2021-08-28T10:24:59Z\",\"lastPushed\":\"2021-08-28T10:24:57Z\",\"stars\":0,\"watchers\":0,\"forks\":0,\"issues\":0,\"license\":\"MIT License\",\"topics\":[],\"isForked\":false,\"defaultBranch\":\"main\",\"size\":380}",
+    "metadata": {
+      "chunk_index": 0,
+      "createdAt": "2021-07-14T10:01:50Z",
+      "forks": 0,
+      "isForked": false,
+      "lastUpdated": "2021-08-28T10:24:59Z",
+      "name": "ERC20",
+      "owner": "aduttya",
+      "primaryLanguage": "JavaScript",
+      "size": 380,
+      "stars": 0,
+      "topics": "",
+      "total_chunks": 1,
+      "type": "repo",
+      "loc": {
+        "lines": {
+          "from": 1,
+          "to": 1
+        }
+      }
+    }
+  },
+  {
+    "pageContent": "{\"type\":\"repo\",\"name\":\"python_workbook\",\"fullName\":\"aduttya/python_workbook\",\"description\":null,\"languages\":[\"Python\",\"C++\"],\"primaryLanguage\":\"Python\",\"createdAt\":\"2020-06-30T09:13:37Z\",\"lastUpdated\":\"2020-07-17T06:20:15Z\",\"lastPushed\":\"2020-07-17T06:20:12Z\",\"stars\":0,\"watchers\":0,\"forks\":0,\"issues\":0,\"license\":null,\"topics\":[],\"isForked\":false,\"defaultBranch\":\"master\",\"size\":6}",
+    "metadata": {
+      "chunk_index": 0,
+      "createdAt": "2020-06-30T09:13:37Z",
+      "forks": 0,
+      "isForked": false,
+      "lastUpdated": "2020-07-17T06:20:15Z",
+      "name": "python_workbook",
+      "owner": "aduttya",
+      "primaryLanguage": "Python",
+      "size": 6,
+      "stars": 0,
+      "topics": "",
+      "total_chunks": 1,
+      "type": "repo",
+      "loc": {
+        "lines": {
+          "from": 1,
+          "to": 1
+        }
+      }
+    }
+  },
+  {
+    "pageContent": "{\"type\":\"repo\",\"name\":\"Wallet-Frontend\",\"fullName\":\"aduttya/Wallet-Frontend\",\"description\":null,\"languages\":[\"TypeScript\",\"CSS\",\"JavaScript\"],\"primaryLanguage\":\"TypeScript\",\"createdAt\":\"2024-03-15T05:16:12Z\",\"lastUpdated\":\"2024-03-15T05:18:09Z\",\"lastPushed\":\"2024-03-28T16:56:25Z\",\"stars\":0,\"watchers\":0,\"forks\":0,\"issues\":0,\"license\":null,\"topics\":[],\"isForked\":false,\"defaultBranch\":\"main\",\"size\":881}",
+    "metadata": {
+      "chunk_index": 0,
+      "createdAt": "2024-03-15T05:16:12Z",
+      "forks": 0,
+      "isForked": false,
+      "lastUpdated": "2024-03-15T05:18:09Z",
+      "name": "Wallet-Frontend",
+      "owner": "aduttya",
+      "primaryLanguage": "TypeScript",
+      "size": 881,
+      "stars": 0,
+      "topics": "",
+      "total_chunks": 1,
+      "type": "repo",
+      "loc": {
+        "lines": {
+          "from": 1,
+          "to": 1
+        }
+      }
+    }
+  },
+  {
+    "pageContent": "{\"type\":\"repo\",\"name\":\"ETH-wallet\",\"fullName\":\"aduttya/ETH-wallet\",\"description\":\"ethereum smart wallet\",\"languages\":[\"JavaScript\"],\"primaryLanguage\":\"JavaScript\",\"createdAt\":\"2021-10-30T12:27:51Z\",\"lastUpdated\":\"2021-10-30T12:29:15Z\",\"lastPushed\":\"2021-10-30T12:29:12Z\",\"stars\":0,\"watchers\":0,\"forks\":0,\"issues\":0,\"license\":null,\"topics\":[],\"isForked\":false,\"defaultBranch\":\"master\",\"size\":2046}",
+    "metadata": {
+      "chunk_index": 0,
+      "createdAt": "2021-10-30T12:27:51Z",
+      "forks": 0,
+      "isForked": false,
+      "lastUpdated": "2021-10-30T12:29:15Z",
+      "name": "ETH-wallet",
+      "owner": "aduttya",
+      "primaryLanguage": "JavaScript",
+      "size": 2046,
+      "stars": 0,
+      "topics": "",
+      "total_chunks": 1,
+      "type": "repo",
+      "loc": {
+        "lines": {
+          "from": 1,
+          "to": 1
+        }
+      }
+    }
+  },
+  {
+    "pageContent": "{\"type\":\"repo\",\"name\":\"solanaDapp\",\"fullName\":\"aduttya/solanaDapp\",\"description\":\"Build a dapp in solana\",\"languages\":[\"TypeScript\",\"JavaScript\",\"CSS\"],\"primaryLanguage\":\"TypeScript\",\"createdAt\":\"2022-07-10T08:32:57Z\",\"lastUpdated\":\"2022-07-10T08:34:39Z\",\"lastPushed\":\"2022-07-10T08:34:36Z\",\"stars\":0,\"watchers\":0,\"forks\":0,\"issues\":0,\"license\":\"MIT License\",\"topics\":[],\"isForked\":false,\"defaultBranch\":\"main\",\"size\":2366}",
+    "metadata": {
+      "chunk_index": 0,
+      "createdAt": "2022-07-10T08:32:57Z",
+      "forks": 0,
+      "isForked": false,
+      "lastUpdated": "2022-07-10T08:34:39Z",
+      "name": "solanaDapp",
+      "owner": "aduttya",
+      "primaryLanguage": "TypeScript",
+      "size": 2366,
+      "stars": 0,
+      "topics": "",
+      "total_chunks": 1,
+      "type": "repo",
+      "loc": {
+        "lines": {
+          "from": 1,
+          "to": 1
+        }
+      }
+    }
+  },
+  {
+    "pageContent": "# Sample Hardhat Project\n\nThis project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, and a script that deploys that contract.\n\nTry running some of the following tasks:\n\n```shell\nnpx hardhat help\nnpx hardhat test\nREPORT_GAS=true npx hardhat test\nnpx hardhat node\nnpx hardhat run scripts/deploy.js\n```",
+    "metadata": {
+      "chunk_index": 0,
+      "forks": 0,
+      "lastUpdated": "2023-06-12T14:27:14Z",
+      "owner": "aduttya",
+      "primaryLanguage": "JavaScript",
+      "repoName": "Solidity-Storage-Collision",
+      "stars": 0,
+      "total_chunks": 1,
+      "type": "readme",
+      "loc": {
+        "lines": {
+          "from": 1,
+          "to": 13
+        }
+      }
+    }
+  },
+  {
+    "pageContent": "{\"type\":\"user_overview\",\"name\":\"Aduttya\",\"login\":\"aduttya\",\"bio\":null,\"url\":\"https://github.com/aduttya\",\"publicRepos\":33,\"followers\":4,\"following\":2,\"allLanguages\":[\"HTML\",\"CSS\",\"JavaScript\",\"TypeScript\",\"Rust\",\"C++\",\"Solidity\",\"Shell\",\"Python\"],\"totalStars\":null,\"totalWatchers\":null}",
+    "metadata": {
+      "followerCount": 4,
+      "login": "aduttya",
+      "repoCount": 33,
+      "type": "user_overview"
+    }
+  },
+  {
+    "pageContent": "# Create Solana Dapp with Next.JS\n\nWant to start develop with Solana fetching NFTs from the blockchain or power-up your [Anchor](https://project-serum.github.io/anchor/getting-started/introduction.html) app with UI?   \nThis boilerplate can be used to setup your UI with React.JS / Next.JS and deploy it to [Vercel Platform](https://vercel.com/) in just a minutes.\n\n\n\nhttps://user-images.githubusercontent.com/188568/152035121-400a89b2-a5f7-4dca-9abd-b5991dc99f2c.mp4\n\n\n\n\n## 🛵 ◍ Demo: https://create-dapp-solana-nextjs.vercel.app/\n\nThis project includes:\n\n- Next.JS\n- TypeScript\n- [@solana/wallet-adapter](https://github.com/solana-labs/wallet-adapter) and [@solana/web3.js](https://solana-labs.github.io/solana-web3.js) for interactions with wallets & blockchain.\n- Tailwind CSS (with [daisyUI](https://daisyui.com/))\n\n## Getting Started\n\nFirst, run the development server:\n\n```bash\nyarn\nyarn run dev\n```",
+    "metadata": {
+      "chunk_index": 0,
+      "forks": 0,
+      "lastUpdated": "2022-07-10T08:34:39Z",
+      "owner": "aduttya",
+      "primaryLanguage": "TypeScript",
+      "repoName": "solanaDapp",
+      "stars": 0,
+      "total_chunks": 3,
+      "type": "readme",
+      "loc": {
+        "lines": {
+          "from": 1,
+          "to": 29
+        }
+      }
+    }
+  },
+  {
+    "pageContent": "## Accepting USDC on Mainnet\nImport the Mainnet endpoint, along with USDC's mint address and icon in the `RootRoute.tsx` file.\n```jsx\nimport { MAINNET_ENDPOINT, MAINNET_USDC_MINT } from '../../utils/constants';\nimport { USDCIcon } from '../images/USDCIcon';\n```\n\nIn the same file, set the `endpoint` value in the `<ConnectionProvider>` to `MAINNET_ENDPOINT` and set the following values in the `<ConfigProvider>`:\n\n```tsx\nsplToken={MAINNET_USDC_MINT}\nsymbol=\"USDC\"\nicon={<USDCIcon />}\ndecimals={6}\nminDecimals={2}\n```\n\n**Make sure to use 6 decimals for USDC!**\n\nWhen you're done, it should look like this:",
+    "metadata": {
+      "chunk_index": 2,
+      "forks": 0,
+      "lastUpdated": "2022-07-10T08:27:51Z",
+      "owner": "aduttya",
+      "primaryLanguage": "TypeScript",
+      "repoName": "Solana-pay",
+      "stars": 0,
+      "total_chunks": 5,
+      "type": "readme",
+      "loc": {
+        "lines": {
+          "from": 69,
+          "to": 88
+        }
+      }
+    }
+  },
+  {
+    "pageContent": "The Solana Pay Point of Sale app is open source and available under the Apache License, Version 2.0. See the [LICENSE](./LICENSE) file for more info.\n\n<!-- Links -->\n\n[1]: https://help.phantom.app/hc/en-us/articles/4406388623251-How-to-create-a-new-wallet\n[3]: https://solfaucet.com/",
+    "metadata": {
+      "chunk_index": 4,
+      "forks": 0,
+      "lastUpdated": "2022-07-10T08:27:51Z",
+      "owner": "aduttya",
+      "primaryLanguage": "TypeScript",
+      "repoName": "Solana-pay",
+      "stars": 0,
+      "total_chunks": 5,
+      "type": "readme",
+      "loc": {
+        "lines": {
+          "from": 120,
+          "to": 125
+        }
+      }
+    }
+  },
+  {
+    "pageContent": "{\"type\":\"repo\",\"name\":\"Solidity-Storage-Collision\",\"fullName\":\"aduttya/Solidity-Storage-Collision\",\"description\":\"This repo will contains code to avoid storage collision in solidity\",\"languages\":[\"JavaScript\",\"Solidity\"],\"primaryLanguage\":\"JavaScript\",\"createdAt\":\"2023-06-12T14:26:17Z\",\"lastUpdated\":\"2023-06-12T14:27:14Z\",\"lastPushed\":\"2023-06-12T14:32:51Z\",\"stars\":0,\"watchers\":0,\"forks\":0,\"issues\":0,\"license\":null,\"topics\":[],\"isForked\":false,\"defaultBranch\":\"main\",\"size\":520}",
+    "metadata": {
+      "chunk_index": 0,
+      "createdAt": "2023-06-12T14:26:17Z",
+      "forks": 0,
+      "isForked": false,
+      "lastUpdated": "2023-06-12T14:27:14Z",
+      "name": "Solidity-Storage-Collision",
+      "owner": "aduttya",
+      "primaryLanguage": "JavaScript",
+      "size": 520,
+      "stars": 0,
+      "topics": "",
+      "total_chunks": 1,
+      "type": "repo",
+      "loc": {
+        "lines": {
+          "from": 1,
+          "to": 1
+        }
+      }
+    }
+  },
+  {
+    "pageContent": "{\"type\":\"repo\",\"name\":\"First-Blockchain-Project\",\"fullName\":\"aduttya/First-Blockchain-Project\",\"description\":\"Creating blockchain project without any framework\",\"languages\":[\"JavaScript\",\"HTML\",\"Solidity\"],\"primaryLanguage\":\"JavaScript\",\"createdAt\":\"2021-07-13T09:24:29Z\",\"lastUpdated\":\"2021-09-06T13:47:54Z\",\"lastPushed\":\"2021-07-14T05:41:59Z\",\"stars\":1,\"watchers\":1,\"forks\":0,\"issues\":0,\"license\":null,\"topics\":[],\"isForked\":false,\"defaultBranch\":\"main\",\"size\":553}",
+    "metadata": {
+      "chunk_index": 0,
+      "createdAt": "2021-07-13T09:24:29Z",
+      "forks": 0,
+      "isForked": false,
+      "lastUpdated": "2021-09-06T13:47:54Z",
+      "name": "First-Blockchain-Project",
+      "owner": "aduttya",
+      "primaryLanguage": "JavaScript",
+      "size": 553,
+      "stars": 1,
+      "topics": "",
+      "total_chunks": 1,
+      "type": "repo",
+      "loc": {
+        "lines": {
+          "from": 1,
+          "to": 1
+        }
+      }
+    }
+  },
+  {
+    "pageContent": "1. Click the settings icon in the Phantom window\n    2. Select the \"Change network\" option and select \"Devnet\"\n\n    #### 4. Airdrop SOL to customer wallet\n\n    Use [solfaucet][3] to airdrop SOL to the customer wallet.\n\n    > You'll need SOL in the customer wallet to pay for the goods/services + transaction fees\n\n </details>\n\n## Getting Started\n\nThese instructions will get you a copy of the project up and running on your local machine for development and testing purposes.\n\n### Clone the repository\n\n#### With Git\n```shell\ngit clone https://github.com/solana-labs/solana-pay.git\n```\n\n#### With Github CLI\n```shell\ngh repo clone solana-labs/solana-pay\n```\n\n### Install dependencies\n```shell\ncd solana-pay/point-of-sale\nyarn install\n```\n\n### Start the local dev server\n```shell\nyarn start\n```\n\n### Open the point of sale app\n```shell\nopen \"http://localhost:1234?recipient=Your+Merchant+Address&label=Your+Store+Name\"\n```",
+    "metadata": {
+      "chunk_index": 1,
+      "forks": 0,
+      "lastUpdated": "2022-07-10T08:27:51Z",
+      "owner": "aduttya",
+      "primaryLanguage": "TypeScript",
+      "repoName": "Solana-pay",
+      "stars": 0,
+      "total_chunks": 5,
+      "type": "readme",
+      "loc": {
+        "lines": {
+          "from": 26,
+          "to": 67
+        }
+      }
+    }
+  },
+  {
+    "pageContent": "# python_workbook\npratice problems from book",
+    "metadata": {
+      "chunk_index": 0,
+      "forks": 0,
+      "lastUpdated": "2020-07-17T06:20:15Z",
+      "owner": "aduttya",
+      "primaryLanguage": "Python",
+      "repoName": "python_workbook",
+      "stars": 0,
+      "total_chunks": 1,
+      "type": "readme",
+      "loc": {
+        "lines": {
+          "from": 1,
+          "to": 2
+        }
+      }
+    }
+  },
+  {
+    "pageContent": "{\"type\":\"repo\",\"name\":\"bitcoin-wallet\",\"fullName\":\"aduttya/bitcoin-wallet\",\"description\":\"bitcoin wallet for testnet\",\"languages\":[\"JavaScript\"],\"primaryLanguage\":\"JavaScript\",\"createdAt\":\"2021-09-27T04:06:33Z\",\"lastUpdated\":\"2021-09-27T04:12:45Z\",\"lastPushed\":\"2021-09-27T04:12:42Z\",\"stars\":0,\"watchers\":0,\"forks\":0,\"issues\":0,\"license\":null,\"topics\":[],\"isForked\":false,\"defaultBranch\":\"main\",\"size\":1000}",
+    "metadata": {
+      "chunk_index": 0,
+      "createdAt": "2021-09-27T04:06:33Z",
+      "forks": 0,
+      "isForked": false,
+      "lastUpdated": "2021-09-27T04:12:45Z",
+      "name": "bitcoin-wallet",
+      "owner": "aduttya",
+      "primaryLanguage": "JavaScript",
+      "size": 1000,
+      "stars": 0,
+      "topics": "",
+      "total_chunks": 1,
+      "type": "repo",
+      "loc": {
+        "lines": {
+          "from": 1,
+          "to": 1
+        }
+      }
+    }
+  },
+  {
+    "pageContent": "// TODO\nIf you deploy new Candy Machine you can update UI config here: `./src/config/candy-machine.config.js`.\n\n## Style\n\n[Tailwind CSS](https://tailwindcss.com/) or [daisyUI](https://daisyui.com/) are selected tools for rapid style development.\n\nYou can quickly change theme changing `daisy.themes` within `./tailwind.config.js`.\nMore info here: https://daisyui.com/docs/default-themes\n\nThis app encourage you to use CSS Modules over other style technics (like SASS/LESS, Styled Components, usual CSS).\nIt have modular nature and supports modern CSS. [Read more on Next.JS site](https://nextjs.org/docs/basic-features/built-in-css-support).\nAnyway, if you want to connect LESS there is example code in `./next.config.js`\n\n## Deploy on Vercel\n\nBefore push run localy `npm run build` to make sure app can be build succesffully on vercel .",
+    "metadata": {
+      "chunk_index": 1,
+      "forks": 0,
+      "lastUpdated": "2022-07-10T08:34:39Z",
+      "owner": "aduttya",
+      "primaryLanguage": "TypeScript",
+      "repoName": "solanaDapp",
+      "stars": 0,
+      "total_chunks": 3,
+      "type": "readme",
+      "loc": {
+        "lines": {
+          "from": 31,
+          "to": 47
+        }
+      }
+    }
+  },
+  {
+    "pageContent": "# My Portfolio\nThis is my portfolio hosted on GitHub Pages.",
+    "metadata": {
+      "chunk_index": 0,
+      "forks": 0,
+      "lastUpdated": "2024-03-07T14:41:13Z",
+      "owner": "aduttya",
+      "primaryLanguage": "HTML",
+      "repoName": "aduttya.github.io",
+      "stars": 0,
+      "total_chunks": 1,
+      "type": "readme",
+      "loc": {
+        "lines": {
+          "from": 1,
+          "to": 2
+        }
+      }
+    }
+  },
+  {
+    "pageContent": "# My Portfolio\nThis is my portfolio hosted on GitHub Pages.",
+    "metadata": {
+      "chunk_index": 0,
+      "forks": 0,
+      "lastUpdated": "2024-03-06T15:57:02Z",
+      "owner": "aduttya",
+      "primaryLanguage": "HTML",
+      "repoName": "Test-Repo",
+      "stars": 0,
+      "total_chunks": 1,
+      "type": "readme",
+      "loc": {
+        "lines": {
+          "from": 1,
+          "to": 2
+        }
+      }
+    }
+  },
+  {
+    "pageContent": "# First Blockchain Project\n\nCreate your first blockchain project from scratch \n\n## Installation\nuse [npm](https://www.npmjs.com/) and [nodejs](https://nodejs.org/en/download/) to install to packages\n```\nnpm i ganache-cli\n```\n```\nnpm i solc\n```\n```\nnpm i browserify\n```\n# starting Project\n- create your project directory\n- In your Project directory create above files\n\n# Want to know more about packages\n## ganache-cli \nit provides a local blockchain for your system with default ten accounts and their private keys.\n## solc\nIt is a compiler use for solidity.\n\n## Browserify\n\nIt helps to convert javascript file to browser understandable file.",
+    "metadata": {
+      "chunk_index": 0,
+      "forks": 0,
+      "lastUpdated": "2021-09-06T13:47:54Z",
+      "owner": "aduttya",
+      "primaryLanguage": "JavaScript",
+      "repoName": "First-Blockchain-Project",
+      "stars": 1,
+      "total_chunks": 1,
+      "type": "readme",
+      "loc": {
+        "lines": {
+          "from": 1,
+          "to": 28
+        }
+      }
+    }
+  },
+  {
+    "pageContent": "To try out Etherscan verification, you first need to deploy a contract to an Ethereum network that's supported by Etherscan, such as Ropsten.\n\nIn this project, copy the .env.example file to a file named .env, and then edit it to fill in the details. Enter your Etherscan API key, your Ropsten node URL (eg from Alchemy), and the private key of the account which will send the deployment transaction. With a valid .env file in place, first deploy your contract:\n\n```shell\nhardhat run --network ropsten scripts/deploy.js\n```\n\nThen, copy the deployment address and paste it in to replace `DEPLOYED_CONTRACT_ADDRESS` in this command:\n\n```shell\nnpx hardhat verify --network ropsten DEPLOYED_CONTRACT_ADDRESS \"Hello, Hardhat!\"\n```",
+    "metadata": {
+      "chunk_index": 1,
+      "forks": 0,
+      "lastUpdated": "2022-07-11T09:00:53Z",
+      "owner": "aduttya",
+      "primaryLanguage": "Solidity",
+      "repoName": "Learnweb3",
+      "stars": 0,
+      "total_chunks": 2,
+      "type": "readme",
+      "loc": {
+        "lines": {
+          "from": 30,
+          "to": 42
+        }
+      }
+    }
+  },
+  {
+    "pageContent": "Vercel will automatically create environment and deployment for you if you have vercel account connected to your GitHub account. Go to the vercel.com to connect it.\nThen any push to `main` branch will automatically rebuild and redploy app.\n\n### Possible Issues \n\n- You might [need to overwrite default output derictory](https://github.com/thuglabs/create-dapp-solana-nextjs/issues/23) for vercel settings if you see [`Routes Manifest Could Not Be Found\n`](https://github.com/vercel/vercel/blob/main/errors/now-next-routes-manifest.md) error.\n\n## Templates\n\nThis boilerplate includes some templates you may find useful:\n\n- NFT Gallery Template\n- UI for Anchor app (Anchor program based on [this tutorial](https://lorisleiva.com/create-a-solana-dapp-from-scratch))",
+    "metadata": {
+      "chunk_index": 2,
+      "forks": 0,
+      "lastUpdated": "2022-07-10T08:34:39Z",
+      "owner": "aduttya",
+      "primaryLanguage": "TypeScript",
+      "repoName": "solanaDapp",
+      "stars": 0,
+      "total_chunks": 3,
+      "type": "readme",
+      "loc": {
+        "lines": {
+          "from": 49,
+          "to": 62
+        }
+      }
+    }
+  },
+  {
+    "pageContent": "To try out Etherscan verification, you first need to deploy a contract to an Ethereum network that's supported by Etherscan, such as Ropsten.\n\nIn this project, copy the .env.template file to a file named .env, and then edit it to fill in the details. Enter your Etherscan API key, your Ropsten node URL (eg from Alchemy), and the private key of the account which will send the deployment transaction. With a valid .env file in place, first deploy your contract:\n\n```shell\nhardhat run --network ropsten scripts/deploy.js\n```\n\nThen, copy the deployment address and paste it in to replace `DEPLOYED_CONTRACT_ADDRESS` in this command:\n\n```shell\nnpx hardhat verify --network ropsten DEPLOYED_CONTRACT_ADDRESS \"Hello, Hardhat!\"\n```",
+    "metadata": {
+      "chunk_index": 1,
+      "forks": 0,
+      "lastUpdated": "2021-10-30T12:27:14Z",
+      "owner": "aduttya",
+      "primaryLanguage": "JavaScript",
+      "repoName": "hardhatAdvanced",
+      "stars": 0,
+      "total_chunks": 2,
+      "type": "readme",
+      "loc": {
+        "lines": {
+          "from": 30,
+          "to": 42
+        }
+      }
+    }
+  }
+]

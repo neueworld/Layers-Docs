@@ -14,6 +14,7 @@ import {
   import { StringOutputParser } from "@langchain/core/output_parsers";
   
 import readline from 'readline';
+import { ChromaClient } from 'chromadb';
 
 const embeddings = new OpenAIEmbeddings({
     model: "text-embedding-3-small",
@@ -31,63 +32,79 @@ const vectorStore = new Chroma(embeddings, {
 });
 
 async function fetchGithubData(username) {
-    const userData = await octokit.users.getByUsername({ username });
-    const repos = await octokit.repos.listForUser({ username });
-  
-    const githubData = {
-      basicDetails: {
-        name: userData.data.name,
-        login: userData.data.login,
-        followers: userData.data.followers,
-        following: userData.data.following,
-      },
-      description: userData.data.bio,
-      url: userData.data.html_url,
-      languages: new Set(),
-      techStack: new Set(),
-      repos: [],
+  const userData = await octokit.users.getByUsername({ username });
+  const repos = await octokit.repos.listForUser({ username, per_page: 100 }); // Increase if user has more than 100 repos
+
+  const githubData = {
+    basicDetails: {
+      name: userData.data.name,
+      login: userData.data.login,
+      bio: userData.data.bio,
+      followers: userData.data.followers,
+      following: userData.data.following,
+      public_repos: userData.data.public_repos,
+      html_url: userData.data.html_url,
+      created_at: userData.data.created_at,
+      updated_at: userData.data.updated_at,
+    },
+    languages: new Set(),
+    techStack: new Set(),
+    repos: [],
+  };
+
+  for (const repo of repos.data) {
+    const [repoLanguages, readme, contributors] = await Promise.all([
+      octokit.repos.listLanguages({ owner: username, repo: repo.name }),
+      fetchReadme(username, repo.name),
+      octokit.repos.listContributors({ owner: username, repo: repo.name })
+    ]);
+
+    const repoData = {
+      name: repo.name,
+      full_name: repo.full_name,
+      description: repo.description,
+      readme: readme,
+      languages: Object.keys(repoLanguages.data),
+      language: repo.language, // Primary language
+      created_at: repo.created_at,
+      updated_at: repo.updated_at,
+      pushed_at: repo.pushed_at,
+      stargazers_count: repo.stargazers_count,
+      watchers_count: repo.watchers_count,
+      forks_count: repo.forks_count,
+      open_issues_count: repo.open_issues_count,
+      license: repo.license,
+      topics: repo.topics || [],
+      fork: repo.fork,
+      default_branch: repo.default_branch,
+      size: repo.size,
+      contributors: contributors.data.map(c => c.login),
     };
-  
-    for (const repo of repos.data) {
-      const repoLanguages = await octokit.repos.listLanguages({ owner: username, repo: repo.name });
-      let readme = null;
-      try {
-        const readmeResponse = await octokit.repos.getReadme({ owner: username, repo: repo.name });
-        readme = Buffer.from(readmeResponse.data.content, 'base64').toString();
-      } catch (error) {
-        if (error.status === 404) {
-          console.log(`README not found for ${repo.name}`);
-        } else {
-          console.error(`Error fetching README for ${repo.name}:`, error);
-        }
-      }
-      const contributors = await octokit.repos.listContributors({ owner: username, repo: repo.name });
-  
-      const repoData = {
-        name: repo.name,
-        readme: readme,
-        languages: Object.keys(repoLanguages.data),
-        techStack: [], // You might need to implement logic to extract tech stack from readme
-        createdAt: repo.created_at,
-        stars: repo.stargazers_count,
-        watchers: repo.watchers_count,
-        lastUpdated: repo.updated_at,
-        lastUpdateDescription: repo.description,
-        contributors: contributors.data.map(c => c.login),
-      };
-  
-      githubData.repos.push(repoData);
-      repoData.languages.forEach(lang => githubData.languages.add(lang));
-      // Add logic to extract tech stack and add to githubData.techStack
-    }
-  
-    githubData.languages = Array.from(githubData.languages);
-    githubData.techStack = Array.from(githubData.techStack);
-    
-    return githubData;
+
+    githubData.repos.push(repoData);
+    repoData.languages.forEach(lang => githubData.languages.add(lang));
   }
+
+  githubData.languages = Array.from(githubData.languages);
+  console.log(githubData)
+  return githubData;
+}
+
+async function fetchReadme(owner, repo) {
+  try {
+    const readmeResponse = await octokit.repos.getReadme({ owner, repo });
+    return Buffer.from(readmeResponse.data.content, 'base64').toString();
+  } catch (error) {
+    if (error.status === 404) {
+      console.log(`README not found for ${repo}`);
+    } else {
+      console.error(`Error fetching README for ${repo}:`, error);
+    }
+    return null;
+  }
+}
   
-  async function chunkDocument(doc) {
+async function chunkDocument(doc) {
     const splitter = new RecursiveCharacterTextSplitter({
       chunkSize: 1000,
       chunkOverlap: 0,
@@ -102,57 +119,110 @@ async function fetchGithubData(username) {
         total_chunks: chunks.length,
       },
     }));
-  }
+}
   
 async function storeGithubData(githubData) {
-    const documents = [];
-  
-    // Store user overview (no chunking needed as it's small)
-    documents.push(new Document({
-      pageContent: JSON.stringify({
-        type: "user_overview",
-        name: githubData.basicDetails.name,
-        login: githubData.basicDetails.login,
-        bio: githubData.description,
-        url: githubData.url,
-        allLanguages: Array.from(githubData.languages),
-      }),
-      metadata: { type: "user_overview" }
-    }));
-  
-    // Store each repo, chunking if necessary
-    for (const repo of githubData.repos) {
-      const repoDoc = new Document({
-        pageContent: JSON.stringify({
-          type: "repo",
-          name: repo.name,
-          languages: repo.languages,
-          description: repo.lastUpdateDescription,
-          createdAt: repo.createdAt,
-          lastUpdated: repo.lastUpdated,
-          stars: repo.stars,
-          watchers: repo.watchers,
-          readme: repo.readme,
-        }),
-        metadata: { type: "repo", name: repo.name }
-      });
-  
-      const chunkedDocs = await chunkDocument(repoDoc);
-      documents.push(...chunkedDocs);
+  const documents = [];
+
+  // Store user overview with improved metadata
+  documents.push(new Document({
+    pageContent: JSON.stringify({
+      type: "user_overview",
+      name: githubData.basicDetails.name,
+      login: githubData.basicDetails.login,
+      bio: githubData.basicDetails.bio,
+      url: githubData.basicDetails.html_url,
+      publicRepos: githubData.basicDetails.public_repos,
+      followers: githubData.basicDetails.followers,
+      following: githubData.basicDetails.following,
+      allLanguages: Array.from(githubData.languages),
+      totalStars: githubData.repos.reduce((sum, repo) => sum + repo.stars, 0),
+      totalWatchers: githubData.repos.reduce((sum, repo) => sum + repo.watchers, 0),
+    }),
+    metadata: { 
+      type: "user_overview",
+      login: githubData.basicDetails.login,
+      repoCount: githubData.basicDetails.public_repos,
+      followerCount: githubData.basicDetails.followers,
+      totalStars: githubData.repos.reduce((sum, repo) => sum + repo.stars, 0)
     }
-  
-    if (documents.length > 0) {
-      try {
-        await vectorStore.addDocuments(documents);
-        console.log(`Stored ${documents.length} documents (including chunks) in the vector store.`);
-      } catch (error) {
-        console.error("Error storing documents in vector store:", error);
-        console.error("Error details:", JSON.stringify(error, null, 2));
+  }));
+
+  // Store each repo with improved metadata
+  for (const repo of githubData.repos) {
+    const repoDoc = new Document({
+      pageContent: JSON.stringify({
+        type: "repo",
+        name: repo.name,
+        fullName: repo.full_name,
+        description: repo.description,
+        languages: repo.languages,
+        primaryLanguage: repo.language,
+        createdAt: repo.created_at,
+        lastUpdated: repo.updated_at,
+        lastPushed: repo.pushed_at,
+        stars: repo.stargazers_count,
+        watchers: repo.watchers_count,
+        forks: repo.forks_count,
+        issues: repo.open_issues_count,
+        license: repo.license ? repo.license.name : null,
+        topics: repo.topics,
+        isForked: repo.fork,
+        defaultBranch: repo.default_branch,
+        size: repo.size,
+      }),
+      metadata: { 
+        type: "repo", 
+        name: repo.name,
+        owner: githubData.basicDetails.login,
+        primaryLanguage: repo.language,
+        stars: repo.stargazers_count,
+        forks: repo.forks_count,
+        lastUpdated: repo.updated_at,
+        createdAt: repo.created_at,
+        isForked: repo.fork,
+        size: repo.size,
+        topics: repo.topics.join(',')
       }
-    } else {
-      console.log("No valid documents to store.");
+    });
+
+    // Chunk the repo document if necessary
+    const chunkedRepoDocs = await chunkDocument(repoDoc);
+    documents.push(...chunkedRepoDocs);
+
+    // Store readme as a separate document if available
+    if (repo.readme) {
+      const readmeDoc = new Document({
+        pageContent: repo.readme,
+        metadata: { 
+          type: "readme", 
+          repoName: repo.name,
+          owner: githubData.basicDetails.login,
+          stars: repo.stargazers_count,
+          forks: repo.forks_count,
+          lastUpdated: repo.updated_at,
+          primaryLanguage: repo.language
+        }
+      });
+      
+      // Chunk the readme document if necessary
+      const chunkedReadmeDocs = await chunkDocument(readmeDoc);
+      documents.push(...chunkedReadmeDocs);
     }
   }
+
+  if (documents.length > 0) {
+    try {
+      await vectorStore.addDocuments(documents);
+      console.log(`Stored ${documents.length} documents (including chunks) in the vector store.`);
+    } catch (error) {
+      console.error("Error storing documents in vector store:", error);
+      console.error("Error details:", JSON.stringify(error, null, 2));
+    }
+  } else {
+    console.log("No valid documents to store.");
+  }
+}
   
 async function queryVectorStore(query, k = 5) {
     try {
@@ -171,103 +241,139 @@ async function queryVectorStore(query, k = 5) {
       console.error("Error querying vector store:", error);
     }
   }
-  function parseJSONSafely(jsonString) {
+async function deleteChromaCollection(collectionName) {
+    const client = new ChromaClient();
+    
     try {
-      return JSON.parse(jsonString);
+      await client.deleteCollection({ name: collectionName });
+      console.log(`Collection ${collectionName} has been deleted.`);
     } catch (error) {
-      console.error("Error parsing JSON:", error);
-      return jsonString; // Return the original string if parsing fails
+      console.error(`Error deleting collection ${collectionName}:`, error);
     }
   }
   
-  async function createGitHubDataChatbot() {
-    const retriever = vectorStore.asRetriever({
-      k: 3
+  async function queryGithubData(options = {}) {
+    const {
+      query = "",
+      type = null,
+      repoName = null,
+      language = null,
+      minStars = null,
+      maxStars = null,
+      dateRange = null,
+      topic = null,
+      limit = 2
+    } = options;
+  
+    // Construct metadata filter
+    const metadataFilter = {};
+    if (type) metadataFilter.type = type;
+    if (repoName) metadataFilter.repoName = repoName;
+    if (minStars) metadataFilter.stars = { $gte: minStars };
+    if (maxStars) metadataFilter.stars = { ...metadataFilter.stars, $lte: maxStars };
+    if (language) metadataFilter.primaryLanguage = language;
+    if (dateRange) {
+      metadataFilter.lastUpdated = {
+        $gte: dateRange.start,
+        $lte: dateRange.end
+      };
+    }
+    if (topic) metadataFilter.topics = { $contains: topic };
+  
+    console.log('Metadata filter:', metadataFilter);
+  
+    // Perform vector similarity search with metadata filtering
+    const results = await vectorStore.similaritySearchWithScore(
+      query,
+      limit,
+      metadataFilter
+    );
+  
+    // console.log('Results:', results);
+    const highestScoreResult = results.reduce((highest, current) => {
+      return current[1] > highest[1] ? current : highest;
     });
   
-    const template = `You are an AI assistant that answers questions about a GitHub user and their repositories based on the following context. If the information is not in the context, say you don't have that information.
+
+    if (highestScoreResult) {
+      const [doc, score] = highestScoreResult;
+      return {
+        type: doc.metadata.type,
+        content: doc.pageContent,
+        metadata: doc.metadata,
+        similarity: score
+      };
+    } else {
+      return null;  // Return null if no results found
+    }
   
-  Context:
-  {context}
   
-  Question: {question}
-  
-  Answer:`;
-  
-    const prompt = ChatPromptTemplate.fromTemplate(template);
-  
-    const retrievalChain = RunnableSequence.from([
-      {
-        context: retriever.pipe(docs => 
-          docs.map(doc => `${doc.metadata.type || 'Unknown Type'}:\n${doc.pageContent}`).join('\n\n')
-        ),
-        question: new RunnablePassthrough(),
-      },
-      {
-        originalContext: (input) => input.context,
-        formattedInput: prompt,
-      },
-      {
-        context: (input) => {
-          console.log("\nRetrieved Context:");
-          console.log(input.originalContext);
-          return input.originalContext;
-        },
-        response: (input) => model.invoke(input.formattedInput),
-      },
-      {
-        response: (input) => input.response,
-      },
-      new StringOutputParser(),
-    ]);
-  
-    const rl = readline.createInterface({
-      input: process.stdin,
-      output: process.stdout
+  }
+  async function queryRustProjects() {
+    const rustProjects = await queryGithubData({
+      query: "PoW",
+      language: 'Rust',
+      limit: 5
     });
   
-    console.log("GitHub Data Chatbot: Ask me anything about the GitHub user and their repositories. Enter '0' to exit.");
+    // console.log(`Found ${rustProjects.length} Rust projects:`);
+    console.log(rustProjects)
+    // rustProjects.forEach(result => {
+    //   console.log(`Repository: ${result.metadata.name}`);
+    //   console.log(`Type: ${result.type}`);
+    //   console.log(`Content preview: ${result.content.substring(0, 100)}...`);
+    //   console.log(`Stars: ${result.metadata.stars}`);
+    //   console.log('---');
+    
+    // });
   
-    while (true) {
-      const question = await new Promise(resolve => {
-        rl.question("You: ", resolve);
-      });
+    return rustProjects;
+  }
   
-      if (question === '0') {
-        console.log("Chatbot: Goodbye!");
-        rl.close();
-        break;
-      }
+  import { promises as fs } from 'fs';
+
+  async function saveAllDocsToJson(filename = 'all_docs.json') {
+    try {
+      console.log("Fetching all documents from the vector store...");
+      const allDocs = await vectorStore.similaritySearch(
+        "", // Empty query to fetch all documents
+        1000, // Adjust this number based on your expected maximum number of documents
+        {} // No filters
+      );
   
-      try {
-        const response = await retrievalChain.invoke(question);
-        console.log("Chatbot:", response);
-      } catch (error) {
-        console.error("Error:", error);
-        console.log("Chatbot: I'm sorry, I encountered an error while processing your question. Please try again.");
+      console.log(`Total documents fetched: ${allDocs.length}`);
+  
+      // Process documents to ensure they're JSON-serializable
+      const processedDocs = allDocs.map(doc => ({
+        pageContent: doc.pageContent, // Keep as is, don't try to parse
+        metadata: doc.metadata,
+        // You might want to add additional fields here if needed
+      }));
+  
+      console.log("Writing documents to file...");
+      await fs.writeFile(filename, JSON.stringify(processedDocs, null, 2));
+      console.log(`Documents successfully saved to ${filename}`);
+  
+    } catch (error) {
+      console.error("Error saving documents to JSON:", error);
+      // Log more details about the error
+      if (error instanceof SyntaxError) {
+        console.error("JSON Syntax Error Details:");
+        console.error(error.message);
+        console.error("Error occurred at position:", error.position);
+        console.error("Snippet of problematic content:", error.source?.slice(Math.max(0, error.position - 20), error.position + 20));
       }
     }
   }
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+    
 (async()=>{ 
 
-    // await queryVectorStore("what are the top languages")
-    // await queryVectorStoreWithRetriever("what are the top languages")
-
-    await createGitHubDataChatbot()
     // const data = await fetchGithubData("aduttya")
     // await storeGithubData(data)
-    // await viewSavedData()
 
+    // await saveAllDocsToJson();
+
+    await queryRustProjects()
+    
 })()
   
