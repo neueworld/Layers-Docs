@@ -1,7 +1,7 @@
 import { config } from "dotenv";
 config()
 import { Chroma } from "@langchain/community/vectorstores/chroma";
-import { OpenAIEmbeddings,ChatOpenAI } from "@langchain/openai";
+import { OpenAIEmbeddings,ChatOpenAI} from "@langchain/openai";
 import { GithubRepoLoader} from "@langchain/community/document_loaders/web/github";
 import { Octokit } from "@octokit/rest";
 import { Document } from "@langchain/core/documents";
@@ -11,7 +11,13 @@ import {
     RunnablePassthrough,
     RunnableSequence,
   } from "@langchain/core/runnables";
-  import { StringOutputParser } from "@langchain/core/output_parsers";
+import { StringOutputParser } from "@langchain/core/output_parsers";
+import {
+    AIMessage,
+    HumanMessage,
+    SystemMessage,
+    trimMessages,
+  } from "@langchain/core/messages";
   
 import readline from 'readline';
 import { ChromaClient } from 'chromadb';
@@ -335,7 +341,7 @@ async function queryGithubData(queryParams) {
     // });
   
     return rustProjects;
-  }
+}
   
   import { promises as fs } from 'fs';
 
@@ -532,9 +538,9 @@ async function oldbreakdownQuery(query) {
   return await structuredLlm.invoke(query);
 }
 
-async function breakdownQuery(query) {
-  const githubApiContext = `
-  Available GitHub API endpoints and their data:
+
+const githubApiContext = `
+Available GitHub API endpoints and their data:
   1. repos: Provides information about repositories (name, description, language, stars, forks, last push date, URL)
   2. user: Provides user profile information (login, name, number of public repos, followers, following, account creation date)
   3. languages: Provides statistics about programming languages used in repositories
@@ -543,8 +549,9 @@ async function breakdownQuery(query) {
   6. events: Provides information about recent GitHub events (type, repository, creation date, actor)
 
   When determining requiredData, consider which endpoints are necessary to answer the query accurately.
-  `;
+`;
 
+async function breakdownQuery(query) {
   const structuredLlm = model.withStructuredOutput({
     name: "queryBreakdown",
     description: "Breakdown of the user's GitHub-related query with filter function.",
@@ -602,8 +609,6 @@ Ensure the filterFunction is appropriate for the data type (repos, user, languag
 }
 
 
-
-
 // This function will be used to filter data given by the LLMs
 function filterData(data, filterFunction) {
   if (Array.isArray(data)) {
@@ -616,15 +621,111 @@ function filterData(data, filterFunction) {
   return data;
 }
 
+async function expandQuery(query, context) {
+  const expandedQueryPrompt = `
+    ${context}
+    User query: "${query}"
+    Provide a slightly expanded version of this query that clarifies the intent without adding complexity.
+    The expansion should:
+    1. Maintain the simplicity of the original query.
+    2. Focus only on the primary intent.
+    3. Avoid introducing new data sources unless absolutely necessary.
+    4. Use at most one additional sentence for clarification if needed.
+    Provide your response in the following JSON format:
+    {
+      "expandedQuery": "string"
+    }
+  `;
+  const response = await model.invoke(expandedQueryPrompt);
+  
+  let parsedContent;
+  try {
+    parsedContent = JSON.parse(response.content);
+  } catch (error) {
+    console.error('Error parsing AIMessage content:', error);
+    throw new Error('Failed to parse AIMessage content');
+  }
+
+  if (!parsedContent || !parsedContent.expandedQuery) {
+    throw new Error('Invalid or missing expandedQuery in AIMessage content');
+  }
+
+  return parsedContent.expandedQuery;
+}
+
+async function analyzeGitHubData(userQuery, queryResult) {
+
+  const prompt = ChatPromptTemplate.fromTemplate(`
+    You are a GitHub data analyst assistant. Analyze the provided GitHub data and answer the user's query.
+
+    User Query: {userQuery}
+
+    GitHub Data:
+    {githubData}
+
+    Please provide a detailed answer to the user's query based on the given GitHub data.
+    Focus on the aspects mentioned in the user's query.
+    If the data doesn't contain relevant information to answer the query, please state that clearly.
+
+    Your response:
+  `);
+
+  const chain = prompt.pipe(model).pipe(new StringOutputParser());
+
+  // Prepare GitHub data string
+  let githubDataString = JSON.stringify(queryResult, null, 2);
+
+  // If the data is too large, we might need to summarize or truncate it
+  if (githubDataString.length > 10000) { // Adjust this limit as needed
+    githubDataString = summarizeGitHubData(queryResult);
+  }
+
+  const response = await chain.invoke({
+    userQuery: userQuery,
+    githubData: githubDataString
+  });
+
+  return response;
+}
+
+function summarizeGitHubData(data) {
+  let summary = "";
+
+  if (Array.isArray(data)) {
+    summary += `Array of ${data.length} items. Sample items:\n`;
+    summary += JSON.stringify(data.slice(0, 3), null, 2);
+  } else if (typeof data === 'object' && data !== null) {
+    summary += "Object with keys:\n";
+    summary += Object.keys(data).join(', ') + "\n\n";
+    summary += "Sample of data:\n";
+    const sampleData = Object.fromEntries(
+      Object.entries(data).slice(0, 5).map(([key, value]) => [
+        key,
+        Array.isArray(value) ? `Array of ${value.length} items` : value
+      ])
+    );
+    summary += JSON.stringify(sampleData, null, 2);
+  } else {
+    summary = String(data);
+  }
+
+  return summary;
+}
+
 
 (async()=>{ 
 
   const queries = [
-       "What are the top repos?",
-      // "Does he has work with Python? show me the python projects",
+    //  "What are the top repos?",
+      // "Show me the best work?",
+      // "What programming languages he is good at?",
+        // "How long he has been doing the programming?",
+         "Show me some of his recent work",
+        // "What are the top repos?",
+        // "Does he has work with Python? show me top 3 the Python projects",
       // "How long he has been a developer?"
-    //"What are the primary programming languages this developer uses, based on their repository contributions?",
-   // "How active is this developer on GitHub? Can you provide statistics on their commit frequency and consistency over the past year?",
+    // "What are the primary programming languages this developer uses, based on their repository contributions?",
+      // "How active is this developer on GitHub? Can you provide statistics on their commit frequency and consistency over the past year?",
     //"What types of projects does this developer work on most frequently? Are they mostly personal projects, open-source contributions, or professional work?",
     // "Can you identify any significant or popular open-source projects this developer has contributed to?",
     // "What is the average complexity of the code this developer writes, based on metrics like cyclomatic complexity or lines of code per function?",
@@ -639,16 +740,22 @@ function filterData(data, filterFunction) {
 
     for (const userQuery of queries) {
       try {
-        //const queryParams = await oldbreakdownQuery(userQuery);
-        console.log(`Query: ${userQuery}`);
+          console.log(`Query: ${userQuery}`);
+          const expandedQuery = await expandQuery(userQuery,githubApiContext)
+          console.log(`Expanded Query: ${expandedQuery}`);
+
         //console.log("LLM generated query parameters:", JSON.stringify(queryParams, null, 2));
-        const newqueryParams = await breakdownQuery(userQuery);
-        console.log("LLM generated query parameters (New) :", JSON.stringify(newqueryParams, null, 2));
+        const newqueryParams = await breakdownQuery(expandedQuery);
+        console.log("LLM generated query parameters :", JSON.stringify(newqueryParams, null, 2));
         // results.push({ query: userQuery, params: queryParams });
         
         // Uncomment these lines when you're ready to fetch and process GitHub data
-      //  const queryResult = await _fetchGitHubData(newqueryParams,"aduttya");
-        // console.log(queryResult)
+        const queryResult = await _fetchGitHubData(newqueryParams,"aduttya");
+        console.log(queryResult)
+
+        // const final_data = await analyzeGitHubData(userQuery,queryResult)
+        // console.log("final data ",final_data)
+
         
       } catch (error) {
         console.error(`Failed to process query: ${userQuery}`, error);

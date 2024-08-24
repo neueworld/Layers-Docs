@@ -111,12 +111,31 @@ async function fetchUserData(username) {
 }
 
 async function fetchRepos(username, maxItems, additionalParams) {
+  // Define the essential fields we want to retrieve for each repo
+  const essentialFields = [
+    'name',
+    'description',
+    'html_url',
+    'language',
+    'stargazers_count',
+    'forks_count',
+    'created_at',
+    'updated_at',
+    'pushed_at'
+  ];
+
   let repos = await octokit.paginate(octokit.rest.repos.listForUser, {
     username,
     per_page: 100,
     sort: 'updated',
     direction: 'desc'
-  }, response => response.data);
+  }, response => response.data.map(repo => {
+    // Create a new object with only the essential fields
+    return essentialFields.reduce((obj, field) => {
+      obj[field] = repo[field];
+      return obj;
+    }, {});
+  }));
 
   repos = repos.slice(0, maxItems);
 
@@ -126,8 +145,23 @@ async function fetchRepos(username, maxItems, additionalParams) {
     );
   }
 
-  return repos;
+  // If we need to fetch additional data that's not included in the listForUser endpoint,
+  // we can do so here for each repo individually
+  const reposWithDetails = await Promise.all(repos.map(async (repo) => {
+    // Example: Fetching language statistics if needed
+    if (additionalParams?.includeLanguageStats) {
+      const languageStats = await octokit.rest.repos.listLanguages({
+        owner: username,
+        repo: repo.name
+      });
+      repo.languageStats = languageStats.data;
+    }
+    return repo;
+  }));
+
+  return reposWithDetails;
 }
+
 
 async function fetchLanguages(username, maxItems) {
   const languages = {};
@@ -147,18 +181,61 @@ async function fetchLanguages(username, maxItems) {
 async function fetchCommits(username, maxItems) {
   const commits = [];
   const repos = await fetchRepos(username, 5); // Limit to 5 most recent repos
+
   for (const repo of repos) {
-    const repoCommits = await octokit.paginate(octokit.rest.repos.listCommits, {
-      owner: username,
-      repo: repo.name,
-      author: username,
-      per_page: 20
-    }, response => response.data);
-    commits.push(...repoCommits);
+    if (commits.length >= maxItems) break;
+
+    const repoCommits = await octokit.paginate(
+      octokit.rest.repos.listCommits,
+      {
+        owner: username,
+        repo: repo.name,
+        author: username,
+        per_page: 100, // Increased for efficiency
+        // Specify the fields we want to retrieve
+        headers: {
+          'X-GitHub-Api-Version': '2022-11-28'
+        },
+        mediaType: {
+          previews: ['raw-commit']
+        }
+      },
+      (response, done) => {
+        const validCommits = response.data.map(commit => ({
+          sha: commit.sha,
+          commit: {
+            author: commit.commit.author,
+            committer: commit.commit.committer,
+            message: commit.commit.message
+          },
+          html_url: commit.html_url,
+          author: {
+            login: commit.author?.login,
+            avatar_url: commit.author?.avatar_url
+          },
+          committer: {
+            login: commit.committer?.login,
+            avatar_url: commit.committer?.avatar_url
+          }
+        }));
+
+        commits.push(...validCommits);
+
+        if (commits.length >= maxItems) {
+          done();
+          return [];
+        }
+
+        return validCommits;
+      }
+    );
+
     if (commits.length >= maxItems) break;
   }
+
   return commits.slice(0, maxItems);
 }
+
 
 async function fetchPullRequests(username, maxItems) {
   return await octokit.paginate(octokit.rest.search.issuesAndPullRequests, {
