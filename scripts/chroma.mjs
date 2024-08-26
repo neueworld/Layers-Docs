@@ -539,29 +539,66 @@ async function oldbreakdownQuery(query) {
 }
 
 
-const githubApiContext = `
-Available GitHub API endpoints and their data:
-  1. repos: Provides information about repositories (name, description, language, stars, forks, last push date, URL)
-  2. user: Provides user profile information (login, name, number of public repos, followers, following, account creation date)
-  3. languages: Provides statistics about programming languages used in repositories
-  4. commits: Provides information about repository commits
-  5. issues: Provides information about repository issues
-  6. events: Provides information about recent GitHub events (type, repository, creation date, actor)
-
-  When determining requiredData, consider which endpoints are necessary to answer the query accurately.
-`;
+const githubApiContext = [
+  {
+    endpoint: "repos",
+    description: "Basic information about repositories",
+    dataFields: ["name", "description", "language", "stars", "forks", "lastPushDate", "url"],
+    useCase: "General repository information",
+  },
+  {
+    endpoint: "user",
+    description: "User profile information",
+    dataFields: ["login", "name", "followers", "following", "creationDate"],
+    useCase: "User-specific queries",
+  },
+  {
+    endpoint: "languages",
+    description: "Statistics about programming languages used in repositories",
+    dataFields: ["language", "bytesOfCode"],
+    useCase: "Language analysis across repositories",
+  },
+  {
+    endpoint: "commits",
+    description: "Information about repository commits",
+    dataFields: ["sha", "message", "author", "date"],
+    useCase: "Commit history and patterns",
+  },
+  {
+    endpoint: "issues",
+    description: "Information about repository issues",
+    dataFields: ["number", "title", "state", "creator", "creationDate"],
+    useCase: "Issue tracking and analysis",
+  },
+  {
+    endpoint: "events",
+    description: "Information about recent GitHub events",
+    dataFields: ["type", "repository", "creationDate", "actor"],
+    useCase: "Activity tracking across repositories",
+  },
+  {
+    endpoint: "repo tree",
+    description: "File structure and contents of a repository",
+    dataFields: ["path", "type", "file content"],
+    useCase: "File content analysis, including README files",
+  }
+];
+function addRandomnessToPrompt(prompt) {
+  const randomString = Math.random().toString(36).substring(7);
+  return `${prompt}\n\nUnique identifier: ${randomString}`;
+}
 
 async function breakdownQuery(query) {
   const structuredLlm = model.withStructuredOutput({
     name: "queryBreakdown",
-    description: "Breakdown of the user's GitHub-related query with filter function.",
+    description: "Breakdown of the user's GitHub-related query with filter function and file content analysis.",
     parameters: {
       type: "object",
       properties: {
         intent: { 
           type: "string", 
           description: "The main intent of the query",
-          enum: ["count", "list", "describe", "compare"]
+          enum: ["count", "list", "describe", "compare", "analyze"]
         },
         entities: { 
           type: "array", 
@@ -572,42 +609,57 @@ async function breakdownQuery(query) {
           type: "array", 
           items: { 
             type: "string",
-            enum: ["repos", "user", "languages", "commits", "issues", "events"]
+            enum: githubApiContext.map(endpoint => endpoint.endpoint)
           },
-          description: "Types of GitHub data needed to answer the query"
+          description: "Types of GitHub data needed to answer the query, ONLY from the provided list"
         },
         additionalParams: {
           type: "object",
           properties: {
             language: { type: "string", description: "Programming language to filter by" },
             sortBy: { type: "string", description: "Field to sort results by" },
-            limit: { type: "number", description: "Number of results to return" }
+            limit: { type: "number", description: "Number of results to return" },
+            fileNames: { 
+              type: "array", 
+              items: { type: "string" },
+              description: "Names of specific files to analyze (e.g., ['README.md', 'CONTRIBUTING.md'])"
+            }
           },
           description: "Additional parameters needed for the query"
         },
         filterFunction: {
           type: "string",
           description: "A JavaScript function string that can be used to filter the data. This function should take a single argument (the data item) and return a boolean."
+        },
+        contentAnalysisFunction: {
+          type: "string",
+          description: "A JavaScript function string that can be used to analyze file contents. This function should take two arguments: the file name and the file content, and return a boolean or a score."
         }
       },
-      required: ["intent", "entities", "requiredData", "additionalParams", "filterFunction"],
+      required: ["intent", "entities", "requiredData", "additionalParams", "filterFunction", "contentAnalysisFunction"],
     },
   });
 
-  return await structuredLlm.invoke(
-    `${githubApiContext}
+  const basePrompt = `GitHub API Context:
+${JSON.stringify(githubApiContext, null, 2)}
 
 User query: ${query}
 
-Provide a breakdown of the query based on the available GitHub API endpoints. Include a filterFunction that can be used to further refine the data based on the query. The filterFunction should be a JavaScript function string that takes a single argument (the data item) and returns a boolean.
+IMPORTANT: Provide a breakdown of the query based ONLY on the available GitHub API endpoints listed above. Follow these strict rules:
+1. Only include endpoints in requiredData that are directly relevant to answering the query.
+2. If the query requires analyzing file contents or README files, ONLY include 'repo tree' in the requiredData array.
+3. Do not include 'repos' or 'user' in requiredData if only file content analysis is needed.
+4. Consider the useCase field of each endpoint when determining its relevance to the query.
+5. Ensure that the filterFunction and contentAnalysisFunction (if needed) only reference data fields available in the selected endpoints.
 
-Example filterFunction for "Find repositories with more than 100 stars":
-"(repo) => repo.stars > 100"
+Provide a breakdown of the query, including a filterFunction that can be used to refine the data based on the query, and a contentAnalysisFunction if file content analysis is required.
 
-Ensure the filterFunction is appropriate for the data type (repos, user, languages, etc.) and the query intent.`
-  );
+Remember to ONLY use the endpoints and data fields specified in the context above.`;
+
+  const randomizedPrompt = addRandomnessToPrompt(basePrompt);
+
+  return await structuredLlm.invoke(randomizedPrompt);
 }
-
 
 // This function will be used to filter data given by the LLMs
 function filterData(data, filterFunction) {
@@ -653,39 +705,217 @@ async function expandQuery(query, context) {
   return parsedContent.expandedQuery;
 }
 
-async function analyzeGitHubData(userQuery, queryResult) {
+// async function analyzeGitHubData(userQuery, queryResult) {
 
-  const prompt = ChatPromptTemplate.fromTemplate(`
-    You are a GitHub data analyst assistant. Analyze the provided GitHub data and answer the user's query.
+//   const prompt = ChatPromptTemplate.fromTemplate(`
+//     You are a GitHub data analyst assistant. Analyze the provided GitHub data and answer the user's query.
+
+//     User Query: {userQuery}
+
+//     GitHub Data:
+//     {githubData}
+
+//     Please provide a detailed answer to the user's query based on the given GitHub data.
+//     Focus on the aspects mentioned in the user's query.
+//     If the data doesn't contain relevant information to answer the query, please state that clearly.
+
+//     Your response:
+//   `);
+
+//   const chain = prompt.pipe(model).pipe(new StringOutputParser());
+
+//   // Prepare GitHub data string
+//   let githubDataString = JSON.stringify(queryResult, null, 2);
+
+//   // If the data is too large, we might need to summarize or truncate it
+//   if (githubDataString.length > 10000) { // Adjust this limit as needed
+//     githubDataString = summarizeGitHubData(queryResult);
+//   }
+
+//   const response = await chain.invoke({
+//     userQuery: userQuery,
+//     githubData: githubDataString
+//   });
+
+//   return response;
+// }
+
+// async function analyzeGitHubData(userQuery, queryResult) {
+//   const textSplitter = new RecursiveCharacterTextSplitter({
+//     chunkSize: 4000,
+//     chunkOverlap: 200,
+//   });
+
+//   // Convert queryResult to string and split into chunks
+//   const githubDataString = JSON.stringify(queryResult, null, 2);
+//   const chunks = await textSplitter.createDocuments([githubDataString]);
+
+//   // Initialize the analysis prompt
+//   const analysisPrompt = ChatPromptTemplate.fromTemplate(`
+//     You are a GitHub data analyst assistant. Analyze the provided GitHub data chunk and answer the user's query.
+//     Previous analysis: {previousAnalysis}
+
+//     User Query: {userQuery}
+
+//     GitHub Data Chunk:
+//     {githubDataChunk}
+
+//     Please provide an updated analysis based on this new chunk of data.
+//     Focus on the aspects mentioned in the user's query.
+//     If this chunk doesn't contain new relevant information, state that and maintain the previous analysis.
+
+//     Your response:
+//   `);
+
+//   const analysisChain = analysisPrompt.pipe(model).pipe(new StringOutputParser());
+
+//   // Initialize the summary prompt
+//   const summaryPrompt = ChatPromptTemplate.fromTemplate(`
+//     Summarize the following GitHub data analysis:
+//     {analysis}
+
+//     Provide a concise summary that captures the key points of the analysis.
+//     Your summary:
+//   `);
+
+//   const summaryChain = summaryPrompt.pipe(model).pipe(new StringOutputParser());
+
+//   let currentAnalysis = "No analysis yet.";
+//   let chunkResponses = [];
+
+//   // Process each chunk iteratively
+//   for (let i = 0; i < chunks.length; i++) {
+//     console.log(`Processing chunk ${i + 1} of ${chunks.length}`);
+    
+//     // This is where the LLM request is sent for each chunk
+//     const chunkAnalysis = await analysisChain.invoke({
+//       userQuery: userQuery,
+//       githubDataChunk: chunks[i].pageContent,
+//       previousAnalysis: currentAnalysis
+//     });
+
+//     // Update the current analysis
+//     currentAnalysis = chunkAnalysis;
+
+//     // Store the response for this chunk
+//     chunkResponses.push({
+//       chunkNumber: i + 1,
+//       chunkContent: chunks[i].pageContent.substring(0, 100) + "...", // First 100 characters for brevity
+//       response: chunkAnalysis
+//     });
+
+//     console.log(`Chunk ${i + 1} analysis:`);
+//     console.log(chunkAnalysis);
+//     console.log("--------------------");
+//   }
+
+//   // Generate a final summary
+//   console.log("Generating final summary...");
+//   const finalSummary = await summaryChain.invoke({
+//     analysis: currentAnalysis
+//   });
+
+//   return {
+//     chunkResponses: chunkResponses,
+//     finalSummary: finalSummary
+//   };
+// }
+
+async function analyzeGitHubData(userQuery, queryResult) {
+  const textSplitter = new RecursiveCharacterTextSplitter({
+    chunkSize: 4000,
+    chunkOverlap: 200,
+  });
+
+  // Convert queryResult to string and split into chunks
+  const githubDataString = JSON.stringify(queryResult, null, 2);
+  const chunks = await textSplitter.createDocuments([githubDataString]);
+
+  // Initialize the analysis prompt
+  const analysisPrompt = ChatPromptTemplate.fromTemplate(`
+    You are a GitHub data analyst assistant. Analyze the provided GitHub data chunk and answer the user's query.
+    Previous analysis: {previousAnalysis}
 
     User Query: {userQuery}
 
-    GitHub Data:
-    {githubData}
+    GitHub Data Chunk:
+    {githubDataChunk}
 
-    Please provide a detailed answer to the user's query based on the given GitHub data.
+    Please provide an updated analysis based on this new chunk of data.
     Focus on the aspects mentioned in the user's query.
-    If the data doesn't contain relevant information to answer the query, please state that clearly.
+    If this chunk doesn't contain new relevant information, state that and maintain the previous analysis.
+    When mentioning repositories, always include their full names (username/repo-name) for later reference.
 
     Your response:
   `);
 
-  const chain = prompt.pipe(model).pipe(new StringOutputParser());
+  const analysisChain = analysisPrompt.pipe(model).pipe(new StringOutputParser());
 
-  // Prepare GitHub data string
-  let githubDataString = JSON.stringify(queryResult, null, 2);
+  // Initialize the summary prompt with instructions to include full repo names
+  const summaryPrompt = ChatPromptTemplate.fromTemplate(`
+    Summarize the following GitHub data analysis:
+    {analysis}
 
-  // If the data is too large, we might need to summarize or truncate it
-  if (githubDataString.length > 10000) { // Adjust this limit as needed
-    githubDataString = summarizeGitHubData(queryResult);
+    Provide a concise summary that captures the key points of the analysis.
+    Ensure to mention full repository names (username/repo-name) for all projects discussed.
+    Your summary:
+  `);
+
+  const summaryChain = summaryPrompt.pipe(model).pipe(new StringOutputParser());
+
+  let currentAnalysis = "No analysis yet.";
+  let chunkResponses = [];
+
+  // Process each chunk iteratively
+  for (let i = 0; i < chunks.length; i++) {
+    console.log(`Processing chunk ${i + 1} of ${chunks.length}`);
+    
+    const chunkAnalysis = await analysisChain.invoke({
+      userQuery: userQuery,
+      githubDataChunk: chunks[i].pageContent,
+      previousAnalysis: currentAnalysis
+    });
+
+    currentAnalysis = chunkAnalysis;
+
+    chunkResponses.push({
+      chunkNumber: i + 1,
+      chunkContent: chunks[i].pageContent.substring(0, 100) + "...", // First 100 characters for brevity
+      response: chunkAnalysis
+    });
+
+    console.log(`Chunk ${i + 1} analysis:`);
+    console.log(chunkAnalysis);
+    console.log("--------------------");
   }
 
-  const response = await chain.invoke({
-    userQuery: userQuery,
-    githubData: githubDataString
+  // Generate a final summary
+  console.log("Generating final summary...");
+  const finalSummary = await summaryChain.invoke({
+    analysis: currentAnalysis
   });
 
-  return response;
+  // Function to extract repo names and create GitHub links
+  function extractRepoLinks(text) {
+    const repoPattern = /\b([a-zA-Z0-9_-]+\/[a-zA-Z0-9_-]+)\b/g;
+    const repos = text.match(repoPattern) || [];
+    const repoLinks = repos.map(repo => `[${repo}](https://github.com/${repo})`);
+    return repoLinks;
+  }
+
+  // Extract repo links from the final summary
+  const repoLinks = extractRepoLinks(finalSummary);
+
+  // Add repository links to the final response
+  let finalResponse = finalSummary;
+  if (repoLinks.length > 0) {
+    finalResponse += "\n\nRelevant repository links:\n" + repoLinks.join("\n");
+  }
+
+  return {
+    chunkResponses: chunkResponses,
+    finalSummary: finalResponse
+  };
 }
 
 function summarizeGitHubData(data) {
@@ -712,49 +942,330 @@ function summarizeGitHubData(data) {
   return summary;
 }
 
+// Directories and files to exclude
+const excludePatterns = [
+  'node_modules',
+  'artifacts',
+  '.git',
+  '.history',
+  '.vscode',
+  'build',
+  'dist',
+  'out',
+  'target',
+  'vendor',
+  '.next',
+  '*.min.js',
+  '*.min.css',
+  '*.map',
+  '*.lock',
+  '*.log',
+  '*.tmp',
+  '*.temp',
+  '.cache',
+  '.DS_Store',
+  'Thumbs.db',
+  '*.bak',
+  '*.swp',
+  '*~',
+];
+
+const MAX_FILE_SIZE = 1024 * 1024; // 1 MB
+
+async function fetchRepoTrees(username) {
+  const { data: repos } = await octokit.repos.listForUser({ username });
+  const trees = {};
+
+  for (const repo of repos) {
+    try {
+      trees[repo.name] = await fetchCompleteTree(username, repo.name, repo.default_branch);
+    } catch (error) {
+      console.error(`Error fetching tree for ${repo.name}:`, error);
+      trees[repo.name] = []; // Empty array for repos we couldn't fetch
+    }
+  }
+
+  return trees;
+}
+
+async function fetchCompleteTree(owner, repo, branch) {
+  const allPaths = [];
+  await fetchTreeRecursive(owner, repo, branch, '', allPaths);
+  return allPaths;
+}
+
+async function fetchTreeRecursive(owner, repo, sha, path, allPaths) {
+  const { data: tree } = await octokit.git.getTree({
+    owner,
+    repo,
+    tree_sha: sha,
+  });
+
+  for (const item of tree.tree) {
+    const fullPath = path ? `${path}/${item.path}` : item.path;
+    console.log("fullPath: ",fullPath)
+    if (shouldIncludePath(fullPath, item.size)) {
+      if (item.type === 'blob') {
+        allPaths.push(fullPath);
+      } else if (item.type === 'tree') {
+        await fetchTreeRecursive(owner, repo, item.sha, fullPath, allPaths);
+      }
+    }
+  }
+}
+
+function shouldIncludePath(path, size) {
+  // Check if the path or any of its parent directories match the exclude patterns
+  const pathParts = path.split('/');
+  for (let i = 0; i < pathParts.length; i++) {
+    const partialPath = pathParts.slice(0, i + 1).join('/');
+    if (excludePatterns.some(pattern => {
+      if (pattern.includes('*')) {
+        // For patterns with wildcards, use minimatch
+        return minimatch(partialPath, pattern, { matchBase: true });
+      } else {
+        // For exact matches
+        return partialPath === pattern || partialPath.startsWith(pattern + '/');
+      }
+    })) {
+      return false;
+    }
+  }
+
+  // Check file size
+  return size === undefined || size <= MAX_FILE_SIZE;
+}
+
+// You'll need to import or implement a minimatch function
+// Here's a simple implementation for demonstration purposes
+function minimatch(path, pattern, options) {
+  const regex = new RegExp('^' + pattern.split('*').map(escapeRegExp).join('.*') + '$', options.matchBase ? 'i' : '');
+  return regex.test(path);
+}
+
+function escapeRegExp(string) {
+  return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
+// ... rest of the code remains the same
+async function handleGitHubQuery(breakdown,username,userQuery) {
+  // Step 2: Determine if file content is needed
+  const needsFileContent = breakdown.requiredData.includes('file_contents');
+
+  console.log("needsFileContent : ",needsFileContent)
+  let data;
+  if (needsFileContent) {
+    // Step 3a: Fetch repo trees
+    const repoTrees = await fetchRepoTrees(username); 
+    console.log("repoTrees : ",repoTrees)
+    // Step 3b: Ask LLM for relevant file paths
+    const relevantPaths = await getRelevantFilePaths(repoTrees, userQuery);
+    console.log("relevantPaths : ",relevantPaths)
+    // Step 3c: Fetch data including file contents
+    data = await _fetchGitHubData(breakdown, username, relevantPaths);
+    console.log("Final Data: ",data)
+  } else {
+    console.log("doesn't contain any file contents")
+    // Step 3: Fetch GitHub data without file contents
+    data = await _fetchGitHubData(breakdown,username);
+  }
+
+ // Step 4: Analyze data and generate response
+  const response = await analyzeGitHubData(userQuery, data);
+  console.log("Response: ",response)
+  return response;
+}
+
+
+async function getRelevantFilePaths(repoTrees, userQuery) {
+  const structuredLLM = model.withStructuredOutput({
+    name: "relevantFilePaths",
+    description: "Relevant file paths based on the user query and repository structures",
+    parameters: {
+      type: "object",
+      properties: {
+        relevantPaths: {
+          type: "array",
+          items: {
+            type: "object",
+            properties: {
+              repo: { type: "string", description: "Repository name" },
+              path: { type: "string", description: "File path within the repository" },
+              reason: { type: "string", description: "Reason why this file is relevant" }
+            },
+            required: ["repo", "path", "reason"]
+          },
+          description: "List of relevant file paths across repositories"
+        }
+      },
+      required: ["relevantPaths"]
+    }
+  });
+
+  const analysisPrompt = ChatPromptTemplate.fromTemplate(`
+    Given the following repository file structures chunk and user query, 
+    identify the most relevant file paths that might contain information to answer the query.
+    Provide the repository name, file path, and a brief reason for each relevant file.
+    Consider the previous analysis when making your decisions.
+
+    User Query: {userQuery}
+
+    Previous Analysis: {previousAnalysis}
+
+    Repository Structures Chunk:
+    {repoStructuresChunk}
+
+    Relevant file paths:
+  `);
+
+  const analysisChain = analysisPrompt.pipe(structuredLLM);
+
+  const summaryPrompt = ChatPromptTemplate.fromTemplate(`
+    Summarize the following file path analysis results:
+    {analysis}
+
+    Provide a concise list of the most relevant file paths, including repository, path, and reason.
+    Your summary:
+  `);
+
+  const summaryChain = summaryPrompt.pipe(structuredLLM);
+
+  const repoStructures = Object.entries(repoTrees)
+    .map(([repoName, paths]) => `${repoName}:\n${paths.join('\n')}`)
+    .join('\n\n');
+
+  const textSplitter = new RecursiveCharacterTextSplitter({
+    chunkSize: 4000,
+    chunkOverlap: 200,
+  });
+
+  const chunks = await textSplitter.createDocuments([repoStructures]);
+
+  let currentAnalysis = { relevantPaths: [] };
+  let chunkResponses = [];
+
+  // Process each chunk iteratively
+  for (let i = 0; i < chunks.length; i++) {
+    console.log(`Processing chunk ${i + 1} of ${chunks.length}`);
+    
+    const chunkAnalysis = await analysisChain.invoke({
+      userQuery: userQuery,
+      repoStructuresChunk: chunks[i].pageContent,
+      previousAnalysis: JSON.stringify(currentAnalysis)
+    });
+
+    // Merge the new analysis with the current analysis
+    currentAnalysis.relevantPaths = [
+      ...currentAnalysis.relevantPaths,
+      ...chunkAnalysis.relevantPaths
+    ];
+
+    // Store the response for this chunk
+    chunkResponses.push({
+      chunkNumber: i + 1,
+      chunkContent: chunks[i].pageContent.substring(0, 100) + "...", // First 100 characters for brevity
+      response: chunkAnalysis
+    });
+
+    console.log(`Chunk ${i + 1} analysis:`, chunkAnalysis);
+    console.log("--------------------");
+  }
+
+  // Generate final summary
+  const finalSummary = await summaryChain.invoke({
+    analysis: JSON.stringify(currentAnalysis)
+  });
+
+  console.log("Final Summary of Relevant Paths:", finalSummary);
+
+  return finalSummary.relevantPaths;
+}
+
+// ... rest of the code remains the same
 
 (async()=>{ 
 
+  // const queries = [
+  //   //  "What are the top repos?",
+  //       //  "Show me the best work?",
+  //       //  "What programming languages he is good at?",
+  //       //  "How long he has been doing the programming?",
+  //       //  "Show me some of his recent work",
+  //       // "What are the top repos?",
+  //       // "Does he has work with Python? show me top 3 the Python projects",
+  //     //  "How long he has been a developer?"
+  //   // "What are the primary programming languages this developer uses, based on their repository contributions?",
+  //     // "How active is this developer on GitHub? Can you provide statistics on their commit frequency and consistency over the past year?",
+  //   //"What types of projects does this developer work on most frequently? Are they mostly personal projects, open-source contributions, or professional work?",
+  //   // "Can you identify any significant or popular open-source projects this developer has contributed to?",
+  //   // "What is the average complexity of the code this developer writes, based on metrics like cyclomatic complexity or lines of code per function?",
+  //   //  "How well does this developer document their code? Can you provide examples of their commenting style and README files?",
+  // //   "Does the developer have experience with version control best practices, such as creating meaningful commit messages and using feature branches?",
+  //    "Are there any particular areas of expertise or specialization evident from the developer's repositories and contributions?",
+  // //   "How does this developer handle error handling and testing in their projects? Can you provide examples of unit tests or error handling patterns they commonly use?",
+  //     //  "Can you identify any patterns in the developer's problem-solving approach or coding style based on their commit history and code samples?"
+  //   ];
+
   const queries = [
-    //  "What are the top repos?",
-      // "Show me the best work?",
-      // "What programming languages he is good at?",
-        // "How long he has been doing the programming?",
-         "Show me some of his recent work",
-        // "What are the top repos?",
-        // "Does he has work with Python? show me top 3 the Python projects",
-      // "How long he has been a developer?"
-    // "What are the primary programming languages this developer uses, based on their repository contributions?",
-      // "How active is this developer on GitHub? Can you provide statistics on their commit frequency and consistency over the past year?",
-    //"What types of projects does this developer work on most frequently? Are they mostly personal projects, open-source contributions, or professional work?",
-    // "Can you identify any significant or popular open-source projects this developer has contributed to?",
-    // "What is the average complexity of the code this developer writes, based on metrics like cyclomatic complexity or lines of code per function?",
-    // "How well does this developer document their code? Can you provide examples of their commenting style and README files?",
-  //   "Does the developer have experience with version control best practices, such as creating meaningful commit messages and using feature branches?",
-  //   "Are there any particular areas of expertise or specialization evident from the developer's repositories and contributions?",
-  //   "How does this developer handle error handling and testing in their projects? Can you provide examples of unit tests or error handling patterns they commonly use?",
-  //   "Can you identify any patterns in the developer's problem-solving approach or coding style based on their commit history and code samples?"
-    ];
+    // Developer queries
+    // "Top repos?",
+    //  "Main languages used?", //bit okay 
+    //  "Coding experience?", // Model can't interpret this query
+     "Recent projects?",
+    // "Any Python work?",
+    // "Open-source contributions?",
+    // "Code complexity?",
+    // "Documentation style?",
+    // "Testing approach?",
+    // "Commit patterns?",
+  
+    // Client queries (both technical and non-technical)
+    // "Best projects?",
+    // "How long coding?",
+    // "Active on GitHub?",
+    // "Project types?",
+    // "Popular contributions?",
+    // "Code quality?",
+    // "Expertise areas?",
+    // "Error handling?",
+    // "Problem-solving style?",
+    // "Version control use?"
+  ];
 
   const results = [];
 
     for (const userQuery of queries) {
       try {
           console.log(`Query: ${userQuery}`);
-          const expandedQuery = await expandQuery(userQuery,githubApiContext)
-          console.log(`Expanded Query: ${expandedQuery}`);
+          // Expand the user query 
+        const expandedQuery = await expandQuery(userQuery,githubApiContext)
+        console.log(`Expanded Query: ${expandedQuery}`);
 
         //console.log("LLM generated query parameters:", JSON.stringify(queryParams, null, 2));
+        // Breakdown the expanded query into more structured way so the context can be fetched
         const newqueryParams = await breakdownQuery(expandedQuery);
         console.log("LLM generated query parameters :", JSON.stringify(newqueryParams, null, 2));
         // results.push({ query: userQuery, params: queryParams });
         
-        // Uncomment these lines when you're ready to fetch and process GitHub data
-        const queryResult = await _fetchGitHubData(newqueryParams,"aduttya");
-        console.log(queryResult)
+        await handleGitHubQuery(newqueryParams,"aduttya",expandedQuery)
+        // Fetch the github data points dedcuted from newqueryparams
+        // const queryResult = await _fetchGitHubData(newqueryParams,"aduttya");
+        // console.log(queryResult)
 
-        // const final_data = await analyzeGitHubData(userQuery,queryResult)
-        // console.log("final data ",final_data)
+        // const analysis = await analyzeGitHubData(userQuery, queryResult);
+
+
+        // console.log("Chunk-by-chunk analysis:");
+        // analysis.chunkResponses.forEach(chunk => {
+        //   console.log(`Chunk ${chunk.chunkNumber}:`);
+        //   console.log(`Content preview: ${chunk.chunkContent}`);
+        //   console.log(`Response: ${chunk.response}`);
+        //   console.log("--------------------");
+        // });
+      
+        // console.log("Final Summary:");
+        // console.log(analysis.finalSummary);
+      
 
         
       } catch (error) {

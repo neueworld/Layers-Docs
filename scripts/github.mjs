@@ -23,7 +23,7 @@ const octokit = new Octokit({ auth: process.env.GITHUB_ACCESS_TOKEN });
 
 
 
-export async function _fetchGitHubData(breakdown,username) {
+export async function _fetchGitHubData(breakdown,username,relevantPaths = null) {
   const data = {};
   const maxItems = 100; // Adjust as needed
 
@@ -64,6 +64,9 @@ export async function _fetchGitHubData(breakdown,username) {
         case "organizations":
           data.organizations = await fetchOrganizations(username);
           break;
+          case "file_contents":
+            data.file_contents = await fetchFileContents(username, relevantPaths);
+            break;  
         default:
           console.warn(`Unhandled data type: ${dataType}`);
       }
@@ -75,6 +78,41 @@ export async function _fetchGitHubData(breakdown,username) {
 
   return data;
 }
+
+async function fetchFileContents(username, relevantPaths) {
+  const fileContents = {};
+
+  for (const { repo, path } of relevantPaths) {
+    if (!fileContents[repo]) {
+      fileContents[repo] = {};
+    }
+
+    try {
+      const { data } = await octokit.repos.getContent({
+        owner: username,
+        repo: repo,
+        path: path,
+      });
+
+      if (data.type === "file") {
+        const content = Buffer.from(data.content, 'base64').toString('utf8');
+        fileContents[repo][path] = {
+          content: content,
+          reason: relevantPaths.find(item => item.repo === repo && item.path === path).reason
+        };
+      } else {
+        console.warn(`Skipping ${repo}/${path} as it's not a file`);
+        fileContents[repo][path] = { error: "Not a file" };
+      }
+    } catch (error) {
+      console.error(`Error fetching content for ${repo}/${path}:`, error);
+      fileContents[repo][path] = { error: error.message };
+    }
+  }
+
+  return fileContents;
+}
+
 
 async function fetchUserData(username) {
   if (!username) {
