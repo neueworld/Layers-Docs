@@ -6,7 +6,11 @@ import { GithubRepoLoader} from "@langchain/community/document_loaders/web/githu
 import { Octokit } from "@octokit/rest";
 import { Document } from "@langchain/core/documents";
 import { RecursiveCharacterTextSplitter } from "@langchain/textsplitters";
-import { ChatPromptTemplate } from "@langchain/core/prompts";
+import { 
+    ChatPromptTemplate,
+    FewShotChatMessagePromptTemplate,
+    SystemMessagePromptTemplate,
+    HumanMessagePromptTemplate, } from "@langchain/core/prompts";
 import {
     RunnablePassthrough,
     RunnableSequence,
@@ -18,11 +22,15 @@ import {
     SystemMessage,
     trimMessages,
   } from "@langchain/core/messages";
-  
+import { StructuredOutputParser } from "langchain/output_parsers";
+
 import readline from 'readline';
 import { ChromaClient } from 'chromadb';
 import { PromptTemplate } from "@langchain/core/prompts";
 import {_fetchGitHubData} from './github.mjs';
+import {queryUserRepos} from "./mongo.mjs"
+
+
 const embeddings = new OpenAIEmbeddings({
     model: "text-embedding-3-small",
 });
@@ -499,46 +507,6 @@ async function getLLMQueryParams(userQuery) {
 }
 
 
-
-
-async function oldbreakdownQuery(query) {
-  const structuredLlm = model.withStructuredOutput({
-    name: "queryBreakdown",
-    description: "Breakdown of the user's GitHub-related query.",
-    parameters: {
-      type: "object",
-      properties: {
-        intent: { 
-          type: "string", 
-          description: "The main intent of the query",
-          enum: ["count", "list", "describe", "compare"]
-        },
-        entities: { 
-          type: "array", 
-          items: { type: "string" },
-          description: "Important entities mentioned in the query (e.g., repo names, usernames, languages)"
-        },
-        requiredData: { 
-          type: "array", 
-          items: { 
-            type: "string",
-            enum: ["repos", "user", "languages", "commits", "issues","events"]
-          },
-          description: "Types of GitHub data needed to answer the query"
-        },
-        additionalParams: {
-          type: "object",
-          description: "Additional parameters needed for the query (e.g., language for filtering)"
-        }
-      },
-      required: ["intent", "entities", "requiredData", "additionalParams"],
-    },
-  });
-
-  return await structuredLlm.invoke(query);
-}
-
-
 const githubApiContext = [
   {
     endpoint: "repos",
@@ -591,7 +559,7 @@ function addRandomnessToPrompt(prompt) {
 async function breakdownQuery(query) {
   const structuredLlm = model.withStructuredOutput({
     name: "queryBreakdown",
-    description: "Breakdown of the user's GitHub-related query with filter function and file content analysis.",
+    description: "Breakdown of the user's GitHub-related query with database query for filtering and sorting repositories.",
     parameters: {
       type: "object",
       properties: {
@@ -613,32 +581,35 @@ async function breakdownQuery(query) {
           },
           description: "Types of GitHub data needed to answer the query, ONLY from the provided list"
         },
-        additionalParams: {
+        dbQuery: {
           type: "object",
+          description: "A query object that can be used to filter and sort the data in the database",
           properties: {
             language: { type: "string", description: "Programming language to filter by" },
-            sortBy: { type: "string", description: "Field to sort results by" },
-            limit: { type: "number", description: "Number of results to return" },
-            fileNames: { 
-              type: "array", 
-              items: { type: "string" },
-              description: "Names of specific files to analyze (e.g., ['README.md', 'CONTRIBUTING.md'])"
-            }
-          },
-          description: "Additional parameters needed for the query"
-        },
-        filterFunction: {
-          type: "string",
-          description: "A JavaScript function string that can be used to filter the data. This function should take a single argument (the data item) and return a boolean."
-        },
-        contentAnalysisFunction: {
-          type: "string",
-          description: "A JavaScript function string that can be used to analyze file contents. This function should take two arguments: the file name and the file content, and return a boolean or a score."
+            limit: { type: "number", description: "Number of repositories to return" },
+            sortBy: { 
+              type: "string", 
+              description: "Field to sort repositories by",
+              enum: ["created_at", "updated_at", "pushed_at", "stargazers_count", "forks_count"]
+            },
+            sortOrder: { type: "string", enum: ["asc", "desc"], description: "Order of sorting (ascending or descending)" },
+            minStars: { type: "number", description: "Minimum number of stars" },
+            minForks: { type: "number", description: "Minimum number of forks" },
+            dateField: { 
+              type: "string", 
+              description: "Which date field to use for filtering",
+              enum: ["created_at", "updated_at", "pushed_at"]
+            },
+            dateFrom: { type: "string", format: "date", description: "Start date for filtering" },
+            dateTo: { type: "string", format: "date", description: "End date for filtering" },
+            keyword: { type: "string", description: "Keyword to search in repo name or description" }
+          }
         }
       },
-      required: ["intent", "entities", "requiredData", "additionalParams", "filterFunction", "contentAnalysisFunction"],
+      required: ["intent", "entities", "requiredData", "dbQuery"],
     },
   });
+    
 
   const basePrompt = `GitHub API Context:
 ${JSON.stringify(githubApiContext, null, 2)}
@@ -660,6 +631,7 @@ Remember to ONLY use the endpoints and data fields specified in the context abov
 
   return await structuredLlm.invoke(randomizedPrompt);
 }
+
 
 // This function will be used to filter data given by the LLMs
 function filterData(data, filterFunction) {
@@ -1071,9 +1043,11 @@ async function handleGitHubQuery(breakdown,username,userQuery) {
   }
 
  // Step 4: Analyze data and generate response
-  const response = await analyzeGitHubData(userQuery, data);
-  console.log("Response: ",response)
-  return response;
+  // data = await _fetchGitHubData(breakdown,username)
+  console.log(data)
+  // const response = await analyzeGitHubData(userQuery, data);
+  // console.log("Response: ",response)
+  // return response;
 }
 
 
@@ -1181,18 +1155,66 @@ async function getRelevantFilePaths(repoTrees, userQuery) {
   return finalSummary.relevantPaths;
 }
 
-// ... rest of the code remains the same
+function formatDbQuery(username, queryParams) {
+  // Create the outer object with username
+  const formattedQuery = { username };
+
+  // Create an inner object for the query parameters
+  const innerQuery = {};
+
+  // Add the dbQuery properties to the inner object
+  if (queryParams.dbQuery) {
+    const relevantFields = ['sortBy', 'sortOrder', 'limit', 'language', 'minStars', 'minForks', 'dateField', 'dateFrom', 'dateTo', 'keyword'];
+    
+    for (const field of relevantFields) {
+      if (queryParams.dbQuery[field] !== undefined) {
+        innerQuery[field] = queryParams.dbQuery[field];
+      }
+    }
+
+    // Rename 'stars' to 'stargazers_count' if it's used as sortBy
+    if (innerQuery.sortBy === 'stars') {
+      innerQuery.sortBy = 'stargazers_count';
+    }
+  }
+
+  // Add the inner object to the formatted query
+  formattedQuery[Symbol.for('queryParams')] = innerQuery;
+
+  return formattedQuery;
+}
+
+async function useFormattedQuery(formattedQuery) {
+  // Extract username and options from the formatted query
+  const { username, ...options } = formattedQuery;
+
+  // If the options are nested in a symbol-keyed object, extract them
+  const queryOptions = options[Symbol.for('queryParams')] || options;
+
+  try {
+    // Call queryUserRepos with the extracted username and options
+    const repos = await queryUserRepos(username, queryOptions);
+    
+    console.log(`Found ${repos.length} repositories for user ${username}`);
+    return repos;
+  } catch (error) {
+    console.error('Error querying user repos:', error);
+    throw error;
+  }
+}
+
+
 
 (async()=>{ 
 
-  // const queries = [
-  //   //  "What are the top repos?",
+   const queries = [
+    "What programming languages does the user work with across their repositories?",
   //       //  "Show me the best work?",
   //       //  "What programming languages he is good at?",
   //       //  "How long he has been doing the programming?",
-  //       //  "Show me some of his recent work",
-  //       // "What are the top repos?",
-  //       // "Does he has work with Python? show me top 3 the Python projects",
+      // "Show me some of his recent work (at least 10 repos)",
+  // "What are the top repos?",
+        // "Does he has work with Python? show me top 3 the Python projects",
   //     //  "How long he has been a developer?"
   //   // "What are the primary programming languages this developer uses, based on their repository contributions?",
   //     // "How active is this developer on GitHub? Can you provide statistics on their commit frequency and consistency over the past year?",
@@ -1204,15 +1226,15 @@ async function getRelevantFilePaths(repoTrees, userQuery) {
   //    "Are there any particular areas of expertise or specialization evident from the developer's repositories and contributions?",
   // //   "How does this developer handle error handling and testing in their projects? Can you provide examples of unit tests or error handling patterns they commonly use?",
   //     //  "Can you identify any patterns in the developer's problem-solving approach or coding style based on their commit history and code samples?"
-  //   ];
+     ];
 
-  const queries = [
+  // const queries = [
     // Developer queries
     // "Top repos?",
     //  "Main languages used?", //bit okay 
     //  "Coding experience?", // Model can't interpret this query
-     "Recent projects?",
-    // "Any Python work?",
+    //  "Recent projects?",
+    //  "Any Python work?",
     // "Open-source contributions?",
     // "Code complexity?",
     // "Documentation style?",
@@ -1230,7 +1252,7 @@ async function getRelevantFilePaths(repoTrees, userQuery) {
     // "Error handling?",
     // "Problem-solving style?",
     // "Version control use?"
-  ];
+  // ];
 
   const results = [];
 
@@ -1247,7 +1269,9 @@ async function getRelevantFilePaths(repoTrees, userQuery) {
         console.log("LLM generated query parameters :", JSON.stringify(newqueryParams, null, 2));
         // results.push({ query: userQuery, params: queryParams });
         
-        await handleGitHubQuery(newqueryParams,"aduttya",expandedQuery)
+        const formattedQuery = formatDbQuery("aduttya", newqueryParams);
+        console.log(await useFormattedQuery(formattedQuery))
+        // await handleGitHubQuery(newqueryParams,"aduttya",expandedQuery)
         // Fetch the github data points dedcuted from newqueryparams
         // const queryResult = await _fetchGitHubData(newqueryParams,"aduttya");
         // console.log(queryResult)
