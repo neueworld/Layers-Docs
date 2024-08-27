@@ -556,83 +556,6 @@ function addRandomnessToPrompt(prompt) {
   return `${prompt}\n\nUnique identifier: ${randomString}`;
 }
 
-async function breakdownQuery(query) {
-  const structuredLlm = model.withStructuredOutput({
-    name: "queryBreakdown",
-    description: "Breakdown of the user's GitHub-related query with database query for filtering and sorting repositories.",
-    parameters: {
-      type: "object",
-      properties: {
-        intent: { 
-          type: "string", 
-          description: "The main intent of the query",
-          enum: ["count", "list", "describe", "compare", "analyze"]
-        },
-        entities: { 
-          type: "array", 
-          items: { type: "string" },
-          description: "Important entities mentioned in the query (e.g., repo names, usernames, languages)"
-        },
-        requiredData: { 
-          type: "array", 
-          items: { 
-            type: "string",
-            enum: githubApiContext.map(endpoint => endpoint.endpoint)
-          },
-          description: "Types of GitHub data needed to answer the query, ONLY from the provided list"
-        },
-        dbQuery: {
-          type: "object",
-          description: "A query object that can be used to filter and sort the data in the database",
-          properties: {
-            language: { type: "string", description: "Programming language to filter by" },
-            limit: { type: "number", description: "Number of repositories to return" },
-            sortBy: { 
-              type: "string", 
-              description: "Field to sort repositories by",
-              enum: ["created_at", "updated_at", "pushed_at", "stargazers_count", "forks_count"]
-            },
-            sortOrder: { type: "string", enum: ["asc", "desc"], description: "Order of sorting (ascending or descending)" },
-            minStars: { type: "number", description: "Minimum number of stars" },
-            minForks: { type: "number", description: "Minimum number of forks" },
-            dateField: { 
-              type: "string", 
-              description: "Which date field to use for filtering",
-              enum: ["created_at", "updated_at", "pushed_at"]
-            },
-            dateFrom: { type: "string", format: "date", description: "Start date for filtering" },
-            dateTo: { type: "string", format: "date", description: "End date for filtering" },
-            keyword: { type: "string", description: "Keyword to search in repo name or description" }
-          }
-        }
-      },
-      required: ["intent", "entities", "requiredData", "dbQuery"],
-    },
-  });
-    
-
-  const basePrompt = `GitHub API Context:
-${JSON.stringify(githubApiContext, null, 2)}
-
-User query: ${query}
-
-IMPORTANT: Provide a breakdown of the query based ONLY on the available GitHub API endpoints listed above. Follow these strict rules:
-1. Only include endpoints in requiredData that are directly relevant to answering the query.
-2. If the query requires analyzing file contents or README files, ONLY include 'repo tree' in the requiredData array.
-3. Do not include 'repos' or 'user' in requiredData if only file content analysis is needed.
-4. Consider the useCase field of each endpoint when determining its relevance to the query.
-5. Ensure that the filterFunction and contentAnalysisFunction (if needed) only reference data fields available in the selected endpoints.
-
-Provide a breakdown of the query, including a filterFunction that can be used to refine the data based on the query, and a contentAnalysisFunction if file content analysis is required.
-
-Remember to ONLY use the endpoints and data fields specified in the context above.`;
-
-  const randomizedPrompt = addRandomnessToPrompt(basePrompt);
-
-  return await structuredLlm.invoke(randomizedPrompt);
-}
-
-
 // This function will be used to filter data given by the LLMs
 function filterData(data, filterFunction) {
   if (Array.isArray(data)) {
@@ -1007,7 +930,6 @@ function shouldIncludePath(path, size) {
   // Check file size
   return size === undefined || size <= MAX_FILE_SIZE;
 }
-
 // You'll need to import or implement a minimatch function
 // Here's a simple implementation for demonstration purposes
 function minimatch(path, pattern, options) {
@@ -1156,47 +1078,68 @@ async function getRelevantFilePaths(repoTrees, userQuery) {
 }
 
 function formatDbQuery(username, queryParams) {
-  // Create the outer object with username
   const formattedQuery = { username };
-
-  // Create an inner object for the query parameters
   const innerQuery = {};
 
-  // Add the dbQuery properties to the inner object
   if (queryParams.dbQuery) {
-    const relevantFields = ['sortBy', 'sortOrder', 'limit', 'language', 'minStars', 'minForks', 'dateField', 'dateFrom', 'dateTo', 'keyword'];
+    const relevantFields = ['sortBy', 'sortOrder', 'languageCounts', 'minStars', 'minForks', 'dateField', 'dateFrom', 'dateTo', 'keyword', 'limit'];
     
     for (const field of relevantFields) {
       if (queryParams.dbQuery[field] !== undefined) {
-        innerQuery[field] = queryParams.dbQuery[field];
+        if (field === 'languageCounts') {
+          innerQuery.languages = Object.keys(queryParams.dbQuery[field]);
+          innerQuery.languageCounts = queryParams.dbQuery[field];
+        } else {
+          innerQuery[field] = queryParams.dbQuery[field];
+        }
       }
     }
 
-    // Rename 'stars' to 'stargazers_count' if it's used as sortBy
     if (innerQuery.sortBy === 'stars') {
       innerQuery.sortBy = 'stargazers_count';
     }
   }
 
-  // Add the inner object to the formatted query
   formattedQuery[Symbol.for('queryParams')] = innerQuery;
 
   return formattedQuery;
 }
 
 async function useFormattedQuery(formattedQuery) {
-  // Extract username and options from the formatted query
-  const { username, ...options } = formattedQuery;
-
-  // If the options are nested in a symbol-keyed object, extract them
-  const queryOptions = options[Symbol.for('queryParams')] || options;
+  const { username, [Symbol.for('queryParams')]: queryOptions } = formattedQuery;
 
   try {
-    // Call queryUserRepos with the extracted username and options
-    const repos = await queryUserRepos(username, queryOptions);
-    
-    console.log(`Found ${repos.length} repositories for user ${username}`);
-    return repos;
+    let allRepos = [];
+    const { languageCounts, limit, ...otherOptions } = queryOptions;
+
+    // Function to fetch repos for a specific language
+    async function fetchReposForLanguage(language, count) {
+      const languageOptions = {
+        ...otherOptions,
+        languages: [language],
+        limit: count === null ? undefined : count
+      };
+      return await queryUserRepos(username, languageOptions);
+    }
+
+    // Fetch repos for each language
+    for (const [language, count] of Object.entries(languageCounts)) {
+      const languageRepos = await fetchReposForLanguage(language, count);
+      allRepos = allRepos.concat(languageRepos);
+
+      // If we've reached the overall limit, stop fetching more repos
+      if (limit && allRepos.length >= limit) {
+        break;
+      }
+    }
+
+    // Apply overall limit if specified
+    if (limit) {
+      allRepos = allRepos.slice(0, limit);
+    }
+
+    console.log(`Found ${allRepos.length} repositories for user ${username}`);
+    return allRepos;
   } catch (error) {
     console.error('Error querying user repos:', error);
     throw error;
@@ -1205,20 +1148,209 @@ async function useFormattedQuery(formattedQuery) {
 
 
 
+// async function breakdownQuery(query) {
+//   const structuredLlm = model.withStructuredOutput({
+//     name: "queryBreakdown",
+//     description: "Breakdown of the user's GitHub-related query with database query for filtering and sorting repositories.",
+//     parameters: {
+//       type: "object",
+//       properties: {
+//         intent: { 
+//           type: "string", 
+//           description: "The main intent of the query",
+//           enum: ["count", "list", "describe", "compare", "analyze"]
+//         },
+//         entities: { 
+//           type: "array", 
+//           items: { type: "string" },
+//           description: "Important entities mentioned in the query (e.g., repo names, usernames, languages)"
+//         },
+//         requiredData: { 
+//           type: "array", 
+//           items: { 
+//             type: "string",
+//             enum: githubApiContext.map(endpoint => endpoint.endpoint)
+//           },
+//           description: "Types of GitHub data needed to answer the query, ONLY from the provided list"
+//         },
+//         dbQuery: {
+//           type: "object",
+//           description: "A query object that can be used to filter and sort the data in the database",
+//           properties: {
+//             languages: { 
+//               type: "array", 
+//               items: { type: "string" },
+//               description: "Programming languages to filter by"
+//             },
+//             limit: { type: "number", description: "Number of repositories to return" },
+//             sortBy: { 
+//               type: "string", 
+//               description: "Field to sort repositories by",
+//               enum: ["created_at", "updated_at", "pushed_at", "stargazers_count", "forks_count"]
+//             },
+//             sortOrder: { type: "string", enum: ["asc", "desc"], description: "Order of sorting (ascending or descending)" },
+//             minStars: { type: "number", description: "Minimum number of stars" },
+//             minForks: { type: "number", description: "Minimum number of forks" },
+//             dateField: { 
+//               type: "string", 
+//               description: "Which date field to use for filtering",
+//               enum: ["created_at", "updated_at", "pushed_at"]
+//             },
+//             dateFrom: { type: "string", format: "date", description: "Start date for filtering" },
+//             dateTo: { type: "string", format: "date", description: "End date for filtering" },
+//             keyword: { type: "string", description: "Keyword to search in repo name or description" }
+//           }
+//         }
+//       },
+//       required: ["intent", "entities", "requiredData", "dbQuery"],
+//     },
+//   });
+
+//   const basePrompt = `GitHub API Context:
+// ${JSON.stringify(githubApiContext, null, 2)}
+
+//     User query: ${query}
+
+//     IMPORTANT: Provide a breakdown of the query based ONLY on the available GitHub API endpoints listed above. Follow these strict rules:
+//     1. Only include endpoints in requiredData that are directly relevant to answering the query.
+//     2. If the query requires analyzing file contents or README files, ONLY include 'repo tree' in the requiredData array.
+//     3. Do not include 'repos' or 'user' in requiredData if only file content analysis is needed.
+//     4. Consider the useCase field of each endpoint when determining its relevance to the query.
+//     5. Ensure that the filterFunction and contentAnalysisFunction (if needed) only reference data fields available in the selected endpoints.
+
+//     Provide a breakdown of the query, including a filterFunction that can be used to refine the data based on the query, and a contentAnalysisFunction if file content analysis is required.
+
+//     Remember to ONLY use the endpoints and data fields specified in the context above.`;
+
+//   const randomizedPrompt = addRandomnessToPrompt(basePrompt);
+
+//   return await structuredLlm.invoke(randomizedPrompt);
+// }
+
+
+async function breakdownQuery(query) {
+  const structuredLlm = model.withStructuredOutput({
+    name: "queryBreakdown",
+    description: "Breakdown of the user's GitHub-related query with database query for filtering and sorting repositories.",
+    parameters: {
+      type: "object",
+      properties: {
+        intent: { 
+          type: "string", 
+          description: "The main intent of the query",
+          enum: ["count", "list", "describe", "compare", "analyze"]
+        },
+        entities: { 
+          type: "array", 
+          items: { type: "string" },
+          description: "Important entities mentioned in the query (e.g., repo names, usernames, languages)"
+        },
+        requiredData: { 
+          type: "array", 
+          items: { 
+            type: "string",
+            enum: githubApiContext.map(endpoint => endpoint.endpoint)
+          },
+          description: "Types of GitHub data needed to answer the query, ONLY from the provided list"
+        },
+        dbQuery: {
+          type: "object",
+          description: "A query object that can be used to filter and sort the data in the database",
+          properties: {
+            languageCounts: {
+              type: "object",
+              description: "Number of repositories to return for each language. Use null to indicate 'all' repositories for a language.",
+              additionalProperties: { 
+                type: ["number", "null"],
+                description: "Number of repositories, or null for 'all'"
+              }
+            },
+            limit: { type: "number", description: "Total number of repositories to return" },
+            sortBy: { 
+              type: "string", 
+              description: "Field to sort repositories by",
+              enum: ["created_at", "updated_at", "pushed_at", "stargazers_count", "forks_count"]
+            },
+            sortOrder: { type: "string", enum: ["asc", "desc"], description: "Order of sorting (ascending or descending)" },
+            minStars: { type: "number", description: "Minimum number of stars" },
+            minForks: { type: "number", description: "Minimum number of forks" },
+            dateField: { 
+              type: "string", 
+              description: "Which date field to use for filtering",
+              enum: ["created_at", "updated_at", "pushed_at"]
+            },
+            dateFrom: { type: "string", format: "date", description: "Start date for filtering" },
+            dateTo: { type: "string", format: "date", description: "End date for filtering" },
+            keyword: { type: "string", description: "Keyword to search in repo name or description" }
+          }
+        }
+      },
+      required: ["intent", "entities", "requiredData", "dbQuery"],
+    },
+  });
+
+  const basePrompt = `GitHub API Context:
+${JSON.stringify(githubApiContext, null, 2)}
+
+    User query: ${query}
+
+    IMPORTANT: Provide a breakdown of the query based ONLY on the available GitHub API endpoints listed above. Follow these strict rules:
+    1. Only include endpoints in requiredData that are directly relevant to answering the query.
+    2. If the query requires analyzing file contents or README files, ONLY include 'repo tree' in the requiredData array.
+    3. Do not include 'repos' or 'user' in requiredData if only file content analysis is needed.
+    4. Consider the useCase field of each endpoint when determining its relevance to the query.
+    5. Ensure that the filterFunction and contentAnalysisFunction (if needed) only reference data fields available in the selected endpoints.
+    6. For queries specifying counts for different languages, use the languageCounts object in dbQuery. 
+       - If a specific count is mentioned for a language (e.g., "4 JavaScript projects"), use that number for that language.
+       - If no specific count is mentioned for a language, set the count to null (meaning 'all') for that language.
+    7. Always include a languageCounts object in the dbQuery for all mentioned languages.
+    8. Set the overall limit to the sum of all specific language counts mentioned. If there are languages without specific counts, add 1 to the limit for each such language.
+    9. If "top" or similar ranking words are used, set sortBy to "stargazers_count" and sortOrder to "desc".
+
+    Provide a breakdown of the query, including a filterFunction that can be used to refine the data based on the query, and a contentAnalysisFunction if file content analysis is required.
+
+    Remember to ONLY use the endpoints and data fields specified in the context above.`;
+
+  const randomizedPrompt = addRandomnessToPrompt(basePrompt);
+
+  const result = await structuredLlm.invoke(randomizedPrompt);
+
+  // Post-process the result to ensure languageCounts and limit are correctly set
+  if (!result.dbQuery.languageCounts) {
+    result.dbQuery.languageCounts = {};
+  }
+
+  let totalLimit = 0;
+  result.entities.forEach(entity => {
+    if (!result.dbQuery.languageCounts.hasOwnProperty(entity)) {
+      result.dbQuery.languageCounts[entity] = null;
+      totalLimit += 1;
+    } else if (typeof result.dbQuery.languageCounts[entity] === 'number') {
+      totalLimit += result.dbQuery.languageCounts[entity];
+    } else {
+      totalLimit += 1;
+    }
+  });
+
+  result.dbQuery.limit = totalLimit;
+
+  return result;
+}
+
 (async()=>{ 
 
-   const queries = [
-    "What programming languages does the user work with across their repositories?",
+  //  const queries = [
+      //  "What programming languages does the user work with across their repositories?",
   //       //  "Show me the best work?",
   //       //  "What programming languages he is good at?",
   //       //  "How long he has been doing the programming?",
-      // "Show me some of his recent work (at least 10 repos)",
-  // "What are the top repos?",
+      //  "Show me some of his recent work",
+    //  "What are the top repos?",
         // "Does he has work with Python? show me top 3 the Python projects",
   //     //  "How long he has been a developer?"
   //   // "What are the primary programming languages this developer uses, based on their repository contributions?",
   //     // "How active is this developer on GitHub? Can you provide statistics on their commit frequency and consistency over the past year?",
-  //   //"What types of projects does this developer work on most frequently? Are they mostly personal projects, open-source contributions, or professional work?",
+  // "What types of projects does this developer work on most frequently? Are they mostly personal projects, open-source contributions, or professional work?",
   //   // "Can you identify any significant or popular open-source projects this developer has contributed to?",
   //   // "What is the average complexity of the code this developer writes, based on metrics like cyclomatic complexity or lines of code per function?",
   //   //  "How well does this developer document their code? Can you provide examples of their commenting style and README files?",
@@ -1226,14 +1358,14 @@ async function useFormattedQuery(formattedQuery) {
   //    "Are there any particular areas of expertise or specialization evident from the developer's repositories and contributions?",
   // //   "How does this developer handle error handling and testing in their projects? Can you provide examples of unit tests or error handling patterns they commonly use?",
   //     //  "Can you identify any patterns in the developer's problem-solving approach or coding style based on their commit history and code samples?"
-     ];
+    //  ];
 
-  // const queries = [
+  const queries = [
     // Developer queries
-    // "Top repos?",
-    //  "Main languages used?", //bit okay 
+          "4 top JavaScript Projects",
+      //  "Main languages used?", //bit okay 
     //  "Coding experience?", // Model can't interpret this query
-    //  "Recent projects?",
+      // "7 Recent projects?",
     //  "Any Python work?",
     // "Open-source contributions?",
     // "Code complexity?",
@@ -1252,7 +1384,7 @@ async function useFormattedQuery(formattedQuery) {
     // "Error handling?",
     // "Problem-solving style?",
     // "Version control use?"
-  // ];
+   ];
 
   const results = [];
 
@@ -1260,16 +1392,17 @@ async function useFormattedQuery(formattedQuery) {
       try {
           console.log(`Query: ${userQuery}`);
           // Expand the user query 
-        const expandedQuery = await expandQuery(userQuery,githubApiContext)
-        console.log(`Expanded Query: ${expandedQuery}`);
+        // const expandedQuery = await expandQuery(userQuery,githubApiContext)
+        // console.log(`Expanded Query: ${expandedQuery}`);
 
         //console.log("LLM generated query parameters:", JSON.stringify(queryParams, null, 2));
         // Breakdown the expanded query into more structured way so the context can be fetched
-        const newqueryParams = await breakdownQuery(expandedQuery);
+        const newqueryParams = await breakdownQuery(userQuery);
         console.log("LLM generated query parameters :", JSON.stringify(newqueryParams, null, 2));
         // results.push({ query: userQuery, params: queryParams });
         
         const formattedQuery = formatDbQuery("aduttya", newqueryParams);
+        console.log(formattedQuery)
         console.log(await useFormattedQuery(formattedQuery))
         // await handleGitHubQuery(newqueryParams,"aduttya",expandedQuery)
         // Fetch the github data points dedcuted from newqueryparams
@@ -1297,14 +1430,6 @@ async function useFormattedQuery(formattedQuery) {
       }
   }
 
-    
-
-    // const data = await fetchGithubData("aduttya")
-    // await storeGithubData(data)
-
-    // await saveAllDocsToJson();
-
-    // await queryRustProjects()
-    
+      
 })()
   
